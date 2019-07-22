@@ -109,8 +109,8 @@ const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Определяет является ли введённое число нулём </p>
-
+<p>Определяет является ли введённое число нулём</p>
+<p>Код функции выглядит следующим образом: </p><div class="fragment"><div class="line"><span class="keywordtype">bool</span> <a class="code" href="_source_8cpp.html#a38c6566ee24712d2b344cae95d2e5ec9">isZero</a>(<span class="keywordtype">double</span> p)</div><div class="line">{</div><div class="line">    <span class="keywordflow">return</span> abs(p) &lt; <a class="code" href="_source_8cpp.html#ac294548b5e67fd784f3ace31a211ee79">inaccuracy</a>;</div><div class="line">}</div></div><!-- fragment --> 
 </div>
 </div>
 <a id="file_aea167a6fe7ac64b6b8b5087d0cdcdd03"></a>
@@ -165,8 +165,8 @@ const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>число корней </dd></dl>
-
+<dl class="section return"><dt>Returns</dt><dd>число корней</dd></dl>
+<p>Код функции выглядит следующим образом: </p><div class="fragment"><div class="line"><span class="keywordtype">int</span> <a class="code" href="_source_8cpp.html#aea167a6fe7ac64b6b8b5087d0cdcdd03">SolveQuadraticEquation</a>(<span class="keywordtype">double</span> a, <span class="keywordtype">double</span> b, <span class="keywordtype">double</span> c, <span class="keywordtype">double</span>* x1, <span class="keywordtype">double</span>* x2)</div><div class="line">{</div><div class="line">    assert(x1 != <span class="keyword">nullptr</span>);</div><div class="line">    assert(x2 != <span class="keyword">nullptr</span>);</div><div class="line">    assert(x1 != x2);</div><div class="line"></div><div class="line">    <span class="keywordflow">if</span> (<a class="code" href="_source_8cpp.html#a38c6566ee24712d2b344cae95d2e5ec9">isZero</a>(a))</div><div class="line">    {</div><div class="line">        <span class="keywordflow">if</span> (<a class="code" href="_source_8cpp.html#a38c6566ee24712d2b344cae95d2e5ec9">isZero</a>(b))</div><div class="line">        {</div><div class="line">            <span class="keywordflow">if</span> (<a class="code" href="_source_8cpp.html#a38c6566ee24712d2b344cae95d2e5ec9">isZero</a>(c))</div><div class="line">            {</div><div class="line">                <span class="keywordflow">return</span> <a class="code" href="_source_8cpp.html#a0761be30c0a681771f41010e19329ec7">CodeInfinityNumbersOfSolutions</a>;</div><div class="line">            }</div><div class="line">            <span class="keywordflow">return</span> 0;</div><div class="line">        }</div><div class="line">         *x1 = -c / b;</div><div class="line">         *x2 = *x1;</div><div class="line">        <span class="keywordflow">return</span> 1;</div><div class="line">    }</div><div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> discr = b * b - 4 * a * c;</div><div class="line">    <span class="keywordflow">if</span> (discr &lt; 0)</div><div class="line">        <span class="keywordflow">return</span> 0;</div><div class="line">     *x1 = sqrt(discr);</div><div class="line">     *x2 = (-b + *x1) / (2 * a);</div><div class="line">     *x1 = (-b - *x1) / (2 * a);</div><div class="line">    <span class="keywordflow">if</span> (discr == 0 || (<a class="code" href="_source_8cpp.html#a38c6566ee24712d2b344cae95d2e5ec9">isZero</a>(b) &amp;&amp; <a class="code" href="_source_8cpp.html#a38c6566ee24712d2b344cae95d2e5ec9">isZero</a>(c)))</div><div class="line">        <span class="keywordflow">return</span> 1;</div><div class="line">    <span class="keywordflow">return</span> 2;</div><div class="line">}</div></div><!-- fragment --> 
 </div>
 </div>
 </div><!-- contents -->

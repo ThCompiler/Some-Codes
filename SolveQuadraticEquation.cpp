@@ -58,6 +58,14 @@ namespace polynom
 {
 	/*!
 		Определяет является ли введённое число нулём
+		
+		Код функции выглядит следующим образом:
+		\code
+			bool isZero(double p)
+			{
+				return abs(p) < inaccuracy;
+			}
+		\endcode
 	*/
 	bool isZero(double p)
 	{
@@ -71,6 +79,40 @@ namespace polynom
 		\param a,b,c коэфиценты квадратного уравнения
 		\param[out] x1,x2 корни уравнения
 		\return число корней
+		
+		Код функции выглядит следующим образом:
+		\code
+			int SolveQuadraticEquation(double a, double b, double c, double* x1, double* x2)
+			{
+				assert(x1 != nullptr);
+				assert(x2 != nullptr);
+				assert(x1 != x2);
+
+				if (isZero(a))
+				{
+					if (isZero(b))
+					{
+						if (isZero(c))
+						{
+							return CodeInfinityNumbersOfSolutions;
+						}
+						return 0;
+					}
+					*x1 = -c / b;
+					*x2 = *x1;
+					return 1;
+				}
+				const double discr = b * b - 4 * a * c; 
+				if (discr < 0)
+					return 0;
+				*x1 = sqrt(discr);
+				*x2 = (-b + *x1) / (2 * a);
+				*x1 = (-b - *x1) / (2 * a);
+				if (discr == 0 || (isZero(b) && isZero(c)))
+					return 1;
+				return 2;
+			}
+		\endcode
 	*/
 	int SolveQuadraticEquation(double a, double b, double c, double* x1, double* x2)
 	{
