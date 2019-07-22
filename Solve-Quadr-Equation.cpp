@@ -98,6 +98,8 @@ namespace polynom
 		*x1 = sqrt(discr);
 		*x2 = (-b + *x1) / (2 * a);
 		*x1 = (-b - *x1) / (2 * a);
+		if (discr == 0 || (isZero(b) && isZero(c)))
+			return 1;
 		return 2;
 	}
 }
