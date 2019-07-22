@@ -76,6 +76,7 @@ namespace polynom
 	{
 		assert(x1 != nullptr);
 		assert(x2 != nullptr);
+		assert(x1 != x2);
 
 		if (isZero(a))
 		{
