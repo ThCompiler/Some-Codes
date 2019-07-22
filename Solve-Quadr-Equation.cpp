@@ -9,13 +9,12 @@ using std::cout;
 namespace polynom
 {
 	const int CodeInfinityNumbersOfSolutions = -1; ///< константа для обозначения бесконечного числа решений уравнения
-	const double inaccuracy = 1e-9;
+	const double inaccuracy = 1e-9; ///< погрешность определения double равенства нулю
 
 	bool isZero(double p);
 
 	int SolveQuadraticEquation(double a, double b, double c, double* x1, double* x2);
 }
-
 int main()
 {
 	double a = NAN, b = NAN, c = NAN;
