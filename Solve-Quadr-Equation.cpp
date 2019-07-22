@@ -92,7 +92,7 @@ namespace polynom
 			*x2 = *x1;
 			return 1;
 		}
-		const double discr = b * b - 4 * a * c;  ///< Дискриминант
+		const double discr = b * b - 4 * a * c; 
 		if (discr < 0)
 			return 0;
 		*x1 = sqrt(discr);
