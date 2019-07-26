@@ -346,9 +346,16 @@ namespace drawing
 		}
 		else if (oneButton.text == "Изменить число элементов") //меняем максиамльное число элементов в счетовом массиве
 		{
-			MaxNumOfElements = std::atoi(txInputBox("Какие максимальное число элементов может быть в массиве?",
+			int input = std::atoi(txInputBox("Какие максимальное число элементов может быть в массиве?",
 				"Настройки", std::to_string(MaxNumOfElements).c_str()));
-			(*mainArray) = CreateArray(RandomFilling);
+			if (input > int(1e8))
+				txMessageBox("Слишком много ввёл. Не дождёшься результата. Максимально можешь ввести до 10^8.", 
+																									"Тех. поддержка");
+			else
+			{
+				MaxNumOfElements = input;
+				(*mainArray) = CreateArray(RandomFilling);
+			}
 		}
 		else if (oneButton.text == "Выход")
 		{
