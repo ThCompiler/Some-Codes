@@ -449,9 +449,8 @@ namespace drawing
 				DrawResults(resultValue, maxNumOfSwaping, maxNumOfComparisons);
 				txEnd();
 			}
-
-			return started;
 		}
+		return started;
 	}
 
 	void ClickButton(button oneButton)
