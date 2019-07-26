@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Визуализация алгоритмов сортировки: Файл SortingFunction.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Визуализация алгоритмов сортировки
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.15 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Классы</a> &#124;
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">Файл SortingFunction.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Библиотека функций сортировки  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;assert.h&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;queue&gt;</code><br />
+</div>
+<p><a href="_sorting_function_8h_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsorting_1_1heap.html">sorting::heap&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Класс кучи  <a href="classsorting_1_1heap.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:a419d3cdf6bf65e6d2a75a00315879d32"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_sorting_function_8h.html#a419d3cdf6bf65e6d2a75a00315879d32">sorting::insertionSorting</a> (int *swaping, int *comparisons, std::vector&lt; int &gt; *Array, int n)</td></tr>
+<tr class="memdesc:a419d3cdf6bf65e6d2a75a00315879d32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сортировка вставкой  <a href="_sorting_function_8h.html#a419d3cdf6bf65e6d2a75a00315879d32">Подробнее...</a><br /></td></tr>
+<tr class="separator:a419d3cdf6bf65e6d2a75a00315879d32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96190e813a3e6430e13fb843b726f610"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_sorting_function_8h.html#a96190e813a3e6430e13fb843b726f610">sorting::bubleSorting</a> (int *swaping, int *comparisons, std::vector&lt; int &gt; *Array, int n)</td></tr>
+<tr class="memdesc:a96190e813a3e6430e13fb843b726f610"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сортировка пузырьком  <a href="_sorting_function_8h.html#a96190e813a3e6430e13fb843b726f610">Подробнее...</a><br /></td></tr>
+<tr class="separator:a96190e813a3e6430e13fb843b726f610"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8416cb2dd10cb153d2a9e7d5cbc10a81"><td class="memItemLeft" align="right" valign="top"><a id="a8416cb2dd10cb153d2a9e7d5cbc10a81"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sorting::merge</b> (int *swaping, int *comparisons, std::vector&lt; int &gt; *Array, int left, int middle, int right)</td></tr>
+<tr class="separator:a8416cb2dd10cb153d2a9e7d5cbc10a81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff47c83936a064d742b03b650bcaa71c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_sorting_function_8h.html#aff47c83936a064d742b03b650bcaa71c">sorting::mergeSorting</a> (int *swaping, int *comparisons, std::vector&lt; int &gt; *Array, int left, int right)</td></tr>
+<tr class="memdesc:aff47c83936a064d742b03b650bcaa71c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сортировка вставкой  <a href="_sorting_function_8h.html#aff47c83936a064d742b03b650bcaa71c">Подробнее...</a><br /></td></tr>
+<tr class="separator:aff47c83936a064d742b03b650bcaa71c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe382ee31c59545daa1d3203453af4ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_sorting_function_8h.html#afe382ee31c59545daa1d3203453af4ee">sorting::quickSorting</a> (int *swaping, int *comparisons, std::vector&lt; int &gt; *Array, int left, int right)</td></tr>
+<tr class="memdesc:afe382ee31c59545daa1d3203453af4ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Быстрая сортировка  <a href="_sorting_function_8h.html#afe382ee31c59545daa1d3203453af4ee">Подробнее...</a><br /></td></tr>
+<tr class="separator:afe382ee31c59545daa1d3203453af4ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a332e89a8ffd8208415f8990741c6ebfb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_sorting_function_8h.html#a332e89a8ffd8208415f8990741c6ebfb">sorting::selcetionSorting</a> (int *swaping, int *comparisons, std::vector&lt; int &gt; *Array, int n)</td></tr>
+<tr class="memdesc:a332e89a8ffd8208415f8990741c6ebfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сортировка выбором  <a href="_sorting_function_8h.html#a332e89a8ffd8208415f8990741c6ebfb">Подробнее...</a><br /></td></tr>
+<tr class="separator:a332e89a8ffd8208415f8990741c6ebfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3e6de21ec0facb3a66a5b9eb4029582"><td class="memItemLeft" align="right" valign="top"><a id="ab3e6de21ec0facb3a66a5b9eb4029582"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>sorting::GetResultOfAccount</b> (int *swaping, int *comparisons, std::vector&lt; int &gt;mainArray, std::string nameFunction, int n)</td></tr>
+<tr class="separator:ab3e6de21ec0facb3a66a5b9eb4029582"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Библиотека функций сортировки </p>
+</div><h2 class="groupheader">Функции</h2>
+<a id="file_a96190e813a3e6430e13fb843b726f610"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_a96190e813a3e6430e13fb843b726f610">&#9670;&nbsp;</a></span>bubleSorting()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sorting::bubleSorting </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>swaping</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>comparisons</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; int &gt; *&#160;</td>
+          <td class="paramname"><em>Array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Сортировка пузырьком </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">swaping</td><td>число обменов </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">comparisons</td><td>число сравнений </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">Array</td><td>сортеруемый массив </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">n</td><td>число элементов для сортировки от 0</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Код функции выглядит следующим образом : </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="_sorting_function_8h.html#a96190e813a3e6430e13fb843b726f610">bubleSorting</a>(<span class="keywordtype">int</span>* swaping, <span class="keywordtype">int</span>* comparisons, std::vector&lt;int&gt;* Array, <span class="keywordtype">int</span> n)</div><div class="line">{</div><div class="line">    assert(swaping != <span class="keyword">nullptr</span>);</div><div class="line">    assert(comparisons != <span class="keyword">nullptr</span>);</div><div class="line">    assert(swaping != comparisons);</div><div class="line">    assert(Array != <span class="keyword">nullptr</span>);</div><div class="line"></div><div class="line">    <span class="keywordtype">bool</span> end = <span class="keyword">false</span>;</div><div class="line">    <span class="keywordflow">while</span> (!end)</div><div class="line">    {</div><div class="line">        end = <span class="keyword">true</span>;</div><div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt; n; i++)</div><div class="line">        {</div><div class="line">            <span class="keywordflow">if</span> ((*Array)[i] &lt; (*Array)[i - 1])</div><div class="line">            {</div><div class="line">                (*comparisons)++;</div><div class="line">                std::swap((*Array)[i], (*Array)[i - 1]);</div><div class="line">                (*swaping)++;</div><div class="line">                end = <span class="keyword">false</span>;</div><div class="line">            }</div><div class="line">        }</div><div class="line">        n--;</div><div class="line">    }</div><div class="line">}</div></div><!-- fragment --> 
+</div>
+</div>
+<a id="file_a419d3cdf6bf65e6d2a75a00315879d32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_a419d3cdf6bf65e6d2a75a00315879d32">&#9670;&nbsp;</a></span>insertionSorting()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sorting::insertionSorting </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>swaping</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>comparisons</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; int &gt; *&#160;</td>
+          <td class="paramname"><em>Array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Сортировка вставкой </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">swaping</td><td>число обменов </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">comparisons</td><td>число сравнений </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">Array</td><td>сортеруемый массив </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">n</td><td>число элементов для сортировки от 0</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Код функции выглядит следующим образом : </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="_sorting_function_8h.html#a419d3cdf6bf65e6d2a75a00315879d32">insertionSorting</a>(<span class="keywordtype">int</span>* swaping, <span class="keywordtype">int</span>* comparisons, std::vector&lt;int&gt;* Array, <span class="keywordtype">int</span> n)</div><div class="line">{</div><div class="line">    assert(swaping != <span class="keyword">nullptr</span>);</div><div class="line">    assert(comparisons != <span class="keyword">nullptr</span>);</div><div class="line">    assert(swaping != comparisons);</div><div class="line">    assert(Array != <span class="keyword">nullptr</span>);</div><div class="line"></div><div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; i++)</div><div class="line">    {</div><div class="line">        <span class="keywordtype">int</span> j = i;</div><div class="line">        <span class="keywordflow">while</span> (j &gt; 0 &amp;&amp; (*Array)[j] &lt; (*Array)[j - 1])</div><div class="line">        {</div><div class="line">            (*comparisons)++;</div><div class="line">            std::swap((*Array)[j], (*Array)[j - 1]);</div><div class="line">            (*swaping)++;</div><div class="line">            j -= 1;</div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div></div><!-- fragment --> 
+</div>
+</div>
+<a id="file_aff47c83936a064d742b03b650bcaa71c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_aff47c83936a064d742b03b650bcaa71c">&#9670;&nbsp;</a></span>mergeSorting()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sorting::mergeSorting </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>swaping</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>comparisons</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; int &gt; *&#160;</td>
+          <td class="paramname"><em>Array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>right</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Сортировка вставкой </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">swaping</td><td>число обменов </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">comparisons</td><td>число сравнений </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">Array</td><td>сортеруемый массив </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">left</td><td>начало сортируемого участка </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">right</td><td>конец сортируемого участка merge() функция объединяет два отсортированных участка массива в один отсортированный</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Код функции выглядит следующим образом : </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> merge(<span class="keywordtype">int</span>* swaping, <span class="keywordtype">int</span>* comparisons, std::vector&lt;int&gt;* Array, <span class="keywordtype">int</span> left, <span class="keywordtype">int</span> middle, <span class="keywordtype">int</span> right)</div><div class="line">{</div><div class="line">    assert(swaping != <span class="keyword">nullptr</span>);</div><div class="line">    assert(comparisons != <span class="keyword">nullptr</span>);</div><div class="line">    assert(swaping != comparisons);</div><div class="line">    assert(Array != <span class="keyword">nullptr</span>);</div><div class="line"></div><div class="line">    <span class="keywordtype">int</span> i = middle+1;</div><div class="line">    <span class="keywordtype">int</span> j = left;</div><div class="line">    std::vector&lt;int&gt;merged;</div><div class="line"></div><div class="line">    <span class="keywordflow">while</span> (i &lt;= right &amp;&amp; j &lt;= middle)</div><div class="line">    {</div><div class="line">        <span class="keywordflow">if</span> ((*Array)[i] &lt;= (*Array)[j])</div><div class="line">            merged.push_back((*Array)[i++]);</div><div class="line">        <span class="keywordflow">else</span></div><div class="line">            merged.push_back((*Array)[j++]);</div><div class="line">        (*comparisons)++;</div><div class="line">        (*swaping)++;</div><div class="line">    }</div><div class="line">    <span class="keywordflow">while</span> (j &lt;= middle)</div><div class="line">    {</div><div class="line">        merged.push_back((*Array)[j++]);</div><div class="line">        (*swaping)++;</div><div class="line">    }</div><div class="line">    <span class="keywordflow">while</span> (i &lt;= right)</div><div class="line">    {</div><div class="line">        merged.push_back((*Array)[i++]);</div><div class="line">        (*swaping)++;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="keywordflow">for</span> (i=left; i &lt;= right; i++)</div><div class="line">    {</div><div class="line">        (*Array)[i] = merged[i - left];</div><div class="line">        (*swaping)++;</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keywordtype">void</span> <a class="code" href="_sorting_function_8h.html#aff47c83936a064d742b03b650bcaa71c">mergeSorting</a>(<span class="keywordtype">int</span>* swaping, <span class="keywordtype">int</span>* comparisons, std::vector&lt;int&gt;* Array, <span class="keywordtype">int</span> left, <span class="keywordtype">int</span> right)</div><div class="line">{</div><div class="line">    assert(swaping != <span class="keyword">nullptr</span>);</div><div class="line">    assert(comparisons != <span class="keyword">nullptr</span>);</div><div class="line">    assert(swaping != comparisons);</div><div class="line">    assert(Array != <span class="keyword">nullptr</span>);</div><div class="line"></div><div class="line">    <span class="keywordflow">if</span> (left &lt; right)</div><div class="line">    {</div><div class="line">        (*comparisons)++;</div><div class="line">        <span class="keyword">const</span> <span class="keywordtype">int</span> middile = (left + right) / 2;</div><div class="line">        <a class="code" href="_sorting_function_8h.html#aff47c83936a064d742b03b650bcaa71c">mergeSorting</a>(swaping, comparisons, Array, left, middile);</div><div class="line">        <a class="code" href="_sorting_function_8h.html#aff47c83936a064d742b03b650bcaa71c">mergeSorting</a>(swaping, comparisons, Array, middile+1, right);</div><div class="line">        merge(swaping, comparisons, Array, left, middile, right);</div><div class="line">    }</div><div class="line">}</div></div><!-- fragment --> 
+</div>
+</div>
+<a id="file_afe382ee31c59545daa1d3203453af4ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_afe382ee31c59545daa1d3203453af4ee">&#9670;&nbsp;</a></span>quickSorting()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sorting::quickSorting </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>swaping</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>comparisons</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; int &gt; *&#160;</td>
+          <td class="paramname"><em>Array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>right</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Быстрая сортировка </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">swaping</td><td>число обменов </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">comparisons</td><td>число сравнений </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">Array</td><td>сортеруемый массив </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">left</td><td>начало сортируемого участка </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">right</td><td>конец сортируемого участка</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Код функции выглядит следующим образом : </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="_sorting_function_8h.html#afe382ee31c59545daa1d3203453af4ee">quickSorting</a>(<span class="keywordtype">int</span>* swaping, <span class="keywordtype">int</span>* comparisons, std::vector&lt;int&gt;* Array, <span class="keywordtype">int</span> left, <span class="keywordtype">int</span> right)</div><div class="line">{</div><div class="line">    assert(swaping != <span class="keyword">nullptr</span>);</div><div class="line">    assert(comparisons != <span class="keyword">nullptr</span>);</div><div class="line">    assert(swaping != comparisons);</div><div class="line">    assert(Array != <span class="keyword">nullptr</span>);</div><div class="line"></div><div class="line">    <span class="keywordflow">if</span> (right - left &lt;= 0)</div><div class="line">        <span class="keywordflow">return</span>;</div><div class="line"></div><div class="line">    <span class="keywordtype">int</span> p = left;</div><div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = left; i &lt; right-1; i++)</div><div class="line">        <span class="keywordflow">if</span> ((*Array)[i] &lt; (*Array)[right - 1])</div><div class="line">        {</div><div class="line">            (*comparisons)++;</div><div class="line">            std::swap((*Array)[p], (*Array)[i]);</div><div class="line">            (*swaping)++;</div><div class="line">            p++;</div><div class="line">        }</div><div class="line">    std::swap((*Array)[p], (*Array)[right - 1]);</div><div class="line">    <a class="code" href="_sorting_function_8h.html#afe382ee31c59545daa1d3203453af4ee">quickSorting</a>(swaping, comparisons, Array, left, p);</div><div class="line">    <a class="code" href="_sorting_function_8h.html#afe382ee31c59545daa1d3203453af4ee">quickSorting</a>(swaping, comparisons, Array, p + 1, right);</div><div class="line">}</div></div><!-- fragment --> 
+</div>
+</div>
+<a id="file_a332e89a8ffd8208415f8990741c6ebfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_a332e89a8ffd8208415f8990741c6ebfb">&#9670;&nbsp;</a></span>selcetionSorting()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sorting::selcetionSorting </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>swaping</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>comparisons</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; int &gt; *&#160;</td>
+          <td class="paramname"><em>Array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Сортировка выбором </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">swaping</td><td>число обменов </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">comparisons</td><td>число сравнений </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">Array</td><td>сортеруемый массив </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">n</td><td>число элементов для сортировки от 0</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Код функции выглядит следующим образом : </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="_sorting_function_8h.html#a332e89a8ffd8208415f8990741c6ebfb">selcetionSorting</a>(<span class="keywordtype">int</span>* swaping, <span class="keywordtype">int</span>* comparisons, std::vector&lt;int&gt;* Array, <span class="keywordtype">int</span> n)</div><div class="line">{</div><div class="line">    assert(swaping != <span class="keyword">nullptr</span>);</div><div class="line">    assert(comparisons != <span class="keyword">nullptr</span>);</div><div class="line">    assert(swaping != comparisons);</div><div class="line">    assert(Array != <span class="keyword">nullptr</span>);</div><div class="line"></div><div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; i++)</div><div class="line">    {</div><div class="line">        <span class="keywordtype">int</span> min = (*Array)[i];</div><div class="line">        <span class="keywordtype">int</span> index = i;</div><div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = i+1; j&lt;n;j++)</div><div class="line">            <span class="keywordflow">if</span> (min &gt; (*Array)[j])</div><div class="line">            {</div><div class="line">                (*comparisons)++;</div><div class="line">                min = (*Array)[j];</div><div class="line">                index = j;</div><div class="line">            }</div><div class="line">        std::swap((*Array)[i], (*Array)[index]);</div><div class="line">        (*swaping)++;</div><div class="line">    }</div><div class="line">}</div></div><!-- fragment --> 
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.15
+</small></address>
+</body>
+</html>

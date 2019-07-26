@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Визуализация алгоритмов сортировки: Файл VisualizationSortingAlgorithm.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Визуализация алгоритмов сортировки
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.15 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Классы</a> &#124;
+<a href="#func-members">Функции</a> &#124;
+<a href="#var-members">Переменные</a>  </div>
+  <div class="headertitle">
+<div class="title">Файл VisualizationSortingAlgorithm.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Программа визуализации алгоритмов сортировки  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<code>#include &quot;TXLib.h&quot;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &quot;<a class="el" href="_buttons_8h_source.html">Buttons.h</a>&quot;</code><br />
+<code>#include &lt;set&gt;</code><br />
+<code>#include &quot;<a class="el" href="_sorting_function_8h_source.html">SortingFunction.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdrawing_1_1parameter_for_results.html">drawing::parameterForResults</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">структура для удобства хранения результатов  <a href="structdrawing_1_1parameter_for_results.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdrawing_1_1_result_value.html">drawing::ResultValue</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">структура для удобства хранения результатов  <a href="structdrawing_1_1_result_value.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ga868375389d7bb364d87863d6d960bbd6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___pre_caculation.html#ga868375389d7bb364d87863d6d960bbd6">drawing::CreateArray</a> (bool isRandom=1)</td></tr>
+<tr class="memdesc:ga868375389d7bb364d87863d6d960bbd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Заполняет массив для сортировки  <a href="group___pre_caculation.html#ga868375389d7bb364d87863d6d960bbd6">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga868375389d7bb364d87863d6d960bbd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga23434748aaf2614840c267ea9af96d54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___work_with_person.html#ga23434748aaf2614840c267ea9af96d54">drawing::StartAccount</a> (std::vector&lt; button &gt; *simpleButtons, std::vector&lt; button &gt; *functionButtons, std::vector&lt; button &gt; *swapButtons, std::vector&lt; int &gt; *mainArray, int *maxNumOfSwaping, int *maxNumOfComparisons, std::vector&lt; <a class="el" href="structdrawing_1_1_result_value.html">drawing::ResultValue</a> &gt; *resultValue)</td></tr>
+<tr class="memdesc:ga23434748aaf2614840c267ea9af96d54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запускает функции сортировок, получает из них значение и отправляет на визиализацию  <a href="group___work_with_person.html#ga23434748aaf2614840c267ea9af96d54">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga23434748aaf2614840c267ea9af96d54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafee820cd505dd79ea6028268cace2c0b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___work_with_person.html#gafee820cd505dd79ea6028268cace2c0b">drawing::ReactionOnClick</a> (button oneButton, bool *end, std::vector&lt; int &gt; *mainArray)</td></tr>
+<tr class="memdesc:gafee820cd505dd79ea6028268cace2c0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Определяет какая кнопка нажата и совершает соответствующие ей действия  <a href="group___work_with_person.html#gafee820cd505dd79ea6028268cace2c0b">Подробнее...</a><br /></td></tr>
+<tr class="separator:gafee820cd505dd79ea6028268cace2c0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac3509167f6f3672a6b64875d7211cc47"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___work_with_person.html#gac3509167f6f3672a6b64875d7211cc47">drawing::CheckClickOrPushing</a> (std::vector&lt; button &gt; *simpleButtons, std::vector&lt; button &gt; *functionButtons, bool *end, std::vector&lt; button &gt; *swapButtons, std::vector&lt; int &gt; *mainArray, int maxNumOfSwaping, int maxNumOfComparisons, std::vector&lt; <a class="el" href="structdrawing_1_1_result_value.html">drawing::ResultValue</a> &gt; *resultValue)</td></tr>
+<tr class="memdesc:gac3509167f6f3672a6b64875d7211cc47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет нажата ли какая-либо кнопка и делает соответствующее каждой действияя  <a href="group___work_with_person.html#gac3509167f6f3672a6b64875d7211cc47">Подробнее...</a><br /></td></tr>
+<tr class="separator:gac3509167f6f3672a6b64875d7211cc47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa10daf989f915fab0538ff1f5922a49d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___drawing.html#gaa10daf989f915fab0538ff1f5922a49d">drawing::ClickButton</a> (button oneButton)</td></tr>
+<tr class="memdesc:gaa10daf989f915fab0538ff1f5922a49d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Визуализирует эффект клика на кнопку  <a href="group___drawing.html#gaa10daf989f915fab0538ff1f5922a49d">Подробнее...</a><br /></td></tr>
+<tr class="separator:gaa10daf989f915fab0538ff1f5922a49d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga349d5a8890204c9c51673e5ec480a83c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___drawing.html#ga349d5a8890204c9c51673e5ec480a83c">drawing::DrawGentleRectangle</a> (int x0, int y0, int x1, int y1, int R, COLORREF color)</td></tr>
+<tr class="memdesc:ga349d5a8890204c9c51673e5ec480a83c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рисует прямоугольник с круглёными углами радиусом R.  <a href="group___drawing.html#ga349d5a8890204c9c51673e5ec480a83c">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga349d5a8890204c9c51673e5ec480a83c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadc91e337e0cb73bcfc7a9b6ba0a1e099"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___drawing.html#gadc91e337e0cb73bcfc7a9b6ba0a1e099">drawing::DrawResults</a> (std::vector&lt; <a class="el" href="structdrawing_1_1_result_value.html">drawing::ResultValue</a> &gt; *resultValue, int maxNumOfSwaping, int maxNumOfComparisons)</td></tr>
+<tr class="memdesc:gadc91e337e0cb73bcfc7a9b6ba0a1e099"><td class="mdescLeft">&#160;</td><td class="mdescRight">Визуализирует результаты расчётов  <a href="group___drawing.html#gadc91e337e0cb73bcfc7a9b6ba0a1e099">Подробнее...</a><br /></td></tr>
+<tr class="separator:gadc91e337e0cb73bcfc7a9b6ba0a1e099"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad6f656e431235515706c57ffc3135896"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___drawing.html#gad6f656e431235515706c57ffc3135896">drawing::DrawFoneOfPushedButton</a> (int x0, int y0, int x1, int y1, int R)</td></tr>
+<tr class="memdesc:gad6f656e431235515706c57ffc3135896"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рисует внутри кнопки градиент от заданого цвета до более тёмного  <a href="group___drawing.html#gad6f656e431235515706c57ffc3135896">Подробнее...</a><br /></td></tr>
+<tr class="separator:gad6f656e431235515706c57ffc3135896"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa664d389c2bc87e02ed8558d65613a72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___drawing.html#gaa664d389c2bc87e02ed8558d65613a72">drawing::DrawButton</a> (button oneButton, bool withContur=true)</td></tr>
+<tr class="memdesc:gaa664d389c2bc87e02ed8558d65613a72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рисует кнопки  <a href="group___drawing.html#gaa664d389c2bc87e02ed8558d65613a72">Подробнее...</a><br /></td></tr>
+<tr class="separator:gaa664d389c2bc87e02ed8558d65613a72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga555c812177704b13df0bc307f16bbdea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___drawing.html#ga555c812177704b13df0bc307f16bbdea">drawing::DrawLeftAnatationOfDiagram</a> (int xLine, int yLine, int lenText, int heightDiagram, int widthDiagram, int lenLineAndHeightText, int gapBesideTextAndLine, int yMaxValue, int accuracy=2)</td></tr>
+<tr class="memdesc:ga555c812177704b13df0bc307f16bbdea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рисует числа и линии оси ординат  <a href="group___drawing.html#ga555c812177704b13df0bc307f16bbdea">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga555c812177704b13df0bc307f16bbdea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6c87dfa4b3aa204818ac9749ac9be459"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___drawing.html#ga6c87dfa4b3aa204818ac9749ac9be459">drawing::DrawUnderAnatationOfDiagram</a> (int xLine, int yLine, int lenLineAndHeightText, int gapBesideTextAndLine, int widthDiagram, int heightDiagram, int lenText, int xMaxValue, int accuracy=2)</td></tr>
+<tr class="memdesc:ga6c87dfa4b3aa204818ac9749ac9be459"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рисует числа и линии оси абцисс  <a href="group___drawing.html#ga6c87dfa4b3aa204818ac9749ac9be459">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga6c87dfa4b3aa204818ac9749ac9be459"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga881ce05651be510d0d47027b4d8f4278"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___drawing.html#ga881ce05651be510d0d47027b4d8f4278">drawing::CreateEmptyDiagram</a> (std::pair&lt; int, int &gt;coordinates, int MaxNumOfParameterAxesX=1200)</td></tr>
+<tr class="memdesc:ga881ce05651be510d0d47027b4d8f4278"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рисует пустую диаграмму  <a href="group___drawing.html#ga881ce05651be510d0d47027b4d8f4278">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga881ce05651be510d0d47027b4d8f4278"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga461814ac4880f9c0c1048b8534193856"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___drawing.html#ga461814ac4880f9c0c1048b8534193856">drawing::CreateEmptyCanvas</a> (std::vector&lt; button &gt; *simpleButtons, std::vector&lt; button &gt; *functionButtons, std::vector&lt; button &gt; *swapButtons, bool defaultDiagram=true)</td></tr>
+<tr class="separator:ga461814ac4880f9c0c1048b8534193856"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top"><a id="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> ()</td></tr>
+<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Переменные</h2></td></tr>
+<tr class="memitem:aee32c417863ee9a39ca02037ee121011"><td class="memItemLeft" align="right" valign="top"><a id="aee32c417863ee9a39ca02037ee121011"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_visualization_sorting_algorithm_8cpp.html#aee32c417863ee9a39ca02037ee121011">drawing::Width</a> = 1100</td></tr>
+<tr class="memdesc:aee32c417863ee9a39ca02037ee121011"><td class="mdescLeft">&#160;</td><td class="mdescRight">ширина окна <br /></td></tr>
+<tr class="separator:aee32c417863ee9a39ca02037ee121011"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18d124d59c20dae88b6b9c2a0e0c389a"><td class="memItemLeft" align="right" valign="top"><a id="a18d124d59c20dae88b6b9c2a0e0c389a"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_visualization_sorting_algorithm_8cpp.html#a18d124d59c20dae88b6b9c2a0e0c389a">drawing::Height</a> = Width*675/1100</td></tr>
+<tr class="memdesc:a18d124d59c20dae88b6b9c2a0e0c389a"><td class="mdescLeft">&#160;</td><td class="mdescRight">высота окна <br /></td></tr>
+<tr class="separator:a18d124d59c20dae88b6b9c2a0e0c389a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afeced59ddeadcf8cd7c8777abb50f127"><td class="memItemLeft" align="right" valign="top"><a id="afeced59ddeadcf8cd7c8777abb50f127"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_visualization_sorting_algorithm_8cpp.html#afeced59ddeadcf8cd7c8777abb50f127">drawing::Boundaries</a> = Width * 0.03</td></tr>
+<tr class="memdesc:afeced59ddeadcf8cd7c8777abb50f127"><td class="mdescLeft">&#160;</td><td class="mdescRight">унивирсальная константа, упращающая процесс расположения объектов <br /></td></tr>
+<tr class="separator:afeced59ddeadcf8cd7c8777abb50f127"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ba0d2747aecd939cc53a1cc04d2df6b"><td class="memItemLeft" align="right" valign="top"><a id="a6ba0d2747aecd939cc53a1cc04d2df6b"></a>
+const COLORREF&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_visualization_sorting_algorithm_8cpp.html#a6ba0d2747aecd939cc53a1cc04d2df6b">drawing::BackColor</a> = RGB(40, 120, 250)</td></tr>
+<tr class="memdesc:a6ba0d2747aecd939cc53a1cc04d2df6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">цвет фона <br /></td></tr>
+<tr class="separator:a6ba0d2747aecd939cc53a1cc04d2df6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17c8e95bc9944c14e826eaea9af70c97"><td class="memItemLeft" align="right" valign="top"><a id="a17c8e95bc9944c14e826eaea9af70c97"></a>
+const COLORREF&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_visualization_sorting_algorithm_8cpp.html#a17c8e95bc9944c14e826eaea9af70c97">drawing::SandColor</a> = RGB(255, 240, 212)</td></tr>
+<tr class="memdesc:a17c8e95bc9944c14e826eaea9af70c97"><td class="mdescLeft">&#160;</td><td class="mdescRight">песочный цвет <br /></td></tr>
+<tr class="separator:a17c8e95bc9944c14e826eaea9af70c97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1154cc9be189c94b545460dd233f1a10"><td class="memItemLeft" align="right" valign="top"><a id="a1154cc9be189c94b545460dd233f1a10"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_visualization_sorting_algorithm_8cpp.html#a1154cc9be189c94b545460dd233f1a10">drawing::AccuracyOfDiagram</a> = 3</td></tr>
+<tr class="memdesc:a1154cc9be189c94b545460dd233f1a10"><td class="mdescLeft">&#160;</td><td class="mdescRight">значение отвечающее за маштаб сетки разметки; определяет на сколько частей будут разделяться обе оси <br /></td></tr>
+<tr class="separator:a1154cc9be189c94b545460dd233f1a10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a292ca873ee9c1b50a5d13583af067b4c"><td class="memItemLeft" align="right" valign="top"><a id="a292ca873ee9c1b50a5d13583af067b4c"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_visualization_sorting_algorithm_8cpp.html#a292ca873ee9c1b50a5d13583af067b4c">drawing::VisualizPeriod</a> = 50</td></tr>
+<tr class="memdesc:a292ca873ee9c1b50a5d13583af067b4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">определяет через сколько итераций будут обновлять результаты расчётов <br /></td></tr>
+<tr class="separator:a292ca873ee9c1b50a5d13583af067b4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9f1306a029ca7564d7ee4f237718e40"><td class="memItemLeft" align="right" valign="top"><a id="ac9f1306a029ca7564d7ee4f237718e40"></a>
+const std::pair&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_visualization_sorting_algorithm_8cpp.html#ac9f1306a029ca7564d7ee4f237718e40">drawing::CoordinatesDiagramOfSwaping</a> = std::make_pair(Width * 0.21 + Boundaries * 2, Height * 0.2)</td></tr>
+<tr class="memdesc:ac9f1306a029ca7564d7ee4f237718e40"><td class="mdescLeft">&#160;</td><td class="mdescRight">координаты левеого верхнего угла диаграмма обменов <br /></td></tr>
+<tr class="separator:ac9f1306a029ca7564d7ee4f237718e40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a524151a56cbfcc12b9f6e5a7c3ce4894"><td class="memItemLeft" align="right" valign="top"><a id="a524151a56cbfcc12b9f6e5a7c3ce4894"></a>
+const std::pair&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_visualization_sorting_algorithm_8cpp.html#a524151a56cbfcc12b9f6e5a7c3ce4894">drawing::CoordinatesDiagramOfComparisons</a> = std::make_pair(Width * 0.21 + Boundaries * 3.9 + Width * 0.33, Height * 0.2)</td></tr>
+<tr class="memdesc:a524151a56cbfcc12b9f6e5a7c3ce4894"><td class="mdescLeft">&#160;</td><td class="mdescRight">координаты левеого верхнего угла диаграмма сравнений <br /></td></tr>
+<tr class="separator:a524151a56cbfcc12b9f6e5a7c3ce4894"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6397012c86be03b7688ad623c69b5655"><td class="memItemLeft" align="right" valign="top"><a id="a6397012c86be03b7688ad623c69b5655"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_visualization_sorting_algorithm_8cpp.html#a6397012c86be03b7688ad623c69b5655">drawing::MaxNumOfElements</a> = 1200</td></tr>
+<tr class="memdesc:a6397012c86be03b7688ad623c69b5655"><td class="mdescLeft">&#160;</td><td class="mdescRight">переменная для хранения максимального числа элементов в сортируемом массиве <br /></td></tr>
+<tr class="separator:a6397012c86be03b7688ad623c69b5655"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69cdf930211cbe2fe6bbfd3990141109"><td class="memItemLeft" align="right" valign="top"><a id="a69cdf930211cbe2fe6bbfd3990141109"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_visualization_sorting_algorithm_8cpp.html#a69cdf930211cbe2fe6bbfd3990141109">drawing::RandomFilling</a> = true</td></tr>
+<tr class="memdesc:a69cdf930211cbe2fe6bbfd3990141109"><td class="mdescLeft">&#160;</td><td class="mdescRight">перменная указывающя заполняем ли мы случайными числами сортируемый массив или нет <br /></td></tr>
+<tr class="separator:a69cdf930211cbe2fe6bbfd3990141109"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Программа визуализации алгоритмов сортировки </p>
+<dl class="section author"><dt>Автор</dt><dd>TheCompiler </dd></dl>
+<dl class="section version"><dt>Версия</dt><dd>alpha 0.1 </dd></dl>
+<dl class="section date"><dt>Дата</dt><dd>26.07.2019 </dd></dl>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.15
+</small></address>
+</body>
+</html>

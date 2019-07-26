@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Визуализация алгоритмов сортировки: Шаблон класса sorting::heap&lt; T &gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Визуализация алгоритмов сортировки
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.15 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>sorting</b></li><li class="navelem"><a class="el" href="classsorting_1_1heap.html">heap</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="classsorting_1_1heap-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Шаблон класса sorting::heap&lt; T &gt;</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс кучи  
+ <a href="classsorting_1_1heap.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_sorting_function_8h_source.html">SortingFunction.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a9027dd3fac40a0af0a39e4989eb8a86f"><td class="memItemLeft" align="right" valign="top"><a id="a9027dd3fac40a0af0a39e4989eb8a86f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsorting_1_1heap.html#a9027dd3fac40a0af0a39e4989eb8a86f">make_heap</a> (int *swaping, int *comparisons, std::vector&lt; T &gt;Array, int n)</td></tr>
+<tr class="memdesc:a9027dd3fac40a0af0a39e4989eb8a86f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция создания кучи <br /></td></tr>
+<tr class="separator:a9027dd3fac40a0af0a39e4989eb8a86f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7aa457035adb268c0e5c697dfb6748e"><td class="memItemLeft" align="right" valign="top"><a id="ae7aa457035adb268c0e5c697dfb6748e"></a>
+T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsorting_1_1heap.html#ae7aa457035adb268c0e5c697dfb6748e">get_min</a> ()</td></tr>
+<tr class="memdesc:ae7aa457035adb268c0e5c697dfb6748e"><td class="mdescLeft">&#160;</td><td class="mdescRight">возрашает минимальный элемент кучи <br /></td></tr>
+<tr class="separator:ae7aa457035adb268c0e5c697dfb6748e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49ed67a97def356cc811583970e01e2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsorting_1_1heap.html#a49ed67a97def356cc811583970e01e2b">heap_sort</a> (int *swaping, int *comparisons, std::vector&lt; T &gt; *Array, int n)</td></tr>
+<tr class="memdesc:a49ed67a97def356cc811583970e01e2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция сортировки кучей  <a href="#a49ed67a97def356cc811583970e01e2b">Подробнее...</a><br /></td></tr>
+<tr class="separator:a49ed67a97def356cc811583970e01e2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:a0a329ce048355d31f990868561347958"><td class="memItemLeft" align="right" valign="top"><a id="a0a329ce048355d31f990868561347958"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsorting_1_1heap.html#a0a329ce048355d31f990868561347958">size</a> = 0</td></tr>
+<tr class="memdesc:a0a329ce048355d31f990868561347958"><td class="mdescLeft">&#160;</td><td class="mdescRight">размер кучи <br /></td></tr>
+<tr class="separator:a0a329ce048355d31f990868561347958"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><h3>template&lt;typename T&gt;<br />
+class sorting::heap&lt; T &gt;</h3>
+
+<p>Класс кучи </p>
+</div><h2 class="groupheader">Методы</h2>
+<a id="a49ed67a97def356cc811583970e01e2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49ed67a97def356cc811583970e01e2b">&#9670;&nbsp;</a></span>heap_sort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classsorting_1_1heap.html">sorting::heap</a>&lt; T &gt;::heap_sort </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>swaping</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>comparisons</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; T &gt; *&#160;</td>
+          <td class="paramname"><em>Array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Функция сортировки кучей </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">swaping</td><td>число обменов </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">comparisons</td><td>число сравнений </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">Array</td><td>сортеруемый массив </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">n</td><td>число элементов для сортировки от 0</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Код функции выглядит следующим образом : </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code" href="classsorting_1_1heap.html#a49ed67a97def356cc811583970e01e2b">heap_sort</a>(<span class="keywordtype">int</span>* swaping, <span class="keywordtype">int</span>* comparisons, std::vector&lt;T&gt;* Array, <span class="keywordtype">int</span> n)</div><div class="line">{</div><div class="line">    assert(swaping != <span class="keyword">nullptr</span>);</div><div class="line">    assert(comparisons != <span class="keyword">nullptr</span>);</div><div class="line">    assert(swaping != comparisons);</div><div class="line">    assert(Array != <span class="keyword">nullptr</span>);</div><div class="line"></div><div class="line">    <a class="code" href="classsorting_1_1heap.html#a9027dd3fac40a0af0a39e4989eb8a86f">make_heap</a>(swaping, comparisons, *Array, n);</div><div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; i++)</div><div class="line">    {</div><div class="line">        (*Array)[i] = extract_min(swaping, comparisons);</div><div class="line">        (*swaping)++;</div><div class="line">    }</div><div class="line">}</div></div><!-- fragment --> 
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li><a class="el" href="_sorting_function_8h_source.html">SortingFunction.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.15
+</small></address>
+</body>
+</html>
