@@ -75,11 +75,13 @@ namespace drawing
 //! \param[in] simpleButtons		вектор параметров обычных кнопок
 //! \param[in] functionButtons		вектор параметров кнопок функций сортировки 
 //! \param[in] swapButtons			вектор параметров кнопок, среди которых может быть активна только одна
-//!	
-//! \return маркер реакции на нажатие кнопки -2 - ничего не нажали, -1 - кнопка функций, 0 - выход из программы, 1 - запуск расчётов, 2 - рандомное заполнение, 3 - заполнение по убыванию, 4 - изменение числа элементов
+//!	\param[out] RandomFilling		маркер способа заполнения массива; 1 - случайным числами, 0 - по убыванию
+//!	\param[out] mainArray			сортеруемый массив
+
+//! \return маркер реакции на нажатие кнопки -2 - ничего не нажали, -1 - кнопка выполнилась, 0 - выход из программы, 1 - запуск расчётов
 //!
 	int CheckClickOrPushing(std::vector<button>* simpleButtons, std::vector<button>* functionButtons,
-		std::vector<button>* swapButtons);
+							std::vector<button>* swapButtons, int* RandomFilling, std::vector<int>* mainArray);
 
 //=================================================================================================================
 //! @ingroup Drawing
@@ -110,28 +112,30 @@ namespace drawing
 //! \param xLine, yLine							координаты левого верхнего угла начала линий оси ординат
 //! \param lenTex								длина чисел оси ординат
 //! \param heightDiagram, int WidthDiagram		высота и ширина диаграмы
-//! \param lenLineAndHeightText					длина линии и высота окна, в котором пишутся числа
+//! \param lenLine								длина линии
+//! \param heightText							высота окна, в котором пишутся числа
 //!	\param gapBesideTextAndLine					промежуток между текста
 //! \param yMaxValue							максимальное значение чисел на оси ординат 
 //! \param accuracy								число частей, на которые будут разделина ось ординат
 //!
 	void DrawLeftAnatationOfDiagram(int xLine, int yLine, int lenText, int heightDiagram, int widthDiagram,
-								int lenLineAndHeightText, int gapBesideTextAndLine, int yMaxValue, int accuracy = 2);
+							int lenLine, int heightText, int gapBesideTextAndLine, int yMaxValue, int accuracy = 2);
 
 //-----------------------------------------------------------------------------------------------------------------
 //! @ingroup Drawing
 //!	\brief Рисует числа и линии оси абцисс
 //! 
 //! \param xLine, yLine							координаты левого верхнего угла начала линий оси абцисс
-//! \param lenLineAndHeightText					длина линии и высота окна, в котором пишутся числа
+//! \param lenLine								длина линии
+//! \param heightText							высота окна, в котором пишутся числа
 //!	\param gapBesideTextAndLine					промежуток между текста
 //! \param heightDiagram, widthDiagram			высота и ширина диаграмы
 //! \param lenText								длина окна, в котором пишутся числа
 //! \param xMaxValue							максимальное значение чисел на оси абцисс 
 //! \param accuracy								число частей, на которые будут разделина ось абцисс
 //!
-	void DrawUnderAnatationOfDiagram(int xLine, int yLine, int lenLineAndHeightText, int gapBesideTextAndLine,
-									int widthDiagram, int heightDiagram, int lenText, int xMaxValue, int accuracy = 2);
+	void DrawUnderAnatationOfDiagram(int xLine, int yLine, int lenLine, int heightText, int gapBesideTextAndLine,
+								int widthDiagram, int heightDiagram, int lenText, int xMaxValue, int accuracy);
 
 //-----------------------------------------------------------------------------------------------------------------
 //! @ingroup Drawing
@@ -192,7 +196,7 @@ int main()
 	std::vector<int>mainArray = drawing::CreateArray(); // массив который подвергается сортировки
 	// вектора хранящие параметры для создания кнопок
 	std::vector<drawing::button>simpleButtons, functionButtons, swapButtons; 
-	bool RandomFilling = true; // перменная указывающя заполняем ли мы случайными числами сортируемый массив или нет
+	int RandomFilling = 1; // перменная указывающя заполняем ли мы случайными числами сортируемый массив или нет
 	std::vector<drawing::ResultValue>resultValue;// вектор хранящий результаты расчётов
 	int maxNumOfSwaping = 1200; // максимальное число обменов (значение по умолчанию)
 	int maxNumOfComparisons = 1200; // максимальное число сравнений (значение по умолчанию)
@@ -209,42 +213,13 @@ int main()
 	while (1)
 	{
 		//перменная запускаяющая реакций на нажатие кнопки
-		int res = drawing::CheckClickOrPushing(&simpleButtons, &functionButtons, &swapButtons);
+		int res = drawing::CheckClickOrPushing(&simpleButtons, &functionButtons, &swapButtons, &RandomFilling, &mainArray);
 		txSleep(50);
 
 		if (res == 0) // выход
 		{
 			break;
 			resultValue.clear();
-		}
-
-		if (res == 2) // рандомное заполнение 
-		{
-			resultValue.clear();
-			mainArray = drawing::CreateArray(1);
-			RandomFilling = true;
-		}
-
-		if (res == 3) // убывающее заполнение 
-		{
-			resultValue.clear();
-			mainArray = drawing::CreateArray(0);
-			RandomFilling = false;
-		}
-
-		if (res == 4) // изменение числа элементов массива
-		{
-			int input = std::atoi(txInputBox("Какие максимальное число элементов может быть в массиве?",
-				"Настройки", std::to_string(drawing::MaxNumOfElements).c_str()));
-			if (input > 6000)
-				txMessageBox("Слишком много ввёл. Не дождёшься результата. Максимально можешь ввести до 6000.",
-					"Тех. поддержка");
-			else
-			{
-				drawing::MaxNumOfElements = input;
-				mainArray = drawing::CreateArray(RandomFilling);
-				resultValue.clear();
-			}
 		}
 
 		if (res != -2) // если мы что-то нажимали надо изменить картинку
@@ -363,11 +338,13 @@ namespace drawing
 	}
 
 	int CheckClickOrPushing(std::vector<button>* simpleButtons, std::vector<button>* functionButtons,
-							std::vector<button>* swapButtons)
+							std::vector<button>* swapButtons, int* RandomFilling, std::vector<int>* mainArray)
 	{
 		assert(simpleButtons != nullptr);
 		assert(functionButtons != nullptr);
 		assert(swapButtons != nullptr);
+		assert(mainArray != nullptr);
+		assert(RandomFilling != nullptr);
 		assert(simpleButtons != functionButtons);
 		assert(simpleButtons != swapButtons);
 		assert(swapButtons != functionButtons);
@@ -388,7 +365,7 @@ namespace drawing
 					}
 					else // если имеет
 						(*simpleButtons)[i].isPushing = !(*simpleButtons)[i].isPushing;
-					return (*simpleButtons)[i].linkToFunction(0, 1, empty, &swaping, &compar, &empty);
+					return (*simpleButtons)[i].linkToFunction(0, 1, empty, RandomFilling, &MaxNumOfElements, mainArray);
 				}
 
 			for (int i = 0; i < (*functionButtons).size(); i++) // проверяем кнопки функций
@@ -470,36 +447,36 @@ namespace drawing
 	}
 
 	void DrawLeftAnatationOfDiagram(int xLine, int yLine, int lenText, int heightDiagram, int widthDiagram,
-								int lenLineAndHeightText, int gapBesideTextAndLine, int yMaxValue, int accuracy)
+								int lenLine, int heightText, int gapBesideTextAndLine, int yMaxValue, int accuracy)
 	{
 		const int xText = xLine - lenText;
-		const int yText = yLine - lenLineAndHeightText / 2 - 1;
+		const int yText = yLine - heightText / 2 - 1;
 		for (int i = 0; i <= accuracy; i++)
 		{
 			txLine(xLine, yLine + heightDiagram * i / accuracy,  // линия у числа
-					xLine + lenLineAndHeightText, yLine + heightDiagram * i / accuracy);
-			txLine(xLine + lenLineAndHeightText, yLine + heightDiagram * i / accuracy,  // линия на диаграмме
-					xLine + lenLineAndHeightText+widthDiagram, yLine + heightDiagram * i / accuracy);
+					xLine + lenLine, yLine + heightDiagram * i / accuracy);
+			txLine(xLine + lenLine, yLine + heightDiagram * i / accuracy,  // линия на диаграмме
+					xLine + lenLine + widthDiagram, yLine + heightDiagram * i / accuracy);
 			txDrawText(xText, yText + heightDiagram * i / accuracy, xLine - gapBesideTextAndLine, // число
-						yText + lenLineAndHeightText + heightDiagram * i / accuracy,
-						std::to_string(yMaxValue * (accuracy - i) / accuracy).c_str(), DT_RIGHT);
+						yText + heightText + heightDiagram * i / accuracy,
+						std::to_string(yMaxValue * (accuracy - i) / accuracy).c_str(), DT_RIGHT | DT_VCENTER);
 		}
 	}
 
-	void DrawUnderAnatationOfDiagram(int xLine, int yLine, int lenLineAndHeightText, int gapBesideTextAndLine, 
+	void DrawUnderAnatationOfDiagram(int xLine, int yLine, int lenLine, int heightText, int gapBesideTextAndLine,
 									int widthDiagram,  int heightDiagram, int lenText, int xMaxValue, int accuracy)
 	{
 		assert(accuracy > 0);
 		for (int i = 0; i <= accuracy; i++)
 		{
 			txLine(xLine + widthDiagram * i / accuracy, yLine, // линия у числа
-					xLine + widthDiagram * i / accuracy, yLine + lenLineAndHeightText);
+					xLine + widthDiagram * i / accuracy, yLine + lenLine);
 			txLine(xLine + widthDiagram * i / accuracy, yLine, // линия на диаграмме
 					xLine + widthDiagram * i / accuracy, yLine - heightDiagram);
 			// число
-			txDrawText(xLine - lenText/2 + widthDiagram * i / accuracy, yLine + lenLineAndHeightText + gapBesideTextAndLine,
-				xLine + lenText/2 + widthDiagram * i / accuracy, yLine + 2 * lenLineAndHeightText + gapBesideTextAndLine,
-				std::to_string(xMaxValue * i / accuracy).c_str(), DT_CENTER);
+			txDrawText(xLine - lenText/2 + widthDiagram * i / accuracy, yLine + heightText + gapBesideTextAndLine,
+				xLine + lenText/2 + widthDiagram * i / accuracy, yLine + 2 * heightText + gapBesideTextAndLine,
+				std::to_string(xMaxValue * i / accuracy).c_str(), DT_CENTER | DT_VCENTER);
 		}
 	}
 
@@ -517,12 +494,12 @@ namespace drawing
 		txSelectFont("Times New Roman", Boundaries * 0.52);
 		// рисуем ось ординат
 		DrawLeftAnatationOfDiagram(coordinates.first - Boundaries * 0.4, coordinates.second + 14, Boundaries * 2,
-									heightDiagram - 15, widthDiagram, Boundaries * 0.4, Boundaries * 0.1,
-									MaxNumOfElements, AccuracyOfDiagram);
+									heightDiagram - 15, widthDiagram, Boundaries * 0.4, Boundaries * 0.5,
+									Boundaries * 0.1, MaxNumOfElements, AccuracyOfDiagram);
 		// рисуем ось абцисс
-		DrawUnderAnatationOfDiagram(coordinates.first, coordinates.second + heightDiagram, Boundaries * 0.4,
-									Boundaries * 0.1, widthDiagram - 10, heightDiagram, Boundaries * 1.6,
-									MaxNumOfParameterAxesX, AccuracyOfDiagram);
+		DrawUnderAnatationOfDiagram(coordinates.first, coordinates.second + heightDiagram, Boundaries * 0.4, 
+										Boundaries * 0.5, Boundaries * 0.1, widthDiagram - 10, heightDiagram, 
+										Boundaries * 1.6, MaxNumOfParameterAxesX, AccuracyOfDiagram);
 	}
 
 	void CreateEmptyCanvas(std::vector<button>* simpleButtons, std::vector<button>* functionButtons, 

@@ -142,35 +142,84 @@ namespace drawing
 		}
 	};
 
+	//!описание в DiagramOfSorting
+	std::vector<int> CreateArray(int MaxNumOfElements, bool isRandom)
+	{
+		std::vector<int> mainArray; // сортируемый массив
+		if (isRandom) // если заполнение случайными числами
+		{
+			int a = -1;
+			for (int i = MaxNumOfElements; i > 0; i--)
+			{
+				a = int(random(1, int(1e8)));
+				mainArray.push_back(a);
+			}
+			return mainArray;
+		}
+		for (int i = MaxNumOfElements; i > 0; i--) // если заполнять поубыванию
+			mainArray.push_back(i);
+		return mainArray;
+	}
+
 	//!	\brief Возвращает маркер реакции на нажатия кнопки "Поехали!", то есть запуска расчётов
 	int Start(int left, int right, std::vector<int>parametr, int* swaping = nullptr,
 														int* comparisons = nullptr, std::vector<int>* Array = nullptr)
 	{
 		return 1;
 	}
+
 	//!	\brief Возвращает маркер реакции на нажатия кнопки "Выход"
 	int Exit(int left, int right, std::vector<int>parametr, int* swaping = nullptr,
 														int* comparisons = nullptr, std::vector<int>* Array = nullptr)
 	{
 		return 0;
 	}
+
 	//!	\brief Возвращает маркер реакции на нажатия кнопки "Заполнения случаными числами"
-	int Random(int left, int right, std::vector<int>parametr, int* swaping = nullptr,
-														int* comparisons = nullptr, std::vector<int>* Array = nullptr)
+	int Random(int left, int right, std::vector<int>parametr, int* RandomFilling = nullptr,
+												int* MaxNumOfElements = nullptr, std::vector<int>* mainArray = nullptr)
 	{
-		return 2;
+		assert(mainArray != nullptr);
+		assert(RandomFilling != nullptr);
+		assert(MaxNumOfElements != nullptr);
+
+		(*mainArray) = CreateArray((*MaxNumOfElements),1);
+		(*RandomFilling) = true;
+		return -1;
 	}
+
 	//!	\brief Возвращает маркер реакции на нажатия кнопки "Заполнения числами по убыванию"
-	int NotRandom(int left, int right, std::vector<int>parametr, int* swaping = nullptr,
-		int* comparisons = nullptr, std::vector<int>* Array = nullptr)
+	int NotRandom(int left, int right, std::vector<int>parametr, int* RandomFilling = nullptr,
+													int* MaxNumOfElements = nullptr, std::vector<int>* mainArray = nullptr)
 	{
-		return 3;
+		assert(mainArray != nullptr);
+		assert(RandomFilling != nullptr);
+		assert(MaxNumOfElements != nullptr);
+
+		(*mainArray) = CreateArray((*MaxNumOfElements),0);
+		(*RandomFilling) = false;
+		return -1;
 	}
+
 	//!	\brief Возвращает маркер реакции на нажатия кнопки "Изменения размера сортеруемого массива"
-	int Changed(int left, int right, std::vector<int>parametr, int* swaping = nullptr,
-		int* comparisons = nullptr, std::vector<int>* Array = nullptr)
+	int Changed(int left, int right, std::vector<int>parametr, int* RandomFilling = nullptr,
+												int* MaxNumOfElements = nullptr, std::vector<int>* mainArray = nullptr)
 	{
-		return 4;
+		assert(mainArray != nullptr);
+		assert(RandomFilling != nullptr);
+		assert(MaxNumOfElements != nullptr);
+
+		int input = std::atoi(txInputBox("Какие максимальное число элементов может быть в массиве?",
+			"Настройки", std::to_string(*MaxNumOfElements).c_str()));
+		if (input > 6000)
+			txMessageBox("Слишком много ввёл. Не дождёшься результата. Максимально можешь ввести до 6000.",
+				"Тех. поддержка");
+		else
+		{
+			(*MaxNumOfElements) = input;
+			(*mainArray) = CreateArray((*MaxNumOfElements), RandomFilling);
+		}
+		return -1;
 	}
 
 	//! \brief   Определяет параметры для кнопок
