@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['Рисование',['Рисование',['../group___drawing.html',1,'']]],
-  ['Расчёт_20значений',['Расчёт значений',['../group___pre_caculation.html',1,'']]],
-  ['Работа_20с_20пользователем',['Работа с пользователем',['../group___work_with_person.html',1,'']]]
+  ['width',['Width',['../_visualization_sorting_algorithm_8cpp.html#aee32c417863ee9a39ca02037ee121011',1,'drawing']]]
 ];

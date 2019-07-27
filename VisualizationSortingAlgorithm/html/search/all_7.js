@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['make_5fheap',['make_heap',['../classsorting_1_1heap.html#a9027dd3fac40a0af0a39e4989eb8a86f',1,'sorting::heap']]],
-  ['maxnumofelements',['MaxNumOfElements',['../_visualization_sorting_algorithm_8cpp.html#a6397012c86be03b7688ad623c69b5655',1,'drawing']]],
-  ['mergesorting',['mergeSorting',['../_sorting_function_8h.html#aff47c83936a064d742b03b650bcaa71c',1,'sorting']]]
+  ['id',['id',['../classdrawing_1_1button.html#a70a2169e39acfe29b73f695b398cba49',1,'drawing::button']]],
+  ['insertionsorting',['insertionSorting',['../_sorting_function_8h.html#a3b5ec647810db9e361e4ccf6f5ec7a69',1,'sorting']]],
+  ['isfunction',['isFunction',['../classdrawing_1_1button.html#a10d76dfef5cc680c0fff933ead587c52',1,'drawing::button']]],
+  ['ispushing',['isPushing',['../classdrawing_1_1button.html#a016e1106743f69036d6481c6cc906bad',1,'drawing::button']]]
 ];

@@ -47,6 +47,12 @@ namespace sorting
 				(*swaping)++;
 				descent_down(minIndexOfChild, swaping, comparisons);
 			}
+			(*comparisons)++;
+		}
+	public:
+		heap()
+		{
+			heap_init(0);
 		}
 
 		//! \brief Функция получения минимального значения и удаления его
@@ -57,18 +63,13 @@ namespace sorting
 			assert(swaping != comparisons);
 
 			T minValue = get_min();
-			tree[0] = tree[size-1];
+			tree[0] = tree[size - 1];
 			(*swaping)++;
 			size -= 1;
 			tree.pop_back();
 			descent_down(0, swaping, comparisons);
 
 			return minValue;
-		}
-	public:
-		heap()
-		{
-			heap_init(0);
 		}
 
 		//! \brief Функция создания кучи
@@ -90,66 +91,79 @@ namespace sorting
 		{
 			return tree[0];
 		}
-		
-		//! \brief Функция сортировки кучей
-		//!
-		//! \param[out] swaping			число обменов
-		//! \param[out] comparisons		число сравнений
-		//! \param[out] Array			сортеруемый массив
-		//! \param n					число элементов для сортировки от 0
-		/*! Код функции выглядит следующим образом :
-			\code
-			void heap_sort(int* swaping, int* comparisons, std::vector<T>* Array, int n)
-			{
-				assert(swaping != nullptr);
-				assert(comparisons != nullptr);
-				assert(swaping != comparisons);
-				assert(Array != nullptr);
+	};
 
-				make_heap(swaping, comparisons, *Array, n);
-				for (int i = 0; i < n; i++)
-				{
-					(*Array)[i] = extract_min(swaping, comparisons);
-					(*swaping)++;
-				}
-			}
-			\endcode
-		*/
-		void heap_sort(int* swaping, int* comparisons, std::vector<T>* Array, int n)
+	//! \brief Функция сортировки кучей
+	//!
+	//! \param[out] swaping			число обменов
+	//! \param[out] comparisons		число сравнений
+	//! \param[out] Array			сортеруемый массив
+	//! \param left					начало сортируемого участка
+	//! \param right				конец сортируемого участка включительно
+	//! 
+	//! \return		Маркер нажатия кнопок функций сортировки
+	/*! Код функции выглядит следующим образом :
+		\code
+		int heap_sort(int left, int right, std::vector<int>parametr, int* swaping = nullptr, 
+													int* comparisons = nullptr, std::vector<int>* Array = nullptr)
 		{
 			assert(swaping != nullptr);
 			assert(comparisons != nullptr);
 			assert(swaping != comparisons);
 			assert(Array != nullptr);
 
-			make_heap(swaping, comparisons, *Array, n);
-			for (int i = 0; i < n; i++)
+			heap<int>Heap;
+			Heap.make_heap(swaping, comparisons, *Array, right + 1);
+			for (int i = left; i <= right; i++)
 			{
-				(*Array)[i] = extract_min(swaping, comparisons);
+				(*Array)[i] = Heap.extract_min(swaping, comparisons);
 				(*swaping)++;
 			}
+			return -1;
 		}
-	};
+		\endcode
+	*/
+	int heap_sort(int left, int right, std::vector<int>parametr, int* swaping = nullptr, 
+													int* comparisons = nullptr, std::vector<int>* Array = nullptr)
+	{
+		assert(swaping != nullptr);
+		assert(comparisons != nullptr);
+		assert(swaping != comparisons);
+		assert(Array != nullptr);
+
+		heap<int>Heap;
+		Heap.make_heap(swaping, comparisons, *Array, right + 1);
+		for (int i = left; i <= right; i++)
+		{
+			(*Array)[i] = Heap.extract_min(swaping, comparisons);
+			(*swaping)++;
+		}
+		return -1;
+	}
 
 	//! \brief   Сортировка вставкой
 	//!
 	//! \param[out] swaping			число обменов
 	//! \param[out] comparisons		число сравнений
 	//! \param[out] Array			сортеруемый массив
-	//! \param n					число элементов для сортировки от 0
+	//! \param left					начало сортируемого участка
+	//! \param right				конец сортируемого участка включительно
+	//! 
+	//! \return		Маркер нажатия кнопок функций сортировки
 	/*! Код функции выглядит следующим образом :
 		\code
-		void insertionSorting(int* swaping, int* comparisons, std::vector<int>* Array, int n)
+		int insertionSorting(int left, int right, std::vector<int>parametr, int* swaping = nullptr, 
+								int* comparisons = nullptr, std::vector<int>* Array = nullptr)
 		{
 			assert(swaping != nullptr);
 			assert(comparisons != nullptr);
 			assert(swaping != comparisons);
 			assert(Array != nullptr);
 
-			for (int i = 0; i < n; i++)
+			for (int i = left; i < right; i++)
 			{
 				int j = i;
-				while (j > 0 && (*Array)[j] < (*Array)[j - 1])
+				while (j > left && (*Array)[j] < (*Array)[j - 1])
 				{
 					(*comparisons)++;
 					std::swap((*Array)[j], (*Array)[j - 1]);
@@ -157,20 +171,22 @@ namespace sorting
 					j -= 1;
 				}
 			}
+			return -1;
 		}
 		\endcode
 	*/
-	void insertionSorting(int* swaping, int* comparisons, std::vector<int>* Array, int n)
+	int insertionSorting(int left, int right, std::vector<int>parametr, int* swaping = nullptr, 
+								int* comparisons = nullptr, std::vector<int>* Array = nullptr)
 	{
 		assert(swaping != nullptr);
 		assert(comparisons != nullptr);
 		assert(swaping != comparisons);
 		assert(Array != nullptr);
 
-		for (int i = 0; i < n; i++)
+		for (int i = left; i < right; i++)
 		{
 			int j = i;
-			while (j > 0 && (*Array)[j] < (*Array)[j - 1])
+			while (j > left && (*Array)[j] < (*Array)[j - 1])
 			{
 				(*comparisons)++;
 				std::swap((*Array)[j], (*Array)[j - 1]);
@@ -178,6 +194,7 @@ namespace sorting
 				j -= 1;
 			}
 		}
+		return -1;
 	}
 
 	//! \brief   Сортировка пузырьком
@@ -185,10 +202,14 @@ namespace sorting
 	//! \param[out] swaping			число обменов
 	//! \param[out] comparisons		число сравнений
 	//! \param[out] Array			сортеруемый массив
-	//! \param n					число элементов для сортировки от 0
+	//! \param left					начало сортируемого участка
+	//! \param right				конец сортируемого участка включительно
+	//! 
+	//! \return		Маркер нажатия кнопок функций сортировки
 	/*! Код функции выглядит следующим образом :
 		\code
-		void bubleSorting(int* swaping, int* comparisons, std::vector<int>* Array, int n)
+		int bubbleSorting(int left, int right, std::vector<int>parametr, int* swaping = nullptr, 
+													int* comparisons = nullptr, std::vector<int>* Array = nullptr)
 		{
 			assert(swaping != nullptr);
 			assert(comparisons != nullptr);
@@ -199,22 +220,24 @@ namespace sorting
 			while (!end)
 			{
 				end = true;
-				for (int i = 1; i < n; i++)
+				for (int i = left + 1; i <= right; i++)
 				{
 					if ((*Array)[i] < (*Array)[i - 1])
 					{
-						(*comparisons)++;
 						std::swap((*Array)[i], (*Array)[i - 1]);
 						(*swaping)++;
 						end = false;
 					}
+					(*comparisons)++;
 				}
-				n--;
+				right--;
 			}
+			return -1;
 		}
 		\endcode
 	*/
-	void bubleSorting(int* swaping, int* comparisons, std::vector<int>* Array, int n)
+	int bubbleSorting(int left, int right, std::vector<int>parametr, int* swaping = nullptr, 
+													int* comparisons = nullptr, std::vector<int>* Array = nullptr)
 	{
 		assert(swaping != nullptr);
 		assert(comparisons != nullptr);
@@ -225,18 +248,19 @@ namespace sorting
 		while (!end)
 		{
 			end = true;
-			for (int i = 1; i < n; i++)
+			for (int i = left + 1; i <= right; i++)
 			{
 				if ((*Array)[i] < (*Array)[i - 1])
 				{
-					(*comparisons)++;
 					std::swap((*Array)[i], (*Array)[i - 1]);
 					(*swaping)++;
 					end = false;
 				}
+				(*comparisons)++;
 			}
-			n--;
+			right--;
 		}
+		return -1;
 	}
 
 	void merge(int* swaping, int* comparisons, std::vector<int>* Array, int left, int middle, int right)
@@ -283,8 +307,10 @@ namespace sorting
 	//! \param[out] comparisons		число сравнений
 	//! \param[out] Array			сортеруемый массив
 	//! \param left					начало сортируемого участка
-	//! \param right				конец сортируемого участка
+	//! \param right				конец сортируемого участка включительно
 	//! merge() функция объединяет два отсортированных участка массива в один отсортированный
+	//! 
+	//! \return		Маркер нажатия кнопок функций сортировки
 	/*! Код функции выглядит следующим образом :
 		\code
 		void merge(int* swaping, int* comparisons, std::vector<int>* Array, int left, int middle, int right)
@@ -325,7 +351,8 @@ namespace sorting
 			}
 		}
 
-		void mergeSorting(int* swaping, int* comparisons, std::vector<int>* Array, int left, int right)
+		int mergeSorting(int left, int right, std::vector<int>parametr, int* swaping = nullptr, 
+														int* comparisons = nullptr, std::vector<int>* Array = nullptr)
 		{
 			assert(swaping != nullptr);
 			assert(comparisons != nullptr);
@@ -336,14 +363,16 @@ namespace sorting
 			{
 				(*comparisons)++;
 				const int middile = (left + right) / 2;
-				mergeSorting(swaping, comparisons, Array, left, middile);
-				mergeSorting(swaping, comparisons, Array, middile+1, right);
+				mergeSorting(left, middile, parametr, swaping, comparisons, Array);
+				mergeSorting(middile + 1, right, parametr, swaping, comparisons, Array);
 				merge(swaping, comparisons, Array, left, middile, right);
 			}
+			return -1;
 		}
 		\endcode
 	*/
-	void mergeSorting(int* swaping, int* comparisons, std::vector<int>* Array, int left, int right)
+	int mergeSorting(int left, int right, std::vector<int>parametr, int* swaping = nullptr, 
+														int* comparisons = nullptr, std::vector<int>* Array = nullptr)
 	{
 		assert(swaping != nullptr);
 		assert(comparisons != nullptr);
@@ -354,10 +383,11 @@ namespace sorting
 		{
 			(*comparisons)++;
 			const int middile = (left + right) / 2;
-			mergeSorting(swaping, comparisons, Array, left, middile);
-			mergeSorting(swaping, comparisons, Array, middile+1, right);
+			mergeSorting(left, middile, parametr, swaping, comparisons, Array);
+			mergeSorting(middile + 1, right, parametr, swaping, comparisons, Array);
 			merge(swaping, comparisons, Array, left, middile, right);
 		}
+		return -1;
 	}
 
 	//! \brief   Быстрая сортировка
@@ -366,35 +396,13 @@ namespace sorting
 	//! \param[out] comparisons		число сравнений
 	//! \param[out] Array			сортеруемый массив
 	//! \param left					начало сортируемого участка
-	//! \param right				конец сортируемого участка
+	//! \param right				конец сортируемого участка включительно
+	//! 
+	//! \return		Маркер нажатия кнопок функций сортировки
 	/*! Код функции выглядит следующим образом :
 		\code
-		void quickSorting(int* swaping, int* comparisons, std::vector<int>* Array, int left, int right)
-		{
-			assert(swaping != nullptr);
-			assert(comparisons != nullptr);
-			assert(swaping != comparisons);
-			assert(Array != nullptr);
-
-			if (right - left <= 0)
-				return;
-
-			int p = left;
-			for (int i = left; i < right-1; i++)
-				if ((*Array)[i] < (*Array)[right - 1])
-				{
-					(*comparisons)++;
-					std::swap((*Array)[p], (*Array)[i]);
-					(*swaping)++;
-					p++;
-				}
-			std::swap((*Array)[p], (*Array)[right - 1]);
-			quickSorting(swaping, comparisons, Array, left, p);
-			quickSorting(swaping, comparisons, Array, p + 1, right);
-		}
-		\endcode
-	*/
-	void quickSorting(int* swaping, int* comparisons, std::vector<int>* Array, int left, int right)
+		int quickSorting(int left, int right, std::vector<int>parametr, int* swaping = nullptr, 
+													int* comparisons = nullptr, std::vector<int>* Array = nullptr)
 	{
 		assert(swaping != nullptr);
 		assert(comparisons != nullptr);
@@ -402,20 +410,52 @@ namespace sorting
 		assert(Array != nullptr);
 
 		if (right - left <= 0)
-			return;
+			return -1;
 
 		int p = left;
-		for (int i = left; i < right-1; i++)
-			if ((*Array)[i] < (*Array)[right - 1])
+		for (int i = left + 1; i <= right - 1; i++)
+		{
+			if ((*Array)[i] < (*Array)[right])
 			{
-				(*comparisons)++;
 				std::swap((*Array)[p], (*Array)[i]);
 				(*swaping)++;
 				p++;
 			}
-		std::swap((*Array)[p], (*Array)[right - 1]);
-		quickSorting(swaping, comparisons, Array, left, p);
-		quickSorting(swaping, comparisons, Array, p + 1, right);
+			(*comparisons)++;
+		}
+		std::swap((*Array)[p], (*Array)[right]);
+		quickSorting(left, p, parametr, swaping, comparisons, Array);
+		quickSorting(p + 1, right, parametr, swaping, comparisons, Array);
+		return -1;
+	}
+		\endcode
+	*/
+	int quickSorting(int left, int right, std::vector<int>parametr, int* swaping = nullptr, 
+													int* comparisons = nullptr, std::vector<int>* Array = nullptr)
+	{
+		assert(swaping != nullptr);
+		assert(comparisons != nullptr);
+		assert(swaping != comparisons);
+		assert(Array != nullptr);
+
+		if (right - left <= 0)
+			return -1;
+
+		int p = left;
+		for (int i = left + 1; i <= right - 1; i++)
+		{
+			if ((*Array)[i] < (*Array)[right])
+			{
+				std::swap((*Array)[p], (*Array)[i]);
+				(*swaping)++;
+				p++;
+			}
+			(*comparisons)++;
+		}
+		std::swap((*Array)[p], (*Array)[right]);
+		quickSorting(left, p, parametr, swaping, comparisons, Array);
+		quickSorting(p + 1, right, parametr, swaping, comparisons, Array);
+		return -1;
 	}
 
 	//! \brief   Сортировка выбором
@@ -423,94 +463,106 @@ namespace sorting
 	//! \param[out] swaping			число обменов
 	//! \param[out] comparisons		число сравнений
 	//! \param[out] Array			сортеруемый массив
-	//! \param n					число элементов для сортировки от 0
+	//! \param left					начало сортируемого участка
+	//! \param right				конец сортируемого участка включительно
+	//! 
+	//! \return		Маркер нажатия кнопок функций сортировки
 	/*! Код функции выглядит следующим образом :
 		\code
-		void selcetionSorting(int* swaping, int* comparisons, std::vector<int>* Array, int n)
+		int selectionSorting(int left, int right, std::vector<int>parametr, int* swaping = nullptr, 
+													int* comparisons = nullptr, std::vector<int>* Array = nullptr)
 		{
 			assert(swaping != nullptr);
 			assert(comparisons != nullptr);
 			assert(swaping != comparisons);
 			assert(Array != nullptr);
 
-			for (int i = 0; i < n; i++)
+			for (int i = left; i <=right; i++)
 			{
 				int min = (*Array)[i];
 				int index = i;
-				for(int j = i+1; j<n;j++)
+				for (int j = i + 1; j <= right; j++)
+				{
 					if (min > (*Array)[j])
 					{
-						(*comparisons)++;
 						min = (*Array)[j];
+						(*swaping)++;
 						index = j;
 					}
+					(*comparisons)++;
+				}
 				std::swap((*Array)[i], (*Array)[index]);
 				(*swaping)++;
 			}
+			return -1;
 		}
 		\endcode
 	*/
-	void selcetionSorting(int* swaping, int* comparisons, std::vector<int>* Array, int n)
+	int selectionSorting(int left, int right, std::vector<int>parametr, int* swaping = nullptr, 
+													int* comparisons = nullptr, std::vector<int>* Array = nullptr)
 	{
 		assert(swaping != nullptr);
 		assert(comparisons != nullptr);
 		assert(swaping != comparisons);
 		assert(Array != nullptr);
 
-		for (int i = 0; i < n; i++)
+		for (int i = left; i <=right; i++)
 		{
 			int min = (*Array)[i];
 			int index = i;
-			for(int j = i+1; j<n;j++)
+			for (int j = i + 1; j <= right; j++)
+			{
 				if (min > (*Array)[j])
 				{
-					(*comparisons)++;
 					min = (*Array)[j];
+					(*swaping)++;
 					index = j;
 				}
+				(*comparisons)++;
+			}
 			std::swap((*Array)[i], (*Array)[index]);
 			(*swaping)++;
 		}
+		return -1;
 	}
 
 //=================================================================================================================
-
-	void GetResultOfAccount(int* swaping, int* comparisons, std::vector<int>mainArray, std::string nameFunction, int n)
+	//для отладки
+	std::vector<int> GetResultOfAccount(int* swaping, int* comparisons, std::vector<int>mainArray, std::string nameFunction, int n)
 	{
 		assert(swaping != nullptr);
 		assert(comparisons != nullptr);
 		assert(swaping != comparisons);
-
+		std::vector<int>parametr;
 		if (nameFunction == "Heap")
 		{
-			heap<int>Heap;
-			Heap.heap_sort(swaping, comparisons, &mainArray, n);
-			return;
+			//heap_sort(0, n - 1, parametr, swaping, comparisons, &mainArray);
+			return mainArray;
 		}
 		if (nameFunction == "Insertion")
 		{
-			insertionSorting(swaping, comparisons, &mainArray, n);
-			return;
+			insertionSorting(0, n - 1, parametr, swaping, comparisons, &mainArray);
+			return mainArray;
 		}
 		if (nameFunction == "Bubble")
 		{
-			bubleSorting(swaping, comparisons, &mainArray, n);
-			return;
+			bubbleSorting(0, n - 1, parametr, swaping, comparisons, &mainArray);
+			return mainArray;
 		}
 		if (nameFunction == "Merge")
 		{
-			mergeSorting(swaping, comparisons, &mainArray, 0, n-1);
-			return;
+			mergeSorting(0, n - 1, parametr, swaping, comparisons, &mainArray);
+			return mainArray;
 		}
 		if (nameFunction == "Quick")
 		{
-			quickSorting(swaping, comparisons, &mainArray, 0, n);
-			return;
+			quickSorting(0, n - 1, parametr, swaping, comparisons, &mainArray);
+			return mainArray;
 		}
 		if (nameFunction == "Selection")
 		{
-			selcetionSorting(swaping, comparisons, &mainArray, n);
-			return;
+			selectionSorting(0, n - 1, parametr, swaping, comparisons, &mainArray);
+			return mainArray;
 		}
 	}
 }

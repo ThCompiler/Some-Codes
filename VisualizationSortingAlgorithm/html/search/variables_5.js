@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['maxnumofelements',['MaxNumOfElements',['../_visualization_sorting_algorithm_8cpp.html#a6397012c86be03b7688ad623c69b5655',1,'drawing']]]
+  ['linktofunction',['linkToFunction',['../classdrawing_1_1button.html#a5cd4516de09cad169ba8898a3c29198e',1,'drawing::button']]]
 ];

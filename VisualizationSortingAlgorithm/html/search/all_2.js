@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['checkclickorpushing',['CheckClickOrPushing',['../group___work_with_person.html#gac3509167f6f3672a6b64875d7211cc47',1,'drawing']]],
-  ['clickbutton',['ClickButton',['../group___drawing.html#gaa10daf989f915fab0538ff1f5922a49d',1,'drawing']]],
+  ['changed',['Changed',['../_buttons_8h.html#afbcd2602a10f170d9cec21c3d39dfb67',1,'drawing']]],
+  ['checkclickorpushing',['CheckClickOrPushing',['../group___work_with_person.html#ga4b450de760e0bf9dc00f2493148b2956',1,'drawing']]],
+  ['clickbutton',['ClickButton',['../classdrawing_1_1button.html#a282d0867338f258f5034f3d35f127883',1,'drawing::button::ClickButton()'],['../group___not_used.html#gaa10daf989f915fab0538ff1f5922a49d',1,'drawing::ClickButton()']]],
   ['coordinatesdiagramofcomparisons',['CoordinatesDiagramOfComparisons',['../_visualization_sorting_algorithm_8cpp.html#a524151a56cbfcc12b9f6e5a7c3ce4894',1,'drawing']]],
   ['coordinatesdiagramofswaping',['CoordinatesDiagramOfSwaping',['../_visualization_sorting_algorithm_8cpp.html#ac9f1306a029ca7564d7ee4f237718e40',1,'drawing']]],
   ['createarray',['CreateArray',['../group___pre_caculation.html#ga868375389d7bb364d87863d6d960bbd6',1,'drawing']]],

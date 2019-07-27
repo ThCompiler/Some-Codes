@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['text',['text',['../structdrawing_1_1button.html#a7dfdadafc170b9c19bff2555b2cbf168',1,'drawing::button']]],
-  ['textcolor',['textColor',['../structdrawing_1_1button.html#a4759556bf498d99bb9130bbd0cb46ac5',1,'drawing::button']]]
+  ['r',['R',['../classdrawing_1_1button.html#abcc12dbdfbeb4c835f1ff16318b09b9e',1,'drawing::button']]],
+  ['random',['Random',['../_buttons_8h.html#ae626e738e82b9dfc3e61860c0f426947',1,'drawing']]],
+  ['resultvalue',['ResultValue',['../structdrawing_1_1_result_value.html',1,'drawing']]]
 ];

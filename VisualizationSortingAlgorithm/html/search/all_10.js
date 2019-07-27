@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['width',['Width',['../_visualization_sorting_algorithm_8cpp.html#aee32c417863ee9a39ca02037ee121011',1,'drawing']]]
+  ['text',['text',['../classdrawing_1_1button.html#a7dfdadafc170b9c19bff2555b2cbf168',1,'drawing::button']]],
+  ['textcolor',['textColor',['../classdrawing_1_1button.html#a4759556bf498d99bb9130bbd0cb46ac5',1,'drawing::button']]]
 ];

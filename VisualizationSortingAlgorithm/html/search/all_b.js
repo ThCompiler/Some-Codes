@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quicksorting',['quickSorting',['../_sorting_function_8h.html#afe382ee31c59545daa1d3203453af4ee',1,'sorting']]]
+  ['onlyclick',['onlyClick',['../classdrawing_1_1button.html#aea81b651348b690c46b0e314a0e5e8e7',1,'drawing::button']]]
 ];
