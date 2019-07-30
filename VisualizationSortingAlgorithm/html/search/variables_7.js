@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['namefont',['nameFont',['../classdrawing_1_1button.html#a054e299611c0793d0fce71c519460a22',1,'drawing::button']]]
+  ['namefont',['nameFont',['../structdrawing_1_1text_style.html#af08a2939028d370543cda48fa6fe44c4',1,'drawing::textStyle']]]
 ];

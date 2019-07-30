@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['get_5fmin',['get_min',['../classsorting_1_1heap.html#ae7aa457035adb268c0e5c697dfb6748e',1,'sorting::heap']]]
+  ['heap_5fsort',['heap_sort',['../group___buttons_funct.html#gaab820d34aaf3d7eb7f7fb810cb4f5ddb',1,'buttonsFunction']]]
 ];

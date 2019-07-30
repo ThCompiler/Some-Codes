@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['insertionsorting',['insertionSorting',['../_sorting_function_8h.html#a3b5ec647810db9e361e4ccf6f5ec7a69',1,'sorting']]]
+  ['mergesorting',['mergeSorting',['../group___buttons_funct.html#gaec3e4348151a3eb55e195cb90d8d8477',1,'buttonsFunction']]]
 ];

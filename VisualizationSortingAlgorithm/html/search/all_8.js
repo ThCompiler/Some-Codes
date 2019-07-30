@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['linktofunction',['linkToFunction',['../classdrawing_1_1button.html#a5cd4516de09cad169ba8898a3c29198e',1,'drawing::button']]]
+  ['linktofunction',['linkToFunction',['../class_buttons_1_1button.html#abe6d06113966403220faf479762dbef5',1,'Buttons::button']]]
 ];

@@ -63,7 +63,9 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Классы</a> &#124;
-<a href="#func-members">Функции</a>  </div>
+<a href="#enum-members">Перечисления</a> &#124;
+<a href="#func-members">Функции</a> &#124;
+<a href="#var-members">Переменные</a>  </div>
   <div class="headertitle">
 <div class="title">Файл Buttons.h</div>  </div>
 </div><!--header-->
@@ -74,111 +76,98 @@ $(function() {
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &quot;TXLib.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="_sorting_function_8h_source.html">SortingFunction.h</a>&quot;</code><br />
+<code>#include &quot;SortingFunction.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_update_t_x_lib_8h_source.html">UpdateTXLib.h</a>&quot;</code><br />
 </div>
 <p><a href="_buttons_8h_source.html">См. исходные тексты.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Классы</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdrawing_1_1button.html">drawing::button</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">клаас кнопки  <a href="classdrawing_1_1button.html#details">Подробнее...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buttons_1_1button.html">Buttons::button</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">класс кнопки  <a href="class_buttons_1_1button.html#details">Подробнее...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Перечисления</h2></td></tr>
+<tr class="memitem:aa9eca20733bbd0af86d7dda5c095c210"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_buttons_8h.html#aa9eca20733bbd0af86d7dda5c095c210">Buttons::TypeOfButton</a> { <a class="el" href="_buttons_8h.html#aa9eca20733bbd0af86d7dda5c095c210ac19f6a56ccd8dacb8b1362d7e027c702">Buttons::NonFixedButton</a> = 1, 
+<a class="el" href="_buttons_8h.html#aa9eca20733bbd0af86d7dda5c095c210ae49d1049bd9daac68c239a3929f481cb">Buttons::FixedButton</a> = 2, 
+<a class="el" href="_buttons_8h.html#aa9eca20733bbd0af86d7dda5c095c210ae9f49d5a3c9324f89638dc7008b779fb">Buttons::SwapingButton</a> = 3
+ }</td></tr>
+<tr class="memdesc:aa9eca20733bbd0af86d7dda5c095c210"><td class="mdescLeft">&#160;</td><td class="mdescRight">тип действия кнопки на щелчок мыши  <a href="_buttons_8h.html#aa9eca20733bbd0af86d7dda5c095c210">Подробнее...</a><br /></td></tr>
+<tr class="separator:aa9eca20733bbd0af86d7dda5c095c210"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Функции</h2></td></tr>
-<tr class="memitem:a9bfdc7c5b4b421ecb0188992d0ffe361"><td class="memItemLeft" align="right" valign="top"><a id="a9bfdc7c5b4b421ecb0188992d0ffe361"></a>
-std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_buttons_8h.html#a9bfdc7c5b4b421ecb0188992d0ffe361">drawing::CreateArray</a> (int MaxNumOfElements, bool isRandom)</td></tr>
-<tr class="memdesc:a9bfdc7c5b4b421ecb0188992d0ffe361"><td class="mdescLeft">&#160;</td><td class="mdescRight">описание в DiagramOfSorting. <br /></td></tr>
-<tr class="separator:a9bfdc7c5b4b421ecb0188992d0ffe361"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad476bf5f4d4c45aa6989fb7390bb50cc"><td class="memItemLeft" align="right" valign="top"><a id="ad476bf5f4d4c45aa6989fb7390bb50cc"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_buttons_8h.html#ad476bf5f4d4c45aa6989fb7390bb50cc">drawing::Start</a> (int left, int right, std::vector&lt; int &gt;parametr, int *swaping=nullptr, int *comparisons=nullptr, std::vector&lt; int &gt; *Array=nullptr)</td></tr>
-<tr class="memdesc:ad476bf5f4d4c45aa6989fb7390bb50cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает маркер реакции на нажатия кнопки "Поехали!", то есть запуска расчётов <br /></td></tr>
-<tr class="separator:ad476bf5f4d4c45aa6989fb7390bb50cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b3d6b33a6f55eaaa46e3968643db3bb"><td class="memItemLeft" align="right" valign="top"><a id="a9b3d6b33a6f55eaaa46e3968643db3bb"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_buttons_8h.html#a9b3d6b33a6f55eaaa46e3968643db3bb">drawing::Exit</a> (int left, int right, std::vector&lt; int &gt;parametr, int *swaping=nullptr, int *comparisons=nullptr, std::vector&lt; int &gt; *Array=nullptr)</td></tr>
-<tr class="memdesc:a9b3d6b33a6f55eaaa46e3968643db3bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает маркер реакции на нажатия кнопки "Выход". <br /></td></tr>
-<tr class="separator:a9b3d6b33a6f55eaaa46e3968643db3bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b3643f19df5fc4abff8b7a664351b5a"><td class="memItemLeft" align="right" valign="top"><a id="a5b3643f19df5fc4abff8b7a664351b5a"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_buttons_8h.html#a5b3643f19df5fc4abff8b7a664351b5a">drawing::Random</a> (int left, int right, std::vector&lt; int &gt;parametr, int *RandomFilling=nullptr, int *MaxNumOfElements=nullptr, std::vector&lt; int &gt; *mainArray=nullptr)</td></tr>
-<tr class="memdesc:a5b3643f19df5fc4abff8b7a664351b5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает маркер реакции на нажатия кнопки "Заполнения случаными числами". <br /></td></tr>
-<tr class="separator:a5b3643f19df5fc4abff8b7a664351b5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9abcef3b81b9a41927870f18c15ec5ac"><td class="memItemLeft" align="right" valign="top"><a id="a9abcef3b81b9a41927870f18c15ec5ac"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_buttons_8h.html#a9abcef3b81b9a41927870f18c15ec5ac">drawing::NotRandom</a> (int left, int right, std::vector&lt; int &gt;parametr, int *RandomFilling=nullptr, int *MaxNumOfElements=nullptr, std::vector&lt; int &gt; *mainArray=nullptr)</td></tr>
-<tr class="memdesc:a9abcef3b81b9a41927870f18c15ec5ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает маркер реакции на нажатия кнопки "Заполнения числами по убыванию". <br /></td></tr>
-<tr class="separator:a9abcef3b81b9a41927870f18c15ec5ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b7a2873916a9c01a24245b3cdb0b251"><td class="memItemLeft" align="right" valign="top"><a id="a9b7a2873916a9c01a24245b3cdb0b251"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_buttons_8h.html#a9b7a2873916a9c01a24245b3cdb0b251">drawing::Changed</a> (int left, int right, std::vector&lt; int &gt;parametr, int *RandomFilling=nullptr, int *MaxNumOfElements=nullptr, std::vector&lt; int &gt; *mainArray=nullptr)</td></tr>
-<tr class="memdesc:a9b7a2873916a9c01a24245b3cdb0b251"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает маркер реакции на нажатия кнопки "Изменения размера сортеруемого массива". <br /></td></tr>
-<tr class="separator:a9b7a2873916a9c01a24245b3cdb0b251"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7d8878ee7f4053156300b37d2e615f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_buttons_8h.html#aa7d8878ee7f4053156300b37d2e615f8">drawing::CreateButtons</a> (int height, int width, int boundaries, std::vector&lt; button &gt; *SimpleButtons, std::vector&lt; button &gt; *FunctionButtons, std::vector&lt; button &gt; *SwapButtons)</td></tr>
-<tr class="memdesc:aa7d8878ee7f4053156300b37d2e615f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Определяет параметры для кнопок  <a href="_buttons_8h.html#aa7d8878ee7f4053156300b37d2e615f8">Подробнее...</a><br /></td></tr>
-<tr class="separator:aa7d8878ee7f4053156300b37d2e615f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad5fbcbdbaf3e093951fc6d4fa236ca87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___buttons_funct.html#gad5fbcbdbaf3e093951fc6d4fa236ca87">Buttons::DrawButtons</a> (std::vector&lt; button &gt; *Buttons)</td></tr>
+<tr class="memdesc:gad5fbcbdbaf3e093951fc6d4fa236ca87"><td class="mdescLeft">&#160;</td><td class="mdescRight">рисует кнопки  <a href="group___buttons_funct.html#gad5fbcbdbaf3e093951fc6d4fa236ca87">Подробнее...</a><br /></td></tr>
+<tr class="separator:gad5fbcbdbaf3e093951fc6d4fa236ca87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad91a31cbbeb00546b6f49ac3a484793d"><td class="memItemLeft" align="right" valign="top"><a id="ad91a31cbbeb00546b6f49ac3a484793d"></a>
+button&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_buttons_8h.html#ad91a31cbbeb00546b6f49ac3a484793d">Buttons::CreateButton</a> (int id, std::string text, POINT pos, POINT size, int R, COLORREF boundariesColor, COLORREF backColor, const <a class="el" href="structdrawing_1_1text_style.html">drawing::textStyle</a> *styleText, bool isPressed, TypeOfButton type, int(*linkToFunction)(int left, int right, std::vector&lt; int &gt;parametr, int *swaping, int *comparisons, std::vector&lt; int &gt; *Array))</td></tr>
+<tr class="memdesc:ad91a31cbbeb00546b6f49ac3a484793d"><td class="mdescLeft">&#160;</td><td class="mdescRight">конструктор кнопки <br /></td></tr>
+<tr class="separator:ad91a31cbbeb00546b6f49ac3a484793d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Переменные</h2></td></tr>
+<tr class="memitem:a668321ff0cfc4d741c4186fc9d8a92fd"><td class="memItemLeft" align="right" valign="top">int(*)(int left, int right, std::vector&lt; int &gt;parametr, int *swaping, int *comparisons, std::vector&lt; int &gt; *Array)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_buttons_8h.html#a668321ff0cfc4d741c4186fc9d8a92fd">Buttons::CheckClickButtons</a> (std::vector&lt; button &gt; *Buttons)</td></tr>
+<tr class="memdesc:a668321ff0cfc4d741c4186fc9d8a92fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">обрабатывает нажатие на кнопки  <a href="_buttons_8h.html#a668321ff0cfc4d741c4186fc9d8a92fd">Подробнее...</a><br /></td></tr>
+<tr class="separator:a668321ff0cfc4d741c4186fc9d8a92fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
 <div class="textblock"><p>библиотека инициализации кнопок </p>
-</div><h2 class="groupheader">Функции</h2>
-<a id="file_aa7d8878ee7f4053156300b37d2e615f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#file_aa7d8878ee7f4053156300b37d2e615f8">&#9670;&nbsp;</a></span>CreateButtons()</h2>
+</div><h2 class="groupheader">Перечисления</h2>
+<a id="file_aa9eca20733bbd0af86d7dda5c095c210"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_aa9eca20733bbd0af86d7dda5c095c210">&#9670;&nbsp;</a></span>TypeOfButton</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void drawing::CreateButtons </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>height</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>width</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>boundaries</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="classdrawing_1_1button.html">button</a> &gt; *&#160;</td>
-          <td class="paramname"><em>SimpleButtons</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="classdrawing_1_1button.html">button</a> &gt; *&#160;</td>
-          <td class="paramname"><em>FunctionButtons</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="classdrawing_1_1button.html">button</a> &gt; *&#160;</td>
-          <td class="paramname"><em>SwapButtons</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">enum <a class="el" href="_buttons_8h.html#aa9eca20733bbd0af86d7dda5c095c210">Buttons::TypeOfButton</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Определяет параметры для кнопок </p>
+<p>тип действия кнопки на щелчок мыши </p>
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="aa9eca20733bbd0af86d7dda5c095c210ac19f6a56ccd8dacb8b1362d7e027c702"></a>NonFixedButton&#160;</td><td class="fielddoc"><p>нефиксирующаяся кнопка </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa9eca20733bbd0af86d7dda5c095c210ae49d1049bd9daac68c239a3929f481cb"></a>FixedButton&#160;</td><td class="fielddoc"><p>фиксирующая кнопка </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa9eca20733bbd0af86d7dda5c095c210ae9f49d5a3c9324f89638dc7008b779fb"></a>SwapingButton&#160;</td><td class="fielddoc"><p>кнопка которая единственная среди группы кнопок активна </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Переменные</h2>
+<a id="file_a668321ff0cfc4d741c4186fc9d8a92fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_a668321ff0cfc4d741c4186fc9d8a92fd">&#9670;&nbsp;</a></span>CheckClickButtons</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int(*)(int left, int right, std::vector&lt;int&gt;parametr, int* swaping, int* comparisons, std::vector&lt;int&gt;* Array) Buttons::CheckClickButtons(std::vector&lt; button &gt; *Buttons)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>обрабатывает нажатие на кнопки </p>
 <dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">height</td><td>высота окна программы </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">width</td><td>ширина окна программы </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">boundaries</td><td>унивирсальное значение для разметки окна </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">SimpleButtons</td><td>вектор параметров обычных кнопок </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">SwapButtons</td><td>вектор параметров кнопок, среди которых может быть активна только одна </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">FunctionButtons</td><td>вектор параметров кнопок функций сортировки </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Buttons</td><td>массив кнопок</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Возвращает</dt><dd>ссылку на функцию кнопки</dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Buttons</td><td>массив кнопок</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Код в библиотеке <a class="el" href="_buttons_8h.html" title="библиотека инициализации кнопок">Buttons.h</a></p>
+<dl class="section return"><dt>Возвращает</dt><dd>ссылку на функцию кнопки </dd></dl>
 
 </div>
 </div>

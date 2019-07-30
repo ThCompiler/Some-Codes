@@ -73,6 +73,9 @@ $(function() {
 <tr class="memitem:ga868375389d7bb364d87863d6d960bbd6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___pre_caculation.html#ga868375389d7bb364d87863d6d960bbd6">drawing::CreateArray</a> (bool isRandom=1)</td></tr>
 <tr class="memdesc:ga868375389d7bb364d87863d6d960bbd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Заполняет массив для сортировки  <a href="group___pre_caculation.html#ga868375389d7bb364d87863d6d960bbd6">Подробнее...</a><br /></td></tr>
 <tr class="separator:ga868375389d7bb364d87863d6d960bbd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga60554e265a9ea3585fba41fdc2ca223d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___pre_caculation.html#ga60554e265a9ea3585fba41fdc2ca223d">drawing::CreateButtons</a> (int height, int width, int boundaries, std::vector&lt; <a class="el" href="class_buttons_1_1button.html">Buttons::button</a> &gt; *SimpleButtons, std::vector&lt; <a class="el" href="class_buttons_1_1button.html">Buttons::button</a> &gt; *FunctionButtons, std::vector&lt; <a class="el" href="class_buttons_1_1button.html">Buttons::button</a> &gt; *SwapButtons)</td></tr>
+<tr class="memdesc:ga60554e265a9ea3585fba41fdc2ca223d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Заполняет массив для сортировки  <a href="group___pre_caculation.html#ga60554e265a9ea3585fba41fdc2ca223d">Подробнее...</a><br /></td></tr>
+<tr class="separator:ga60554e265a9ea3585fba41fdc2ca223d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
 <h2 class="groupheader">Функции</h2>
@@ -100,6 +103,78 @@ $(function() {
   </dd>
 </dl>
 <dl class="section return"><dt>Возвращает</dt><dd>Массив для сортировки </dd></dl>
+
+</div>
+</div>
+<a id="ga60554e265a9ea3585fba41fdc2ca223d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga60554e265a9ea3585fba41fdc2ca223d">&#9670;&nbsp;</a></span>CreateButtons()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void drawing::CreateButtons </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>boundaries</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_buttons_1_1button.html">Buttons::button</a> &gt; *&#160;</td>
+          <td class="paramname"><em>SimpleButtons</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_buttons_1_1button.html">Buttons::button</a> &gt; *&#160;</td>
+          <td class="paramname"><em>FunctionButtons</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_buttons_1_1button.html">Buttons::button</a> &gt; *&#160;</td>
+          <td class="paramname"><em>SwapButtons</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Заполняет массив для сортировки </p>
+<p>Определяет параметры для кнопок</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">height</td><td>высота окна программы </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">width</td><td>ширина окна программы </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">boundaries</td><td>унивирсальная константа, упрощающая процесс расположения объектов </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">SimpleButtons</td><td>вектор параметров обычных кнопок </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">FunctionButtons</td><td>вектор параметров кнопок функций сортировки </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">SwapButtons</td><td>вектор параметров кнопок, среди которых может быть активна только одна</td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">height</td><td>высота окна программы </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">width</td><td>ширина окна программы </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">boundaries</td><td>унивирсальное значение для разметки окна </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">SimpleButtons</td><td>вектор параметров обычных кнопок </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">SwapButtons</td><td>вектор параметров кнопок, среди которых может быть активна только одна </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">FunctionButtons</td><td>вектор параметров кнопок функций сортировки </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

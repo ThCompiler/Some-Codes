@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['onlyclick',['onlyClick',['../classdrawing_1_1button.html#aea81b651348b690c46b0e314a0e5e8e7',1,'drawing::button']]]
+  ['parameterforresults',['parameterForResults',['../structdrawing_1_1parameter_for_results.html',1,'drawing']]],
+  ['pos',['pos',['../class_buttons_1_1button.html#af59d546a1f81eab34d03f48d56bb8c95',1,'Buttons::button']]]
 ];

@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['sandcolor',['SandColor',['../_visualization_sorting_algorithm_8cpp.html#a17c8e95bc9944c14e826eaea9af70c97',1,'drawing']]],
-  ['selectionsorting',['selectionSorting',['../_sorting_function_8h.html#ae5e50012988cb9cd5702d9a089718e3c',1,'sorting']]],
-  ['size',['size',['../classsorting_1_1heap.html#a0a329ce048355d31f990868561347958',1,'sorting::heap']]],
-  ['sizefont',['sizeFont',['../classdrawing_1_1button.html#a568982d4eb7cbe52fe5baaa14375c28e',1,'drawing::button']]],
-  ['sortingfunction_2eh',['SortingFunction.h',['../_sorting_function_8h.html',1,'']]],
-  ['start',['Start',['../_buttons_8h.html#ad476bf5f4d4c45aa6989fb7390bb50cc',1,'drawing']]],
-  ['startaccount',['StartAccount',['../group___work_with_person.html#ga23434748aaf2614840c267ea9af96d54',1,'drawing']]]
+  ['text',['text',['../class_buttons_1_1button.html#a0b46a8ba7918ea8bce446563ca84a8e9',1,'Buttons::button']]],
+  ['textcolor',['textColor',['../structdrawing_1_1text_style.html#add0ae2ebcf1514f7efbca993a594ee0a',1,'drawing::textStyle']]],
+  ['textstyle',['textStyle',['../structdrawing_1_1text_style.html',1,'drawing']]],
+  ['tx_5fscarlet',['TX_SCARLET',['../_update_t_x_lib_8h.html#a8b92693cd98466602c52cbc181605c1c',1,'drawing']]],
+  ['type',['type',['../class_buttons_1_1button.html#ac797586fb081a4932f43c0a674b98045',1,'Buttons::button']]],
+  ['typeofbutton',['TypeOfButton',['../_buttons_8h.html#aa9eca20733bbd0af86d7dda5c095c210',1,'Buttons']]]
 ];

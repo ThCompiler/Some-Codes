@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['heap',['heap',['../classsorting_1_1heap.html',1,'sorting']]]
+  ['parameterforresults',['parameterForResults',['../structdrawing_1_1parameter_for_results.html',1,'drawing']]]
 ];

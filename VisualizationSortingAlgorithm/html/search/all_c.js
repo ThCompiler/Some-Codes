@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['parameterforresults',['parameterForResults',['../structdrawing_1_1parameter_for_results.html',1,'drawing']]]
+  ['quicksorting',['quickSorting',['../group___buttons_funct.html#ga2e5d6146e32b53886d60db88f37b87c5',1,'buttonsFunction']]]
 ];
