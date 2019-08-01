@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Визуализация алгоритмов сортировки: Структура drawing::textStyle</title>
+<title>Визуализация алгоритмов сортировки: Структура drawing::ForCreateButton</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,38 +61,40 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>drawing</b></li><li class="navelem"><a class="el" href="structdrawing_1_1text_style.html">textStyle</a></li>  </ul>
+<li class="navelem"><b>drawing</b></li><li class="navelem"><a class="el" href="structdrawing_1_1_for_create_button.html">ForCreateButton</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Открытые атрибуты</a> &#124;
-<a href="structdrawing_1_1text_style-members.html">Полный список членов класса</a>  </div>
+<a href="structdrawing_1_1_for_create_button-members.html">Полный список членов класса</a>  </div>
   <div class="headertitle">
-<div class="title">Структура drawing::textStyle</div>  </div>
+<div class="title">Структура drawing::ForCreateButton</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>стиль текста  
- <a href="structdrawing_1_1text_style.html#details">Подробнее...</a></p>
-
-<p><code>#include &lt;<a class="el" href="_update_t_x_lib_8h_source.html">UpdateTXLib.h</a>&gt;</code></p>
+<p>структура для удобства создания кнопок  
+ <a href="structdrawing_1_1_for_create_button.html#details">Подробнее...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Открытые атрибуты</h2></td></tr>
-<tr class="memitem:af08a2939028d370543cda48fa6fe44c4"><td class="memItemLeft" align="right" valign="top"><a id="af08a2939028d370543cda48fa6fe44c4"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdrawing_1_1text_style.html#af08a2939028d370543cda48fa6fe44c4">nameFont</a></td></tr>
-<tr class="memdesc:af08a2939028d370543cda48fa6fe44c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">названия шрифта текста <br /></td></tr>
-<tr class="separator:af08a2939028d370543cda48fa6fe44c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18077912ecf83b15b91dc021af0335ee"><td class="memItemLeft" align="right" valign="top"><a id="a18077912ecf83b15b91dc021af0335ee"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdrawing_1_1text_style.html#a18077912ecf83b15b91dc021af0335ee">sizeFont</a></td></tr>
-<tr class="memdesc:a18077912ecf83b15b91dc021af0335ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">размер шрифта <br /></td></tr>
-<tr class="separator:a18077912ecf83b15b91dc021af0335ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a804bf2dee8a0e0c4eb72d3414796f126"><td class="memItemLeft" align="right" valign="top"><a id="a804bf2dee8a0e0c4eb72d3414796f126"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>id</b></td></tr>
+<tr class="separator:a804bf2dee8a0e0c4eb72d3414796f126"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a6c4917773bd31db6ca95b147e321c2"><td class="memItemLeft" align="right" valign="top"><a id="a2a6c4917773bd31db6ca95b147e321c2"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>text</b></td></tr>
+<tr class="separator:a2a6c4917773bd31db6ca95b147e321c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19a17be1d720c877a9e5289d6dece331"><td class="memItemLeft" align="right" valign="top"><a id="a19a17be1d720c877a9e5289d6dece331"></a>
+COLORREF&#160;</td><td class="memItemRight" valign="bottom"><b>textColor</b></td></tr>
+<tr class="separator:a19a17be1d720c877a9e5289d6dece331"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a617e5575ff32d34954bd195e51688771"><td class="memItemLeft" align="right" valign="top"><a id="a617e5575ff32d34954bd195e51688771"></a>
+int(*&#160;</td><td class="memItemRight" valign="bottom"><b>Function</b> )(int left, int right, std::vector&lt; int &gt;parametr, int *swaping, int *comparisons, std::vector&lt; int &gt; *Array)</td></tr>
+<tr class="separator:a617e5575ff32d34954bd195e51688771"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
-<div class="textblock"><p>стиль текста </p>
+<div class="textblock"><p>структура для удобства создания кнопок </p>
 </div><hr/>Объявления и описания членов структуры находятся в файле:<ul>
-<li><a class="el" href="_update_t_x_lib_8h_source.html">UpdateTXLib.h</a></li>
+<li><a class="el" href="_visualization_sorting_algorithm_8cpp.html">VisualizationSortingAlgorithm.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

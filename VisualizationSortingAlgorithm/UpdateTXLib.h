@@ -17,7 +17,6 @@ namespace drawing
 
 	struct textStyle
 	{
-		COLORREF textColor;		///<  цвет текста
 		std::string nameFont;	///<  названия шрифта текста
 		int sizeFont;			///<  размер шрифта
 	};
@@ -95,8 +94,8 @@ namespace drawing
 		for (int i = 1; i <= gap; i++)
 		{
 			const COLORREF color = RGB(MAX(txExtractColor(BackColor, TX_RED) - 1.3 * i, 0),		// получаем цвет для 
-				MAX(txExtractColor(BackColor, TX_GREEN) - 1.3 * i, 0),							// каждого элемента
-				txExtractColor(BackColor, TX_BLUE));											// градиента
+							MAX(txExtractColor(BackColor, TX_GREEN) - 1.3 * i, 0),				// каждого элемента
+							txExtractColor(BackColor, TX_BLUE));								// градиента
 
 			if (gap - i <= r)			// если приблежаемся к границам кнопки делаем скругление, чтобы не было торчаших углов
 				R = r - (gap - i);

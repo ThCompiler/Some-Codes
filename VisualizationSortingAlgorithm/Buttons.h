@@ -19,7 +19,7 @@ namespace Buttons
 	{
 		NonFixedButton = 1,		///< нефиксирующаяся кнопка
 		FixedButton = 2,		///< фиксирующая кнопка
-		SwapingButton = 3		///< кнопка которая единственная среди группы кнопок активна
+		InterchangeableButton = 3		///< кнопка которая единственная среди группы кнопок активна
 	};
 
 //=================================================================================================================
@@ -37,19 +37,19 @@ namespace Buttons
 		int R;									///< радиус скругление углов кнопки
 		COLORREF boundariesColor;				///< цвет границ
 		COLORREF backColor;						///< фон активной кнопки
+		COLORREF textColor;						///< цвет текста
 		const drawing::textStyle* styleText;	///< стиль текста кнопки
 		bool isPressed;							///< является ли кнопка активна
 		TypeOfButton type;						///< способ работы кнопки
 
-		int(*linkToFunction)(int left, int right, std::vector<int>parametr, int* swaping,
-											int* comparisons, std::vector<int>* Array);		///< ссылка на функцию сортировки
+		int(*linkToFunction)(int left, int right, std::vector<int>parametr, int* swaping,	///< ссылка на функцию сортировки
+							 int* comparisons, std::vector<int>* Array);						
 
 	public:
 
 	//-----------------------------------------------------------------------------------------------------------------
 	//!	\brief Рисует кнопки
-	//! 
-	//! \param backColor	цвет фона кнопки при её активации
+	//!
 	//! \param withContur	маркер наличия контура у кнопки; true - у кнопки будет контур, false - не будет
 	//!
 	//-----------------------------------------------------------------------------------------------------------------
@@ -62,16 +62,14 @@ namespace Buttons
 			if (withContur) // если нужен контур
 				drawing::DrawGentleRectangle(pos.x, pos.y, size.x, size.y, R, boundariesColor);
 
-			txSetColor(styleText->textColor);
-			txSetFillColor(styleText->textColor);
+			txSetColor(textColor);
+			txSetFillColor(textColor);
 			txSelectFont(styleText->nameFont.c_str(), styleText->sizeFont, FW_DONTCARE);
 			txDrawText(pos.x, pos.y, size.x, size.y, text.c_str(), DT_CENTER | DT_VCENTER);
 		}
 
 	//-----------------------------------------------------------------------------------------------------------------
 	//!	\brief Визуализирует эффект клика на кнопку
-	//! 
-	//! \param backColor	цвет фона кнопки при её активации
 	//!
 	//-----------------------------------------------------------------------------------------------------------------
 
@@ -119,21 +117,23 @@ namespace Buttons
 //-----------------------------------------------------------------------------------------------------------------
 
 	int(*CheckClickButtons(std::vector<button>* Buttons)) (int left, int right, std::vector<int>parametr, 
-		int* swaping, int* comparisons, std::vector<int>* Array)
+							int* swaping, int* comparisons, std::vector<int>* Array)
 	{
 
 		assert(Buttons != nullptr);
 
 		int idSwapingButton = -1;
+
 		const long x = txMouseX(), y = txMouseY();
 
 		int (*result)(int left, int right, std::vector<int>parametr, int* swaping, 
-											int* comparisons, std::vector<int> * Array) = nullptr;
+					  int* comparisons, std::vector<int> * Array) = nullptr;
+
 
 		for (int i = 0; i < Buttons->size();i++)
 			if (In(x, (*Buttons)[i].pos.x, (*Buttons)[i].size.x) && In(y, (*Buttons)[i].pos.y, (*Buttons)[i].size.y))
 			{
-				if ((*Buttons)[i].type == SwapingButton)
+				if ((*Buttons)[i].type == InterchangeableButton)
 				{
 					idSwapingButton = (*Buttons)[i].id;
 					(*Buttons)[i].isPressed = !(*Buttons)[i].isPressed;
@@ -162,16 +162,5 @@ namespace Buttons
 				if ((*Buttons)[i].id != idSwapingButton)
 					(*Buttons)[i].isPressed = false;
 		return result;
-	}
-
-//-----------------------------------------------------------------------------------------------------------------
-//!	\brief конструктор кнопки
-//-----------------------------------------------------------------------------------------------------------------
-
-	button CreateButton(int id, std::string text, POINT pos, POINT size, int R, COLORREF boundariesColor, COLORREF backColor,
-		const drawing::textStyle* styleText, bool isPressed, TypeOfButton type,
-		int(*linkToFunction)(int left, int right, std::vector<int>parametr, int* swaping, int* comparisons, std::vector<int>* Array))
-	{
-		return { id, text, pos, size, R, boundariesColor, backColor, styleText, isPressed, type, linkToFunction };
 	}
 }

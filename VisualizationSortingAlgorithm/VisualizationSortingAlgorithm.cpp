@@ -5,7 +5,7 @@
 //! \version alpha 0.2
 //! \date 27.07.2019
 //-----------------------------------------------------------------------------------------------------------------
-//! @defgroup PreCaculation		Расчёт значений
+//! @defgroup PreCalculation	Расчёт значений
 //! @defgroup WorkWithPerson	Работа с пользователем
 //! @defgroup Drawing			Рисование
 //! @defgroup ButtonsFunct		Функции кнопок
@@ -57,31 +57,25 @@ namespace drawing
 // Блок констант
 //=================================================================================================================
 
-	const int Width = 1300;								///< ширина окна
-	const int Height = Width * 675 / 1300;				///< высота окна
-	const int Boundaries = Width * 33 / 1300;			///< унивирсальная константа, упрощающая процесс расположения объектов
-	const COLORREF BackColor = RGB(40, 120, 250);		///< цвет фона
-	const COLORREF SandColor = RGB(255, 240, 212);		///< песочный цвет
-	const int AccuracyOfDiagram = 3;					///< значение отвечающее за маштаб сетки разметки; определяет на сколько частей будут разделяться обе оси
-	const int VisualizPeriod = 50;						///< определяет через сколько итераций будут обновлять результаты расчётов
+	const int Width				= 1300;						///< ширина окна
+	const int Height			= Width * 675 / 1300;		///< высота окна
+	const int Boundaries		= Width * 33 / 1300;		///< унивирсальная константа, упрощающая процесс расположения объектов
+	const COLORREF BackColor	= RGB(40, 120, 250);		///< цвет фона
+	const COLORREF SandColor	= RGB(255, 240, 212);		///< песочный цвет
+	const int AccuracyOfDiagram = 3;						///< значение отвечающее за маштаб сетки разметки; определяет на сколько частей будут разделяться обе оси
+	const int VisualizPeriod	= 50;						///< определяет через сколько итераций будут обновлять результаты расчётов
 
-	const std::pair<int, int> CoordinatesDiagramOfSwaping = std::make_pair(Width * 0.21 + Boundaries * 2.7, Height * 0.2);						///< координаты левеого верхнего угла диаграмма обменов
+	const std::pair<int, int> CoordinatesDiagramOfSwaping	  = std::make_pair(Width * 0.21 + Boundaries * 2.7, Height * 0.2);						///< координаты левеого верхнего угла диаграмма обменов
 	const std::pair<int, int> CoordinatesDiagramOfComparisons = std::make_pair(Width * 0.21 + Boundaries * 5.1 + Width * 0.33, Height * 0.2);	///< координаты левеого верхнего угла диаграмма сравнений
 
 //=================================================================================================================
 // Блок стилей текста
 //=================================================================================================================
 
-	const textStyle MainBeauty = { TX_WHITE, "Comic Sans MS", int(Boundaries * 1.2) };
-	const textStyle Middle1 = { TX_WHITE, "Georgia", int(Boundaries * 0.5) };
-	const textStyle Middle2 = { TX_WHITE, "Georgia", int(Boundaries * 0.6) };
-	const textStyle RedHuge = { TX_RED, "Georgia", int(Boundaries * 0.8) };
-	const textStyle GreenHuge = { TX_GREEN, "Georgia", int(Boundaries * 0.8) };
-	const textStyle WhiteHuge = { TX_WHITE, "Georgia", int(Boundaries * 0.8) };
-	const textStyle BlueHuge = { TX_BLUE, "Georgia", int(Boundaries * 0.8) };
-	const textStyle YellowHuge = { TX_YELLOW, "Georgia", int(Boundaries * 0.8) };
-	const textStyle OrangeHuge = { TX_ORANGE, "Georgia", int(Boundaries * 0.8) };
-	const textStyle MagnetaHuge = { TX_MAGENTA, "Georgia", int(Boundaries * 0.8) };
+	const textStyle MainBeauty	= { "Comic Sans MS", int(Boundaries * 1.2) };
+	const textStyle Middle1		= { "Georgia", int(Boundaries * 0.5) };
+	const textStyle Middle2		= { "Georgia", int(Boundaries * 0.6) };
+	const textStyle Huge		= { "Georgia", int(Boundaries * 0.8) };
 
 //=================================================================================================================
 // Функции
@@ -102,38 +96,39 @@ namespace drawing
 
 //-----------------------------------------------------------------------------------------------------------------
 //! @ingroup PreCaculation
-//!	\brief Заполняет массив для сортировки
+//!	\brief Создаёт массив кнопок
 //! 
-//! \param  height					высота окна программы
-//!	\param	width					ширина окна программы
-//! \param	boundaries				унивирсальная константа, упрощающая процесс расположения объектов
-//! \param[out] SimpleButtons		вектор параметров обычных кнопок
-//! \param[out] FunctionButtons		вектор параметров кнопок функций сортировки 
-//! \param[out] SwapButtons			вектор параметров кнопок, среди которых может быть активна только одна
+//! \param  height							высота окна программы
+//!	\param	width							ширина окна программы
+//! \param	boundaries						унивирсальная константа, упрощающая процесс расположения объектов
+//! \param[out] usualButtons				вектор параметров обычных кнопок
+//! \param[out] buttonsOfFunction			вектор параметров кнопок функций сортировки 
+//! \param[out] interchangeableButtons		вектор параметров кнопок, среди которых может быть активна только одна
 //!
 //-----------------------------------------------------------------------------------------------------------------
 
-	void CreateButtons(int height, int width, int boundaries, std::vector<Buttons::button>* SimpleButtons, 
-							std::vector<Buttons::button>* FunctionButtons, std::vector<Buttons::button>* SwapButtons);
+	void CreateButtons(int height, int width, int boundaries, std::vector<Buttons::button>* usualButtons, 
+					   std::vector<Buttons::button>* buttonsOfFunction, std::vector<Buttons::button>* interchangeableButtons);
 
 //-----------------------------------------------------------------------------------------------------------------
 //! @ingroup WorkWithPerson
 //!	\brief Запускает функции сортировок, получает из них значение и отправляет на визиализацию
 //! 
 //!	структура Buttons::button из библиотке Buttons.h
-//! \param[in] simpleButtons		вектор параметров обычных кнопок
-//! \param[in] swapButtons			вектор параметров кнопок, среди которых может быть активна только одна
-//! \param[in] functionButtons		вектор параметров кнопок функций сортировки 
-//!	\param[in] mainArray			сортеруемый массив
-//! \param maxNumOfSwaping			максимальное число обменов 
-//! \param maxNumOfComparisons		максимальное число сравнений
-//! \param[out] resultValue			вектор результатов
+//!
+//! \param[in] usualButtons					вектор параметров обычных кнопок
+//! \param[in] interchangeableButtons		вектор параметров кнопок, среди которых может быть активна только одна
+//! \param[in] buttonsOfFunction			вектор параметров кнопок функций сортировки 
+//!	\param[in] mainArray					сортеруемый массив
+//! \param maxNumOfSwaping					максимальное число обменов 
+//! \param maxNumOfComparisons				максимальное число сравнений
+//! \param[out] resultValue					вектор результатов
 //!
 //-----------------------------------------------------------------------------------------------------------------
 
-	void StartAccount(std::vector<Buttons::button>* simpleButtons, std::vector<Buttons::button>* functionButtons,
-						std::vector<Buttons::button>* swapButtons, std::vector<int>* mainArray, int* maxNumOfSwaping,
-						int* maxNumOfComparisons, std::vector<drawing::ResultValue>* resultValue);
+	void StartCalculation(std::vector<Buttons::button>* usualButtons, std::vector<Buttons::button>* buttonsOfFunction,
+						  std::vector<Buttons::button>* interchangeableButtons, std::vector<int>* mainArray, int* maxNumOfSwaping,
+						  int* maxNumOfComparisons, std::vector<drawing::ResultValue>* resultValue);
 
 //-----------------------------------------------------------------------------------------------------------------
 //! @ingroup Drawing
@@ -193,7 +188,7 @@ namespace drawing
 //-----------------------------------------------------------------------------------------------------------------
 
 	void DrawLeftAnatationOfDiagram(int xLine, int yLine, int lenText, int heightDiagram, int widthDiagram,
-								int lenLine, int heightText, int gapBesideTextAndLine, int yMaxValue, int accuracy = 2);
+									int lenLine, int heightText, int gapBesideTextAndLine, int yMaxValue, int accuracy = 2);
 
 //-----------------------------------------------------------------------------------------------------------------
 //! @ingroup Drawing
@@ -211,7 +206,7 @@ namespace drawing
 //-----------------------------------------------------------------------------------------------------------------
 
 	void DrawUnderAnatationOfDiagram(int xLine, int yLine, int lenLine, int heightText, int gapBesideTextAndLine,
-										int widthDiagram, int heightDiagram, int lenText, int xMaxValue, int accuracy);
+									 int widthDiagram, int heightDiagram, int lenText, int xMaxValue, int accuracy);
 
 //-----------------------------------------------------------------------------------------------------------------
 //! @ingroup Drawing
@@ -228,15 +223,15 @@ namespace drawing
 //! @ingroup Drawing
 //!	Функция рисует пустой холст с кнопками, текстом и диаграммами. Если defaultDiagram = false, то диаграммы не рисуются
 //! 
-//! \param[in] simpleButtons		вектор параметров обычных кнопок
-//! \param[in] functionButtons		вектор параметров кнопок функций сортировки 
-//! \param[in] swapButtons			вектор параметров кнопок, среди которых может быть активна только одна
-//!	\param defaultDiagram			маркер, отвечающий за рисования или нерисования диаграмм
+//! \param[in] usualButtons					вектор параметров обычных кнопок
+//! \param[in] buttonsOfFunction			вектор параметров кнопок функций сортировки 
+//! \param[in] interchangeableButtons		вектор параметров кнопок, среди которых может быть активна только одна
+//!	\param defaultDiagram					маркер, отвечающий за рисования или нерисования диаграмм
 //!
 //-----------------------------------------------------------------------------------------------------------------
 
-	void CreateEmptyCanvas(std::vector<Buttons::button>* simpleButtons, std::vector<Buttons::button>* functionButtons,
-							std::vector<Buttons::button>* swapButtons, bool defaultDiagram = true);
+	void CreateEmptyCanvas(std::vector<Buttons::button>* usualButtons, std::vector<Buttons::button>* buttonsOfFunction,
+						   std::vector<Buttons::button>* interchangeableButtons, bool defaultDiagram = true);
 
 }
 
@@ -270,7 +265,7 @@ namespace Buttons {
 //-----------------------------------------------------------------------------------------------------------------
 
 	int(*CheckClickButtons(std::vector<button>* Buttons)) (int left, int right, std::vector<int>parametr,
-														int* swaping, int* comparisons, std::vector<int>* Array);
+						   int* swaping, int* comparisons, std::vector<int>* Array);
 
 }
 
@@ -454,25 +449,25 @@ namespace drawing{
 
 int main()
 {
-	txCreateWindow(drawing::Width, drawing::Height);		// создаём окно программы
+	txCreateWindow(drawing::Width, drawing::Height);	// создаём окно программы
 
 
-	std::vector<int>mainArray = drawing::CreateArray();							// массив который подвергается сортировки
-	std::vector<Buttons::button>simpleButtons, functionButtons, swapButtons;	// вектора хранящие параметры для создания кнопок
-	std::vector<drawing::ResultValue>resultValue;								// вектор хранящий результаты расчётов
+	std::vector<int>mainArray = drawing::CreateArray();										// массив который подвергается сортировки
+	std::vector<Buttons::button>usualButtons, buttonsOfFunction, interchangeableButtons;	// вектора хранящие параметры для создания кнопок
+	std::vector<drawing::ResultValue>resultValue;											// вектор хранящий результаты расчётов
 
 
-	int RandomFilling = 1;							// перменная указывающя заполняем ли мы случайными числами сортируемый массив или нет
-	int maxNumOfSwaping = 1200;						// максимальное число обменов (значение по умолчанию)
-	int maxNumOfComparisons = 1200;					// максимальное число сравнений (значение по умолчанию)
-	int stateMouse = txMouseButtons();				// состояние кнопки мыши
+	int RandomFilling		= 1;						// перменная указывающя заполняем ли мы случайными числами сортируемый массив или нет
+	int maxNumOfSwaping		= 1200;						// максимальное число обменов (значение по умолчанию)
+	int maxNumOfComparisons = 1200;						// максимальное число сравнений (значение по умолчанию)
+	int stateMouse			= txMouseButtons();			// состояние кнопки мыши
 
 
 	drawing::CreateButtons(drawing::Height, drawing::Width, drawing::Boundaries,
-											&simpleButtons, &functionButtons, &swapButtons);
+						   &usualButtons, &buttonsOfFunction, &interchangeableButtons);
 	
 	txBegin();
-	drawing::CreateEmptyCanvas(&simpleButtons, &functionButtons, &swapButtons);
+	drawing::CreateEmptyCanvas(&usualButtons, &buttonsOfFunction, &interchangeableButtons);
 	txEnd();
 
 	while (1)
@@ -483,18 +478,18 @@ int main()
 
 		if (stateMouse == 1 && txMouseButtons() != 1)
 		{
-			auto resultSwaping = Buttons::CheckClickButtons(&swapButtons);
+			auto resultSwaping = Buttons::CheckClickButtons(&interchangeableButtons);
 			if (resultSwaping != nullptr)
 			{
 				res = resultSwaping(0, 1, empty, &RandomFilling, &drawing::MaxNumOfElements, &mainArray);
 				resultValue.clear();
 			}
 
-			auto resultFunction = Buttons::CheckClickButtons(&functionButtons);
+			auto resultFunction = Buttons::CheckClickButtons(&buttonsOfFunction);
 			if (resultFunction != nullptr)
 				res = -1;
 
-			auto resultSimple = Buttons::CheckClickButtons(&simpleButtons);
+			auto resultSimple = Buttons::CheckClickButtons(&usualButtons);
 			if (resultSimple != nullptr)
 			{
 				res = resultSimple(0, 1, empty, &RandomFilling, &drawing::MaxNumOfElements, &mainArray);
@@ -511,7 +506,7 @@ int main()
 		{
 			txBegin();
 			txClear();
-			drawing::CreateEmptyCanvas(&simpleButtons, &functionButtons, &swapButtons, 0);
+			drawing::CreateEmptyCanvas(&usualButtons, &buttonsOfFunction, &interchangeableButtons, 0);
 			drawing::CreateEmptyDiagram(drawing::CoordinatesDiagramOfComparisons, maxNumOfComparisons);
 			drawing::CreateEmptyDiagram(drawing::CoordinatesDiagramOfSwaping, maxNumOfSwaping);
 			drawing::DrawResults(&resultValue, maxNumOfSwaping, maxNumOfComparisons);
@@ -519,8 +514,8 @@ int main()
 		}
 
 		if (res == 1)	// запуск расчётов
-			drawing::StartAccount(&simpleButtons, &functionButtons, &swapButtons, &mainArray,
-													&maxNumOfSwaping, &maxNumOfComparisons, &resultValue);
+			drawing::StartCalculation(&usualButtons, &buttonsOfFunction, &interchangeableButtons, &mainArray,
+									  &maxNumOfSwaping, &maxNumOfComparisons, &resultValue);
 
 		stateMouse = txMouseButtons(); // обновляем состояние кнопки мыши
 		if (_kbhit())
@@ -549,39 +544,42 @@ namespace drawing
 			}
 			return mainArray;
 		}
+
 		for (int i = MaxNumOfElements; i > 0; i--)	// если заполнять поубыванию
 			mainArray.push_back(i);
+
 		return mainArray;
 	}
 
-	void StartAccount(std::vector<Buttons::button>* simpleButtons, std::vector<Buttons::button>* functionButtons,
-						std::vector<Buttons::button>* swapButtons, std::vector<int>* mainArray, int* maxNumOfSwaping,
-						int* maxNumOfComparisons, std::vector<drawing::ResultValue>* resultValue)
+	void StartCalculation(std::vector<Buttons::button>* usualButtons, std::vector<Buttons::button>* buttonsOfFunction,
+						  std::vector<Buttons::button>* interchangeableButtons, std::vector<int>* mainArray, int* maxNumOfSwaping,
+						  int* maxNumOfComparisons, std::vector<drawing::ResultValue>* resultValue)
 	{
-		assert(simpleButtons != nullptr);
-		assert(functionButtons != nullptr);
-		assert(swapButtons != nullptr);
+		assert(usualButtons != nullptr);
+		assert(buttonsOfFunction != nullptr);
+		assert(interchangeableButtons != nullptr);
 		assert(mainArray != nullptr);
 		assert(resultValue != nullptr);
 		assert(maxNumOfComparisons != nullptr);
 		assert(maxNumOfSwaping != nullptr);
 		assert(maxNumOfSwaping != maxNumOfComparisons);
-		assert(simpleButtons != functionButtons);
-		assert(simpleButtons != swapButtons);
-		assert(swapButtons != functionButtons);
+		assert(usualButtons != buttonsOfFunction);
+		assert(usualButtons != interchangeableButtons);
+		assert(interchangeableButtons != buttonsOfFunction);
 
 		(*maxNumOfSwaping) = AccuracyOfDiagram + 1;
 		(*maxNumOfComparisons) = AccuracyOfDiagram + 1;
 		resultValue->clear();							// стрием старые расчёты
-		resultValue->resize(functionButtons->size());
+		resultValue->resize(buttonsOfFunction->size());
 		int numOfButton = 0;
 
-		for (Buttons::button oneButton : (*functionButtons))
+		for (Buttons::button oneButton : (*buttonsOfFunction))
 		{
 			if (!oneButton.isPressed)// если кнопка не нажата, то функция этой кнопки не используется в расчётах
 				continue;
 
 			int j = 1; // позваляет обновлять результаты визуализации каждые 50 измерений
+
 			for (int i = AccuracyOfDiagram; i < MaxNumOfElements; i += 4)
 			{
 				int swaping = 0, comparisons = 0;
@@ -589,21 +587,22 @@ namespace drawing
 				// получаем результаты
 				std::vector<int>parametrs;
 				std::vector<int>sortingArray = (*mainArray);
+
 				oneButton.linkToFunction(0, i, parametrs, &swaping, &comparisons, &sortingArray);
 
 				// запоминаем цвет отображения функции и результаты
-				(*resultValue)[numOfButton].color = oneButton.styleText->textColor;
+				(*resultValue)[numOfButton].color = oneButton.textColor;
 				(*resultValue)[numOfButton].result.push_back({ swaping, comparisons, i+1 });
 
 				(*maxNumOfSwaping) = MAX((*maxNumOfSwaping), swaping);
 				(*maxNumOfComparisons) = MAX((*maxNumOfComparisons), comparisons);
 
-				if (i >= j * VisualizPeriod)
+				if (i >= j * VisualizPeriod || i + 4 >= MaxNumOfElements)
 				{
 					// обновляем результаты
 					txBegin();
 					txClear();
-					CreateEmptyCanvas(simpleButtons, functionButtons, swapButtons, 0);
+					CreateEmptyCanvas(usualButtons, buttonsOfFunction, interchangeableButtons, 0);
 					CreateEmptyDiagram(CoordinatesDiagramOfComparisons, (*maxNumOfComparisons));
 					CreateEmptyDiagram(CoordinatesDiagramOfSwaping, (*maxNumOfSwaping));
 					DrawResults(resultValue, (*maxNumOfSwaping), (*maxNumOfComparisons));
@@ -611,14 +610,6 @@ namespace drawing
 					j++;
 				}
 			}
-
-			txBegin();
-			txClear();
-			CreateEmptyCanvas(simpleButtons, functionButtons, swapButtons, 0);
-			CreateEmptyDiagram(CoordinatesDiagramOfComparisons, (*maxNumOfComparisons));
-			CreateEmptyDiagram(CoordinatesDiagramOfSwaping, (*maxNumOfSwaping));
-			DrawResults(resultValue, (*maxNumOfSwaping), (*maxNumOfComparisons));
-			txEnd();
 
 			numOfButton++;
 		}
@@ -629,38 +620,43 @@ namespace drawing
 	{
 		assert(resultValue != nullptr);
 
-		const int heightDiagram = Height * 0.725; // высота диаграммы
-		const int widthDiagram = Width * 0.33; // высота диаграммы
-		const double numElementsOnPixel = MaxNumOfElements / double(widthDiagram - 14);// число элементов на пиксель
-		const double numSwapingOnPixel = maxNumOfSwaping / double(heightDiagram - 14);// число обменов на пиксель
-		const double numComparisonsOnPixel = maxNumOfComparisons / double(heightDiagram - 14);// число сравнений на пиксель
+		const int heightDiagram		= Height * 0.725;	// высота диаграммы
+		const int widthDiagram		= Width * 0.33;		// высота диаграммы
+
+
+		const double numElementsOnPixel	   = MaxNumOfElements / double(widthDiagram - 14);		// число элементов на пиксель
+		const double numSwapingOnPixel	   = maxNumOfSwaping / double(heightDiagram - 14);		// число обменов на пиксель
+		const double numComparisonsOnPixel = maxNumOfComparisons / double(heightDiagram - 14);	// число сравнений на пиксель
+
 
 		for (auto i = resultValue->begin(); i != resultValue->end(); i++)
 			for (auto j = i->result.begin(); j != i->result.end(); j++)
 			{
 				// рисуем в диаграмме обменов
 				txSetPixel(CoordinatesDiagramOfSwaping.first + j->numOfElements / (numElementsOnPixel),
-					CoordinatesDiagramOfSwaping.second + heightDiagram - j->swaping / (numSwapingOnPixel),
-																										i->color);
+							CoordinatesDiagramOfSwaping.second + heightDiagram - j->swaping / (numSwapingOnPixel),
+							i->color);
+
 				// рисуем в диаграмме сравнений
 				txSetPixel(CoordinatesDiagramOfComparisons.first + j->numOfElements / (numElementsOnPixel),
-					CoordinatesDiagramOfComparisons.second + heightDiagram - j->comparisons / (numComparisonsOnPixel),
-					i->color);
+							CoordinatesDiagramOfComparisons.second + heightDiagram - j->comparisons / (numComparisonsOnPixel),
+							i->color);
 			}
 	}
 
 	void DrawLeftAnatationOfDiagram(int xLine, int yLine, int lenText, int heightDiagram, int widthDiagram,
-								int lenLine, int heightText, int gapBesideTextAndLine, int yMaxValue, int accuracy)
+									int lenLine, int heightText, int gapBesideTextAndLine, int yMaxValue, int accuracy)
 	{
 		const int xText = xLine - lenText;
 		const int yText = yLine - heightText / 2 - 1;
+
 		for (int i = 0; i <= accuracy; i++)
 		{
-			txLine(xLine, yLine + heightDiagram * i / accuracy,  // линия у числа
+			txLine(xLine, yLine + heightDiagram * i / accuracy,										// линия у числа
 					xLine + lenLine, yLine + heightDiagram * i / accuracy);
-			txLine(xLine + lenLine, yLine + heightDiagram * i / accuracy,  // линия на диаграмме
+			txLine(xLine + lenLine, yLine + heightDiagram * i / accuracy,							// линия на диаграмме
 					xLine + lenLine + widthDiagram, yLine + heightDiagram * i / accuracy);
-			txDrawText(xText, yText + heightDiagram * i / accuracy, xLine - gapBesideTextAndLine, // число
+			txDrawText(xText, yText + heightDiagram * i / accuracy, xLine - gapBesideTextAndLine,	// число
 						yText + heightText + heightDiagram * i / accuracy,
 						std::to_string(yMaxValue * (accuracy - i) / accuracy).c_str(), DT_RIGHT | DT_VCENTER);
 		}
@@ -670,23 +666,25 @@ namespace drawing
 									int widthDiagram,  int heightDiagram, int lenText, int xMaxValue, int accuracy)
 	{
 		assert(accuracy > 0);
+
 		for (int i = 0; i <= accuracy; i++)
 		{
 			txLine(xLine + widthDiagram * i / accuracy, yLine,						// линия у числа
 					xLine + widthDiagram * i / accuracy, yLine + lenLine);
 			txLine(xLine + widthDiagram * i / accuracy, yLine,						// линия на диаграмме
 					xLine + widthDiagram * i / accuracy, yLine - heightDiagram);
+
 			// число
 			txDrawText(xLine - lenText/2 + widthDiagram * i / accuracy, yLine + heightText + gapBesideTextAndLine,
-				xLine + lenText/2 + widthDiagram * i / accuracy, yLine + 2 * heightText + gapBesideTextAndLine,
-				std::to_string(xMaxValue * i / accuracy).c_str(), DT_CENTER | DT_VCENTER);
+						xLine + lenText/2 + widthDiagram * i / accuracy, yLine + 2 * heightText + gapBesideTextAndLine,
+						std::to_string(xMaxValue * i / accuracy).c_str(), DT_CENTER | DT_VCENTER);
 		}
 	}
 
 	void CreateEmptyDiagram(std::pair<int, int>coordinates, int MaxNumOfParameterAxesX)
 	{
 		const int heightDiagram = Height * 0.725;
-		const int widthDiagram = Width * 0.33;
+		const int widthDiagram	= Width * 0.33;
 
 		txSetColor(TX_BLACK);
 		txSetFillColor(TX_BLACK);
@@ -704,19 +702,19 @@ namespace drawing
 
 		// рисуем ось абцисс
 		DrawUnderAnatationOfDiagram(coordinates.first, coordinates.second + heightDiagram, Boundaries * 0.4, 
-										Boundaries * 0.5, Boundaries * 0.1, widthDiagram - 10, heightDiagram, 
-										Boundaries * 1.6, MaxNumOfElements, AccuracyOfDiagram);
+									Boundaries * 0.5, Boundaries * 0.1, widthDiagram - 10, heightDiagram, 
+									Boundaries * 1.6, MaxNumOfElements, AccuracyOfDiagram);
 	}
 
-	void CreateEmptyCanvas(std::vector <Buttons::button> * simpleButtons, std::vector<Buttons::button>* functionButtons,
-														std::vector<Buttons::button>* swapButtons, bool defaultDiagram)
+	void CreateEmptyCanvas(std::vector <Buttons::button> * usualButtons, std::vector<Buttons::button>* buttonsOfFunction,
+							std::vector<Buttons::button>* interchangeableButtons, bool defaultDiagram)
 	{
-		assert(simpleButtons != nullptr);
-		assert(functionButtons != nullptr);
-		assert(swapButtons != nullptr);
-		assert(simpleButtons != functionButtons);
-		assert(simpleButtons != swapButtons);
-		assert(swapButtons != functionButtons);
+		assert(usualButtons != nullptr);
+		assert(buttonsOfFunction != nullptr);
+		assert(interchangeableButtons != nullptr);
+		assert(usualButtons != buttonsOfFunction);
+		assert(usualButtons != interchangeableButtons);
+		assert(interchangeableButtons != buttonsOfFunction);
 
 		txSetColor(BackColor);
 		txSetFillColor(RGB(40, 120, 250));
@@ -734,16 +732,16 @@ namespace drawing
 		// прописываем слова
 		txSelectFont("Comic Sans MS", Boundaries * 1.6, FW_DONTCARE);
 		txDrawText(Width * 0.21 + Boundaries * 2, Boundaries * 0.3,
-			Width * 0.21 + Boundaries * 3.9 + Width * 0.66, Boundaries * 2.4, "Результаты:", DT_CENTER);
+					Width * 0.21 + Boundaries * 3.9 + Width * 0.66, Boundaries * 2.4, "Результаты:", DT_CENTER);
 
 		txSetColor(SandColor);
 		txSelectFont("Comic Sans MS", Boundaries * 1.3, FW_DONTCARE);
 		txDrawText(Width * 0.21 + Boundaries * 2, Boundaries * 2,
-			Width * 0.21 + Boundaries * 2 + Width * 0.33, Height * 0.2, "Обмены", DT_CENTER);
+					Width * 0.21 + Boundaries * 2 + Width * 0.33, Height * 0.2, "Обмены", DT_CENTER);
 
 		txSelectFont("Comic Sans MS", Boundaries * 1.3, FW_DONTCARE);
 		txDrawText(Width * 0.21 + Boundaries * 3.9 + Width * 0.33, Boundaries * 2,
-			Width * 0.21 + Boundaries * 3.9 + Width * 0.66, Height * 0.2, "Сравнения", DT_CENTER);
+					Width * 0.21 + Boundaries * 3.9 + Width * 0.66, Height * 0.2, "Сравнения", DT_CENTER);
 
 		txSetColor(TX_WHITE);
 		txLine(0, Boundaries * 5.1, Width * 0.22, Boundaries * 5.1);
@@ -756,172 +754,166 @@ namespace drawing
 		txTextOut(Boundaries * 0.4, Boundaries * 5.3, "Функции сортировки:");
 
 		// рисуем кнопки
-		Buttons::DrawButtons(simpleButtons);
-		Buttons::DrawButtons(swapButtons);
-		Buttons::DrawButtons(functionButtons);
+		Buttons::DrawButtons(usualButtons);
+		Buttons::DrawButtons(interchangeableButtons);
+		Buttons::DrawButtons(buttonsOfFunction);
+	}
+
+//-----------------------------------------------------------------------------------------------------------------
+//! структура для удобства создания кнопок
+//-----------------------------------------------------------------------------------------------------------------
+
+	struct ForCreateButton
+	{
+		int id;
+		std::string text;
+		COLORREF textColor;
+
+		int(*Function)(int left, int right, std::vector<int>parametr, int* swaping,	int* comparisons, std::vector<int>* Array);
+	};
+
+//-----------------------------------------------------------------------------------------------------------------
+//! Создаёт параметры взаимозаменяемых кнопок
+//-----------------------------------------------------------------------------------------------------------------
+
+	void CreateInterchangeableButtons(std::vector<Buttons::button>* interchangeableButtons, std::vector< ForCreateButton>parametrOfButtons, POINT pos, POINT size)
+	{
+		int i = 0;
+
+		while (i < parametrOfButtons.size())
+		{
+			pos.y  += Boundaries * 1.8 * i;
+			size.y += Boundaries * 1.8 * i;
+
+			interchangeableButtons->push_back({ parametrOfButtons[i].id,parametrOfButtons[i].text,pos,size,10,
+						TX_SCARLET, BackColor, parametrOfButtons[i].textColor, &Middle2, !i,
+						Buttons::InterchangeableButton, parametrOfButtons[i].Function });
+
+			i++;
+		}
+	}
+
+//-----------------------------------------------------------------------------------------------------------------
+//! Создаёт параметры обычных кнопок
+//-----------------------------------------------------------------------------------------------------------------
+
+	void CreateUsualButtons(std::vector<Buttons::button>* usualButtons, std::vector< ForCreateButton>parametrOfButtons, POINT pos, POINT size)
+	{
+		int i = 0;
+		while (i < parametrOfButtons.size())
+		{
+			if (i)
+			{
+				pos.y += Boundaries;
+				size.y += Boundaries;
+			}
+
+			if (i == 1)
+			{
+				size.y += Boundaries * 1.4;
+			}
+
+			usualButtons->push_back({ parametrOfButtons[i].id,parametrOfButtons[i].text,pos,size,10,
+						TX_SCARLET, BackColor, parametrOfButtons[i].textColor,
+						(i == 1) ? &MainBeauty : &Middle1, false, Buttons::NonFixedButton, parametrOfButtons[i].Function });
+
+			if (i == 1)
+			{
+				pos.y += Boundaries * 1.4;
+			}
+
+			i++;
+		}
+	}
+	    
+//-----------------------------------------------------------------------------------------------------------------
+//! Создаёт параметры кнопок функций
+//-----------------------------------------------------------------------------------------------------------------	
+
+	void CreateButtonsOfFunction(std::vector<Buttons::button>* buttonsOfFunction, std::vector<ForCreateButton>parametrOfButtons, POINT pos, POINT size)
+	{
+		int i = 0;
+		while (i < parametrOfButtons.size())
+		{
+			if (i % 2 == 0 && i != 0)
+			{
+				pos.y  += Boundaries * 1.4;
+				size.y += Boundaries * 1.4;
+			}
+			if (i % 2)
+			{
+				pos.x += Width * 0.11;
+				size.x += Width * 0.11;
+			}
+
+			buttonsOfFunction->push_back({ parametrOfButtons[i].id,parametrOfButtons[i].text,pos,size,10,
+						parametrOfButtons[i].textColor, BackColor, parametrOfButtons[i].textColor, &Huge, true,
+						Buttons::FixedButton,parametrOfButtons[i].Function });
+
+			if (i % 2)
+			{
+				pos.x  -= Width * 0.11;
+				size.x -= Width * 0.11;
+			}
+			i++;
+		}
 	}
 
 //-----------------------------------------------------------------------------------------------------------------
 //! \brief   Определяет параметры для кнопок
 //!
-//! \param height					высота окна программы
-//! \param width					ширина окна программы
-//! \param boundaries				унивирсальное значение для разметки окна
-//! \param[out] SimpleButtons		вектор параметров обычных кнопок
-//! \param[out] SwapButtons			вектор параметров кнопок, среди которых может быть активна только одна
-//! \param[out] FunctionButtons		вектор параметров кнопок функций сортировки 
+//! \param height							высота окна программы
+//! \param width							ширина окна программы
+//! \param boundaries						унивирсальное значение для разметки окна
+//! \param[out] usualButtons				вектор параметров обычных кнопок
+//! \param[out] interchangeableButtons		вектор параметров кнопок, среди которых может быть активна только одна
+//! \param[out] buttonsOfFunction			вектор параметров кнопок функций сортировки 
 //!
 //-----------------------------------------------------------------------------------------------------------------
 
-	void CreateButtons(int height, int width, int boundaries,
-		std::vector<Buttons::button>* SimpleButtons, std::vector<Buttons::button>* FunctionButtons, std::vector<Buttons::button>* SwapButtons) {
+	void CreateButtons(int height, int width, int boundaries, std::vector<Buttons::button>* usualButtons, 
+					std::vector<Buttons::button>* buttonsOfFunction, std::vector<Buttons::button>* interchangeableButtons) {
 
-		assert(SimpleButtons != nullptr);
-		assert(FunctionButtons != nullptr);
-		assert(SwapButtons != nullptr);
-		assert(SimpleButtons != FunctionButtons);
-		assert(SimpleButtons != SwapButtons);
-		assert(SwapButtons != FunctionButtons);
+		assert(usualButtons != nullptr);
+		assert(buttonsOfFunction != nullptr);
+		assert(interchangeableButtons != nullptr);
+		assert(usualButtons != buttonsOfFunction);
+		assert(usualButtons != interchangeableButtons);
+		assert(interchangeableButtons != buttonsOfFunction);
 
 		POINT pos = { int(boundaries * 0.4), int(boundaries * 1.6) };
 		POINT size = { int(width * 0.21), int(boundaries * 2.9) };
 
-		SwapButtons->push_back(Buttons::CreateButton(1,										// id кнопки
-													"Заполнение случайными \n числами",		// текст на кнопке
-													pos, size, 10,							// координаты и скругление кнопки
-													TX_SCARLET, BackColor,					// цвета кнопки
-													&Middle2,								// стиль текста кнопки
-													true, Buttons::SwapingButton,			// состояние кнопки
-													buttonsFunction::Random));				// функция кнопки
+		std::vector<ForCreateButton>ParametrButton;
+								// id   text								 color      function
+		ParametrButton.push_back({ 1,  "Заполнение случайными \n числами" ,  TX_WHITE,  &buttonsFunction::Random});
+		ParametrButton.push_back({ 2,  "Заполнение числами \n по убыванию",  TX_WHITE,  &buttonsFunction::NotRandom });
 
-//-----------------------------------------------------------------------------------------------------------------
+		CreateInterchangeableButtons(interchangeableButtons, ParametrButton, pos, size);
 
-		pos = { int(boundaries * 0.4), int(boundaries * 3.4) };
-		size = { int(width * 0.21), int(boundaries * 4.7) };
-
-		SwapButtons->push_back(Buttons::CreateButton(2,										// id кнопки
-													"Заполнение числами \n по убыванию",	// текст на кнопке
-													pos, size, 10,							// координаты и скругление кнопки
-													TX_SCARLET, BackColor,					// цвета кнопки
-													&Middle2,								// стиль текста кнопки
-													false, Buttons::SwapingButton,			// состояние кнопки
-													buttonsFunction::NotRandom));			// функция кнопки
-
-//=================================================================================================================
-
-		pos = { int(boundaries * 0.4), int(height - boundaries * 3.2) };
-		size = { int(width * 0.21), int(height - boundaries * 1.2) };
-
-		SimpleButtons->push_back(Buttons::CreateButton(3,									// id кнопки
-														"Поехали!",							// текст на кнопке
-														pos, size, 10,						// координаты и скругление кнопки
-														TX_SCARLET, BackColor,				// цвета кнопки
-														&MainBeauty,							// стиль текста кнопки
-														false, Buttons::NonFixedButton,		// состояние кнопки
-														buttonsFunction::Start));			// функция кнопки
-
-//-----------------------------------------------------------------------------------------------------------------
 
 		pos = { int(boundaries * 0.4), int(height - boundaries * 4.2) };
 		size = { int(width * 0.21), int(height - boundaries * 3.6) };
 
-		SimpleButtons->push_back(Buttons::CreateButton(4,									// id кнопки
-														"Изменить число элементов",			// текст на кнопке
-														pos, size, 10,						// координаты и скругление кнопки
-														TX_SCARLET, BackColor,				// цвета кнопки
-														&Middle1,							// стиль текста кнопки
-														false, Buttons::NonFixedButton,		// состояние кнопки
-														buttonsFunction::Changed));			// функция кнопки
+		ParametrButton.clear();// id   text							color       function
+		ParametrButton.push_back({ 3, "Изменить число элементов" ,	TX_WHITE,	&buttonsFunction::Changed });
+		ParametrButton.push_back({ 4, "Поехали!" ,					TX_WHITE,	&buttonsFunction::Start });
+		ParametrButton.push_back({ 5, "Выход" ,						TX_WHITE,	&buttonsFunction::Exit });
 
-//-----------------------------------------------------------------------------------------------------------------
+		CreateUsualButtons(usualButtons, ParametrButton, pos, size);
 
-		pos = { int(boundaries * 0.4), int(height - boundaries) };
-		size = { int(width * 0.21), int(height - boundaries * 0.4) };
-
-		SimpleButtons->push_back(Buttons::CreateButton(4,									// id кнопки
-														"Выход",							// текст на кнопке
-														pos, size, 10,						// координаты и скругление кнопки
-														TX_SCARLET, BackColor,				// цвета кнопки
-														&Middle1,							// стиль текста кнопки
-														false, Buttons::NonFixedButton,		// состояние кнопки
-														buttonsFunction::Exit));			// функция кнопки
-
-//=================================================================================================================
 
 		pos = { int(boundaries * 0.4), int(boundaries * 6.6) };
 		size = { int(width * 0.1), int(boundaries * 7.7) };
 
-		FunctionButtons->push_back(Buttons::CreateButton(6,									// id кнопки
-														"Bubble",							// текст на кнопке
-														pos, size, 10,						// координаты и скругление кнопки
-														TX_SCARLET, BackColor,				// цвета кнопки
-														&RedHuge,							// стиль текста кнопки
-														true, Buttons::FixedButton,			// состояние кнопки
-														buttonsFunction::bubbleSorting));	// функция кнопки
+		ParametrButton.clear(); // id   text			color       function
+		ParametrButton.push_back({ 6,   "Bubble" ,		TX_RED,		&buttonsFunction::bubbleSorting });
+		ParametrButton.push_back({ 7,   "Heap" ,		TX_GREEN,	&buttonsFunction::heap_sort });
+		ParametrButton.push_back({ 8,   "Quick" ,		TX_WHITE,	&buttonsFunction::quickSorting });
+		ParametrButton.push_back({ 9,   "Merge" ,		TX_BLUE,	&buttonsFunction::mergeSorting });
+		ParametrButton.push_back({ 10,  "Insertion" ,	TX_MAGENTA,	&buttonsFunction::insertionSorting });
+		ParametrButton.push_back({ 11,  "Selection" ,	TX_ORANGE,	&buttonsFunction::selectionSorting });
 
-//-----------------------------------------------------------------------------------------------------------------
-
-		pos = { int(width * 0.11), int(boundaries * 6.6) };
-		size = { int(width * 0.21), int(boundaries * 7.7) };
-
-		FunctionButtons->push_back(Buttons::CreateButton(7,									// id кнопки
-														"Heap",								// текст на кнопке
-														pos, size, 10,						// координаты и скругление кнопки
-														TX_SCARLET, BackColor,				// цвета кнопки
-														&GreenHuge,							// стиль текста кнопки
-														true, Buttons::FixedButton,			// состояние кнопки
-														buttonsFunction::heap_sort));		// функция кнопки
-
-//-----------------------------------------------------------------------------------------------------------------
-
-		pos = { int(boundaries * 0.4), int(boundaries * 8) };
-		size = { int(width * 0.1), int(boundaries * 9.1) };
-
-		FunctionButtons->push_back(Buttons::CreateButton(8,									// id кнопки
-														"Quick",							// текст на кнопке
-														pos, size, 10,						// координаты и скругление кнопки
-														TX_SCARLET, BackColor,				// цвета кнопки
-														&BlueHuge,							// стиль текста кнопки
-														true, Buttons::FixedButton,			// состояние кнопки
-														buttonsFunction::quickSorting));	// функция кнопки
-
-//---------------------------------------------------------------------------------------------------------------- -
-
-		pos = { int(width * 0.11), int(boundaries * 8) };
-		size = { int(width * 0.21), int(boundaries * 9.1) };
-
-		FunctionButtons->push_back(Buttons::CreateButton(9,									// id кнопки
-														"Merge",							// текст на кнопке
-														pos, size, 10,						// координаты и скругление кнопки
-														TX_SCARLET, BackColor,				// цвета кнопки
-														&WhiteHuge,							// стиль текста кнопки
-														true, Buttons::FixedButton,			// состояние кнопки
-														buttonsFunction::mergeSorting));	// функция кнопки
-
-//-----------------------------------------------------------------------------------------------------------------
-
-		pos = { int(boundaries * 0.4), int(boundaries * 9.4) };
-		size = { int(width * 0.1), int(boundaries * 10.5) };
-
-		FunctionButtons->push_back(Buttons::CreateButton(10,									// id кнопки
-														"Insertion",							// текст на кнопке
-														pos, size, 10,							// координаты и скругление кнопки
-														TX_SCARLET, BackColor,					// цвета кнопки
-														&OrangeHuge,							// стиль текста кнопки
-														true, Buttons::FixedButton,				// состояние кнопки
-														buttonsFunction::insertionSorting));	// функция кнопки
-
-//---------------------------------------------------------------------------------------------------------------- -
-
-		pos = { int(width * 0.11), int(boundaries * 9.4) };
-		size = { int(width * 0.21), int(boundaries * 10.5) };
-
-		FunctionButtons->push_back(Buttons::CreateButton(11,									// id кнопки
-														"Selection",							// текст на кнопке
-														pos, size, 10,							// координаты и скругление кнопки
-														TX_SCARLET, BackColor,					// цвета кнопки
-														&MagnetaHuge,							// стиль текста кнопки
-														true, Buttons::FixedButton,				// состояние кнопки
-														buttonsFunction::selectionSorting));	// функция кнопки
+		CreateButtonsOfFunction(buttonsOfFunction, ParametrButton, pos, size);
 	}
 }

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['textstyle',['textStyle',['../structdrawing_1_1text_style.html',1,'drawing']]]
+  ['resultvalue',['ResultValue',['../structdrawing_1_1_result_value.html',1,'drawing']]]
 ];

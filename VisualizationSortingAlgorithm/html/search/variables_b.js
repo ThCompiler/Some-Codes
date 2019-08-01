@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['text',['text',['../class_buttons_1_1button.html#a0b46a8ba7918ea8bce446563ca84a8e9',1,'Buttons::button']]],
-  ['textcolor',['textColor',['../structdrawing_1_1text_style.html#add0ae2ebcf1514f7efbca993a594ee0a',1,'drawing::textStyle']]],
-  ['tx_5fscarlet',['TX_SCARLET',['../_update_t_x_lib_8h.html#a8b92693cd98466602c52cbc181605c1c',1,'drawing']]],
-  ['type',['type',['../class_buttons_1_1button.html#ac797586fb081a4932f43c0a674b98045',1,'Buttons::button']]]
+  ['visualizperiod',['VisualizPeriod',['../_visualization_sorting_algorithm_8cpp.html#a292ca873ee9c1b50a5d13583af067b4c',1,'drawing']]]
 ];
