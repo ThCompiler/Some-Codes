@@ -17,8 +17,8 @@ namespace Buttons
 
     enum TypeOfButton
     {
-        NonFixedButton = 1,     ///< нефиксирующаяся кнопка
-        FixedButton = 2,        ///< фиксирующая кнопка
+        NonFixedButton = 1,             ///< нефиксирующаяся кнопка
+        FixedButton = 2,                ///< фиксирующая кнопка
         InterchangeableButton = 3       ///< кнопка которая единственная среди группы кнопок активна
     };
 
@@ -42,8 +42,7 @@ namespace Buttons
         bool isPressed;                         ///< является ли кнопка активна
         TypeOfButton type;                      ///< способ работы кнопки
 
-        int(*linkToFunction)(int left, int right, std::vector<int>parametr, int* swaping,   ///< ссылка на функцию сортировки
-                             int* comparisons, std::vector<int>* Array);                        
+        int(*linkToFunction)(int left, int right, std::vector<int>parametr, int* swaping, int* comparisons, std::vector<int>* Array); ///< ссылка на функцию сортировки
 
     public:
 
