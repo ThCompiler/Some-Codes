@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['namefont',['nameFont',['../structdrawing_1_1text_style.html#af08a2939028d370543cda48fa6fe44c4',1,'drawing::textStyle']]]
+  ['maxnumofelements',['MaxNumOfElements',['../_visualization_sorting_algorithm_8cpp.html#a6397012c86be03b7688ad623c69b5655',1,'drawing']]]
 ];

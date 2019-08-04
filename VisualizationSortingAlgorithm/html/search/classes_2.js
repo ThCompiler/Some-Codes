@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['parameterforresults',['parameterForResults',['../structdrawing_1_1parameter_for_results.html',1,'drawing']]]
+  ['resultvalue',['ResultValue',['../structdrawing_1_1_result_value.html',1,'drawing']]]
 ];

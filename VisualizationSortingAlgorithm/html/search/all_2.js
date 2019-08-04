@@ -6,10 +6,7 @@ var searchData=
   ['coordinatesdiagramofcomparisons',['CoordinatesDiagramOfComparisons',['../_visualization_sorting_algorithm_8cpp.html#a524151a56cbfcc12b9f6e5a7c3ce4894',1,'drawing']]],
   ['coordinatesdiagramofswaping',['CoordinatesDiagramOfSwaping',['../_visualization_sorting_algorithm_8cpp.html#ac9f1306a029ca7564d7ee4f237718e40',1,'drawing']]],
   ['createarray',['CreateArray',['../_visualization_sorting_algorithm_8cpp.html#a868375389d7bb364d87863d6d960bbd6',1,'drawing']]],
-  ['createbuttons',['CreateButtons',['../_visualization_sorting_algorithm_8cpp.html#aefa290eb1447430c70ef5b09a80f27d9',1,'drawing']]],
-  ['createbuttonsoffunction',['CreateButtonsOfFunction',['../_visualization_sorting_algorithm_8cpp.html#a8115c7a08eded76edb889d3417496737',1,'drawing']]],
-  ['createemptycanvas',['CreateEmptyCanvas',['../group___drawing.html#gadc857efa3dc71f61fffee9de09693157',1,'drawing']]],
-  ['createemptydiagram',['CreateEmptyDiagram',['../group___drawing.html#ga881ce05651be510d0d47027b4d8f4278',1,'drawing']]],
-  ['createinterchangeablebuttons',['CreateInterchangeableButtons',['../_visualization_sorting_algorithm_8cpp.html#a6a6d45b9b9a23431af08f754007dafb3',1,'drawing']]],
-  ['createusualbuttons',['CreateUsualButtons',['../_visualization_sorting_algorithm_8cpp.html#a54c1ee2fdace79957352e4314b1a6b77',1,'drawing']]]
+  ['createbuttons',['CreateButtons',['../_visualization_sorting_algorithm_8cpp.html#ac7d82128027e7a77aa06b7a5007848dd',1,'drawing']]],
+  ['createemptycanvas',['CreateEmptyCanvas',['../group___drawing.html#gab53e33a9fbc1b6d1580c35494e925732',1,'drawing']]],
+  ['createemptydiagram',['CreateEmptyDiagram',['../group___drawing.html#ga881ce05651be510d0d47027b4d8f4278',1,'drawing']]]
 ];

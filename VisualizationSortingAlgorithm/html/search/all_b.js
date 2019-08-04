@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['quicksorting',['quickSorting',['../group___buttons_funct.html#ga2e5d6146e32b53886d60db88f37b87c5',1,'buttonsFunction']]]
+  ['parameterforresults',['parameterForResults',['../structdrawing_1_1parameter_for_results.html',1,'drawing']]],
+  ['pos',['pos',['../class_buttons_1_1button.html#af59d546a1f81eab34d03f48d56bb8c95',1,'Buttons::button']]]
 ];

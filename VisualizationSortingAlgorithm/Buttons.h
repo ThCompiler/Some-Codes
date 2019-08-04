@@ -63,8 +63,8 @@ namespace Buttons
 
             txSetColor(textColor);
             txSetFillColor(textColor);
-            txSelectFont(styleText->nameFont.c_str(), styleText->sizeFont, FW_DONTCARE);
-            txDrawText(pos.x, pos.y, size.x, size.y, text.c_str(), DT_CENTER | DT_VCENTER);
+            drawing::tx_SelectFont(styleText->nameFont.c_str(), styleText->sizeFont, FW_DONTCARE);
+            drawing::tx_DrawText(pos.x, pos.y, size.x, size.y, text.c_str(), DT_CENTER | DT_VCENTER);
         }
 
     //-----------------------------------------------------------------------------------------------------------------
@@ -84,7 +84,7 @@ namespace Buttons
 
             // рисуем обычную кнопку
             txBegin();
-            txRectangle(pos.x, pos.y, size.x, size.y);
+            drawing::tx_Rectangle(pos.x, pos.y, size.x, size.y);
             DrawButton(1);
             txEnd();
         }
@@ -116,21 +116,22 @@ namespace Buttons
 //-----------------------------------------------------------------------------------------------------------------
 
     int(*CheckClickButtons(std::vector<button>* Buttons)) (int left, int right, std::vector<int>parametr, 
-                            int* swaping, int* comparisons, std::vector<int>* Array)
+                           int* swaping, int* comparisons, std::vector<int>* Array)
     {
 
         assert(Buttons != nullptr);
 
         int idSwapingButton = -1;
 
-        const long x = txMouseX(), y = txMouseY();
+        const int x = txMouseX(), y = txMouseY();
 
         int (*result)(int left, int right, std::vector<int>parametr, int* swaping, 
                       int* comparisons, std::vector<int> * Array) = nullptr;
 
 
         for (int i = 0; i < Buttons->size();i++)
-            if (In(x, (*Buttons)[i].pos.x, (*Buttons)[i].size.x) && In(y, (*Buttons)[i].pos.y, (*Buttons)[i].size.y))
+            if (In(x, drawing::RealCord((*Buttons)[i].pos.x, 1), drawing::RealCord((*Buttons)[i].size.x, 1))
+                && In(y, drawing::RealCord((*Buttons)[i].pos.y, 0), drawing::RealCord((*Buttons)[i].size.y, 0)))
             {
                 if ((*Buttons)[i].type == InterchangeableButton)
                 {
