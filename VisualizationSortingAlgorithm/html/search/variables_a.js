@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['sandcolor',['SandColor',['../_visualization_sorting_algorithm_8cpp.html#a17c8e95bc9944c14e826eaea9af70c97',1,'drawing']]],
-  ['size',['size',['../class_buttons_1_1button.html#a9f70ff3e9bb00e2c5e4eec77631c085f',1,'Buttons::button']]],
-  ['sizefont',['sizeFont',['../structdrawing_1_1text_style.html#a18077912ecf83b15b91dc021af0335ee',1,'drawing::textStyle']]],
-  ['styletext',['styleText',['../class_buttons_1_1button.html#adc05919310c127e15c02849dffa42ecd',1,'Buttons::button']]]
+  ['text',['text',['../class_buttons_1_1button.html#a0b46a8ba7918ea8bce446563ca84a8e9',1,'Buttons::button']]],
+  ['textcolor',['textColor',['../class_buttons_1_1button.html#a85e2291474009ce2f593c5ae8ba7d333',1,'Buttons::button']]],
+  ['tx_5fscarlet',['TX_SCARLET',['../_update_t_x_lib_8h.html#a8b92693cd98466602c52cbc181605c1c',1,'drawing']]],
+  ['type',['type',['../class_buttons_1_1button.html#ac797586fb081a4932f43c0a674b98045',1,'Buttons::button']]]
 ];

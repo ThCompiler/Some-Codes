@@ -1,5 +1,5 @@
 //=================================================================================================================
-//           [These sections are for folding control  in Code::Blocks]         [$Date: 2019-07-28 00:00:00 +0400 $]
+//           [These sections are for folding control  in Code::Blocks]         [$Date: 2019-08-07 00:00:00 +0400 $]
 //{          [Best viewed with "Fold all on file open" option enabled]         [Best screen/page width = 120 chars]
 //=================================================================================================================
 //!
@@ -8,7 +8,7 @@
 //!
 //!          $Version: 00173a, Revision: 105 $
 //!          $Copyright: (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru> $
-//!          $Date: 2019-07-28 00:00:00 +0400 $
+//!          $Date: 2019-08-07 00:00:00 +0400 $
 //!
 //!          TX Library -- компактная библиотека двумерной графики для MS Windows на С++.
 //!          Это небольшая "песочница" для начинающих реализована с целью помочь им в изучении
@@ -115,9 +115,9 @@
 //!            Версия библиотеки в целочисленном формате: старшее слово -- номер версии, младшее -- номер ревизии,
 //!            в двоично-десятичном формате. Например, @c 0x172a0050 -- версия @c 0.172a, ревизия @c 50.
 //! @code
-//!            #define _TX_VERSION "TXLib [Ver: 1.73a, Rev: 105, Date: 2019-07-28 00:00:00 +0300]"                 //
-//!            #define _TX_AUTHOR  "Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru)"  //  ПРИМЕР
-//!            #define _TX_VER      0x173a0000                                           //
+//!            #define _TX_VERSION "TXLib [Ver: 1.73a, Rev: 105, Date: 2019-08-07 00:00:00 +0300]"  //
+//!            #define _TX_AUTHOR  "Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru)"             //  ПРИМЕР
+//!            #define _TX_VER      0x173a0000                                                      //
 //! @endcode
 //!            Эти константы автоматически обновляются при изменении версии.
 //!
@@ -133,9 +133,9 @@
 //}----------------------------------------------------------------------------------------------------------------
 //! @{
 
-#define _TX_VER      _TX_v_FROM_CVS ($VersionInfo: , TXLib.h, 00173a, 105, 2019-07-28 00:00:00 +0300, "Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>", $)
-#define _TX_VERSION  _TX_V_FROM_CVS ($VersionInfo: , TXLib.h, 00173a, 105, 2019-07-28 00:00:00 +0300, "Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>", $)
-#define _TX_AUTHOR   _TX_A_FROM_CVS ($VersionInfo: , TXLib.h, 00173a, 105, 2019-07-28 00:00:00 +0300, "Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>", $)
+#define _TX_VER      _TX_v_FROM_CVS ($VersionInfo: , TXLib.h, 00173a, 105, 2019-08-07 00:00:00 +0300, "Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>", $)
+#define _TX_VERSION  _TX_V_FROM_CVS ($VersionInfo: , TXLib.h, 00173a, 105, 2019-08-07 00:00:00 +0300, "Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>", $)
+#define _TX_AUTHOR   _TX_A_FROM_CVS ($VersionInfo: , TXLib.h, 00173a, 105, 2019-08-07 00:00:00 +0300, "Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>", $)
 
 //! @cond INTERNAL
 #define _TX_v_FROM_CVS(_1,file,ver,rev,date,auth,_2)  ((0x##ver##u << 16) | 0x##rev##u)
@@ -692,8 +692,8 @@
 #define _USE_MATH_DEFINES              1        // Math.h's M_PI etc.
 #define __STDC_WANT_LIB_EXT1__         1        // String and output *_s functions
 #define _ALLOW_RTCc_IN_STL             1        // MSVC C2338: /RTCc rejects conformant code, so it isn't supported by libc.
-#define _SECURE_SCL                    1        // Enable checked STL iterators to throw an exception on incorrect use
 #if defined (_DEBUG)
+#define _SECURE_SCL                    1        // Enable checked STL iterators to throw an exception on incorrect use
 #define _HAS_ITERATOR_DEBUGGING        1
 #endif
 
@@ -4831,7 +4831,7 @@ int            _txConsoleMode             = SW_HIDE;
 //! @endcode
 //}----------------------------------------------------------------------------------------------------------------
 
-int            _txWindowStyle             = WS_POPUP | WS_BORDER | WS_CAPTION | WS_SYSMENU | WS_SIZEBOX;
+int            _txWindowStyle             = WS_POPUP | WS_BORDER | WS_CAPTION | WS_SYSMENU | WS_SIZEBOX | WS_MINIMIZEBOX;
 
 //{----------------------------------------------------------------------------------------------------------------
 //! @ingroup Technical
@@ -4873,6 +4873,48 @@ unsigned       _txWindowUpdateInterval    = 25;
     * 10
 #endif
     ;
+
+//{----------------------------------------------------------------------------------------------------------------
+//! @ingroup Technical
+//! @brief   Указатель на функцию, выводящую изображение непосредственно в окно TXLib во время обработки WM_PAINT.
+//!
+//!          Если равен NULL, то используется Win32::BitBlt.
+//!
+//!          Вы можете переопределить значение этого указателя, чтобы он указывал на вашу функцию, и тогда
+//!          TXLib будет выводить изображение в окно через нее. Имейте в виду, что эта функция будет вызываться
+//!          в отдельном потоке.
+//!
+//! @see     txSetWindowsHook(), txBitBlt(), txAlphaBlend()
+//!
+//! @usage @code
+//!          #include "TXLib.h"
+//!
+//!          bool MySwapBuffers (HDC dest, int xDest, int yDest, int wDest, int hDest, HDC src, int xSrc, int ySrc, DWORD /*rOp*/)
+//!              {
+//!              return txAlphaBlend (dest, xDest, yDest, wDest, hDest, src, xSrc, ySrc, 0.01);
+//!              }
+//!
+//!          int main()
+//!              {
+//!              _txSwapBuffers = MySwapBuffers;  // That's it
+//!
+//!              txCreateWindow (800, 600);
+//!
+//!              txSetFillColor (TX_NULL);
+//!              txRectangle (10, 10, txGetExtentX() - 10, txGetExtentY() - 10);
+//!
+//!              for (int x = 50; x <= txGetExtentX() - 50; x += 20)
+//!                  {
+//!                  txCircle (x, txGetExtentY()/2, 10);
+//!                  txSleep (100);
+//!                  }
+//!
+//!              txSleep (3000);
+//!              }
+//! @endcode
+//}----------------------------------------------------------------------------------------------------------------
+
+bool (*_txSwapBuffers) (HDC dest, int xDest, int yDest, int width, int height, HDC src, int xSrc, int ySrc, DWORD rOp) = NULL;
 
 //{----------------------------------------------------------------------------------------------------------------
 //! @ingroup Technical
@@ -6373,6 +6415,8 @@ _TX_DLLIMPORT     ("GDI32",    bool,     GetTextExtentPoint32A,         (HDC dc,
 _TX_DLLIMPORT     ("GDI32",    bool,     ExtFloodFill,                  (HDC dc, int x, int y, COLORREF color, unsigned type));
 _TX_DLLIMPORT     ("GDI32",    bool,     BitBlt,                        (HDC dest, int xDest, int yDest, int width, int height,
                                                                          HDC src,  int xSrc,  int ySrc,  DWORD rOp));
+_TX_DLLIMPORT     ("GDI32",    bool,     StretchBlt,                    (HDC dest, int xDest, int yDest, int width, int height,
+                                                                         HDC src, int xSrc, int ySrc, int wSrc, int hSrc, DWORD rOp));
 _TX_DLLIMPORT     ("GDI32",    bool,     PlgBlt,                        (HDC dest, const POINT* parallelogram,
                                                                          HDC src, int xSrc, int ySrc, int width, int height,
                                                                          HBITMAP mask, int xMask, int yMask));
@@ -6505,7 +6549,7 @@ void             _txCleanup();
 HWND             _txCanvas_CreateWindow (SIZE* size);
 inline bool      _txCanvas_OK()                                               __attribute__ ((warn_unused_result));
 
-bool             _txCanvas_NewSIZE      (HWND wnd);
+bool             _txCanvas_OnNEWSIZE    (HWND wnd);
 bool             _txCanvas_OnCREATE     (HWND wnd);
 bool             _txCanvas_OnDESTROY    (HWND wnd);
 bool             _txCanvas_OnCLOSE      (HWND);
@@ -6929,8 +6973,6 @@ $   HDC dc = Win32::CreateCompatibleDC (NULL); dc asserted;
 $   _txStockBitmap = (HBITMAP) Win32::SelectObject (dc, Win32::CreateCompatibleBitmap (dc, 1, 1)); _txStockBitmap asserted;
 $   Win32::DeleteObject (Win32::SelectObject (dc, _txStockBitmap)) asserted;
 $   Win32::DeleteDC (dc) asserted;
-
-$   (void) Win32::RoundRect;  // Just to suppress "defined but not used" warning
 
 $   return 1;
     }
@@ -7388,7 +7430,7 @@ $   if (_txMain && canvas && waitableParent && _txNOP (_TX_ALLOW_KILL_PARENT))
         {
 $       bool killed = _txKillProcess (parent);
 
-$       DWORD parent = 0;
+$       parent = 0;
 $       if (!killed || _txIsParentWaitable (&parent))
             {
 $           PostMessage (GetConsoleWindow(), WM_CHAR, '\n', 0);
@@ -7911,7 +7953,7 @@ $   WNDCLASSEX wc    = { sizeof (wc) };
 $   wc.style         = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
 $   wc.lpfnWndProc   = _txCanvas_WndProc;
 $   wc.hCursor       = LoadCursor (NULL, IDC_ARROW);
-$   wc.hbrBackground = (HBRUSH) Win32::GetStockObject (HOLLOW_BRUSH);
+$   wc.hbrBackground = (HBRUSH) Win32::GetStockObject (BLACK_BRUSH);
 $   wc.lpszClassName = className;
 
 $   ATOM wndclass = RegisterClassEx (&wc);
@@ -8073,8 +8115,11 @@ $       if (res) return res;
 
         case WM_KEYDOWN:      $     _txCanvas_OnKEYDOWN    (wnd, wpar, lpar); return 0;
         case WM_CHAR:         $     _txCanvas_OnCHAR       (wnd, wpar, lpar); return 0;
+        
+        case WM_ERASEBKGND:   $                                               return 0;
 
-        case WM_SIZE:         $     _txCanvas_NewSIZE      (wnd);             return 0;
+        case WM_EXITSIZEMOVE: $     _txCanvas_OnNEWSIZE    (wnd);             return 0;
+
         case WM_LBUTTONUP:
         case WM_LBUTTONDOWN:
         case WM_RBUTTONUP:
@@ -8101,42 +8146,35 @@ $   return DefWindowProc (wnd, msg, wpar, lpar);
 
 //-----------------------------------------------------------------------------------------------------------------
 
-bool _txCanvas_NewSIZE(HWND wnd)
+//-----------------------------------------------------------------------------------------------------------------
+// Функция добывлена автором TheCompiler
+//-----------------------------------------------------------------------------------------------------------------
+
+bool _txCanvas_OnNEWSIZE(HWND wnd)
 {
 $1  if (_TX_ARGUMENT_FAILED     (wnd))                  return false;
 
 $   if (_TX_DEFAULT_HDC_FAILED  (_txCanvas_BackBuf[0])) return false;
 $   if (_TX_DEFAULT_HDC_FAILED  (_txCanvas_BackBuf[1])) return false;
+    
+    txLock(false);
 
-    txAutoLock _lock;
+$   HDC NewDc = _txBuffer_Create(wnd, NULL, NULL, &_txCanvas_Pixels); assert(NewDc);
+    txSetDefaults(NewDc);
 
-$   RECT r = { 0 };
-$   GetClientRect(wnd, &r) asserted;
+$   _txCanvas_BackBuf[0] = NewDc;
 
-$   POINT sz = { r.right - r.left, r.bottom - r.top };
+$   NewDc = _txBuffer_Create (wnd); assert(NewDc);
+    txSetDefaults(NewDc);
 
-$   BITMAPINFO info1 = { { sizeof(info1), sz.x, sz.y, 1, WORD(sizeof(RGBQUAD) * 8), BI_RGB } };
+$   _txCanvas_BackBuf[1] = NewDc;
+    
+    txUnlock();
 
-$   HBITMAP bmap = Win32::CreateDIBSection(NULL, &info1, DIB_RGB_COLORS, (void**)& _txCanvas_Pixels, NULL, 0);
-$   if (!bmap) TX_DEBUG_ERROR("Cannot create buffer: CreateCompatibleBitmap() failed");
-
-$   Win32::SelectObject(_txCanvas_BackBuf[0], bmap) asserted;
-
-$   Win32::PatBlt(_txCanvas_BackBuf[0], 0, 0, sz.x, sz.y, BLACKNESS) asserted;
-
-
-$   BITMAPINFO info2 = { { sizeof(info2), sz.x, sz.y, 1, WORD(sizeof(RGBQUAD) * 8), BI_RGB } };
-
-$   bmap = Win32::CreateDIBSection(NULL, &info2, DIB_RGB_COLORS, (void**)NULL, NULL, 0);
-$   if (!bmap) TX_DEBUG_ERROR("Cannot create buffer: CreateCompatibleBitmap() failed");
-
-$   Win32::SelectObject(_txCanvas_BackBuf[1], bmap) asserted;
-
-$   Win32::PatBlt(_txCanvas_BackBuf[1], 0, 0, sz.x, sz.y, BLACKNESS) asserted;
+    InvalidateRect(txWindow(), NULL, false);
 
     return true;
 }
-
 
 //-----------------------------------------------------------------------------------------------------------------
 
@@ -8145,7 +8183,7 @@ bool _txCanvas_OnCREATE (HWND wnd)
 $1  if (_TX_ARGUMENT_FAILED (wnd)) return false;
 
 $   _txCanvas_BackBuf[0] = _txBuffer_Create (wnd, NULL, NULL, &_txCanvas_Pixels); assert (_txCanvas_BackBuf[0]);
-$   _txCanvas_BackBuf[1] = _txBuffer_Create (wnd);                                assert (_txCanvas_BackBuf[1]);
+$   _txCanvas_BackBuf[1] = _txBuffer_Create (wnd, NULL, NULL, NULL);              assert (_txCanvas_BackBuf[1]);
 
 $   SetTimer (wnd, _txCanvas_RefreshTimer, _txWindowUpdateInterval, NULL) asserted;
 
@@ -8245,23 +8283,28 @@ bool _txCanvas_OnPAINT (HWND wnd)
 $1  if (_TX_ARGUMENT_FAILED (wnd)) return false;
 $   if (!_txCanvas_OK())           return false;
 
-$   bool forceRedraw   = GetAsyncKeyState (VK_MENU)  && GetAsyncKeyState (VK_CONTROL) &&
-                         GetAsyncKeyState (VK_SHIFT) && GetAsyncKeyState (VK_SNAPSHOT);
+$   bool forceRedraw = GetAsyncKeyState (VK_MENU)  && GetAsyncKeyState (VK_CONTROL) &&
+                       GetAsyncKeyState (VK_SHIFT) && GetAsyncKeyState (VK_SNAPSHOT);
 
 $   PAINTSTRUCT ps = {0};
-$   HDC dc = BeginPaint (wnd, &ps);
-$   if (!dc) return false;
+$   HDC wndDc = BeginPaint (wnd, &ps);
+$   if (!wndDc) return false;
+
+$   HDC dc0 = _txCanvas_BackBuf[0],
+        dc1 = _txCanvas_BackBuf[1];
 
 $   RECT r = {0};
 $   GetClientRect (wnd, &r) asserted;
-$   POINT size = { r.right - r.left, r.bottom - r.top };
+$   POINT wndSize = { r.right - r.left, r.bottom - r.top };
+
+$   POINT dcSize = txGetExtent (dc1);
 
 $   if ((_txCanvas_RefreshLock <= 0 || forceRedraw) &&
         txLock (false))
         {
-$       Win32::BitBlt   (_txCanvas_BackBuf[1], 0, 0, size.x, size.y, txDC(), 0, 0, SRCCOPY);
+$       Win32::BitBlt   (dc1, 0, 0, dcSize.x, dcSize.y, dc0, 0, 0, SRCCOPY);
 
-$       _txConsole_Draw (_txCanvas_BackBuf[1]);
+$       _txConsole_Draw (dc1);
 
 $       txUnlock();
         }
@@ -8273,7 +8316,21 @@ $       txUnlock();
     // Yes guys, with all your software installed. :(
 
 $   if (_txCanvas_RefreshLock != 100500)
-        { $ Win32::BitBlt (dc, 0, 0, size.x, size.y, _txCanvas_BackBuf[1], 0, 0, SRCCOPY); }
+        {
+        if (_txSwapBuffers)
+            {
+$           _txSwapBuffers    (wndDc, 0, 0, wndSize.x, wndSize.y, dc1, 0, 0,                     SRCCOPY) asserted;
+            }
+        else if (dcSize.x == wndSize.x && dcSize.y == wndSize.y)
+            {
+$           Win32::BitBlt     (wndDc, 0, 0, wndSize.x, wndSize.y, dc1, 0, 0,                     SRCCOPY);
+            }
+        else
+            {
+$           Win32::SetStretchBltMode (wndDc, HALFTONE);
+$           Win32::StretchBlt (wndDc, 0, 0, wndSize.x, wndSize.y, dc1, 0, 0, dcSize.x, dcSize.y, SRCCOPY);
+            }
+        }
 
 $   EndPaint (wnd, &ps) asserted;
 
@@ -8784,7 +8841,7 @@ $   return _TX_OK;
 //=================================================================================================================
 //! @{
 
-HDC _txBuffer_Create (HWND wnd, const POINT* size, HBITMAP bitmap, RGBQUAD** pixels)
+HDC _txBuffer_Create (HWND wnd, const POINT* size /*= NULL*/, HBITMAP bitmap /*= NULL*/, RGBQUAD** pixels /*= NULL*/)
     {
 $1  txAutoLock _lock;
 
@@ -11566,7 +11623,7 @@ $   if (!height) height = size.y;
     // Это проверка того, что картинка (или ее часть) правильно попадает в окно (точнее, HDC приемника - destination, dest).
     // Если она "вылезает" из окна в любую сторону, то Win32::AlphaBlend не будет работать. Эта проверка происходит только
     // в режиме отладки (когда не задан макрос NDEBUG - No Debugging, без отладки).
-    
+
 #if !defined (NDEBUG)
 
 $   if (!(0 <= xSource && xSource + width  <= size.x &&
@@ -11599,7 +11656,7 @@ $   bool ok = Win32::GetObject (txGDI ((Win32::GetCurrentObject (sourceImage, OB
     // Пожалуйста, не надо бездумно копировать себе в программу этот код. Осмыслите его, решите, будете ли вы использовать ли
     // вы альфа-каналы или нет, и установите AC_SRC_ALPHA либо 0. Иначе этим копипастом вы породите невнятный паленый код и
     // безнадежно испортите себе карму. :((
-    
+
 $   BLENDFUNCTION blend = { AC_SRC_OVER, 0, (BYTE) ROUND (alpha * 255), (BYTE) ((bmap.bmBitsPixel == 32)? AC_SRC_ALPHA : 0) };
 
     // Собственно, это вызов Win32::AlphaBlend(). Если вдруг что-то не получилось, будет вызвана Win32::BitBlt(), которая скопирует
@@ -11628,7 +11685,7 @@ $       ok = false;
     // Хотя это сложнее, да.</s>
 
     // Но помни про паленый копипаст и карму, см. выше. Я предупредил.
-    
+
 $   return ok;
     }
 
@@ -12125,7 +12182,7 @@ $   return 15.0 * samples / sqrt (1.0 * size.x * size.y);
 
 //-----------------------------------------------------------------------------------------------------------------
 
-#if (__cplusplus >= 201100)
+#if (__cplusplus >= 201100 || defined (_MSC_VER) && _MSC_VER >= 1900)  // Give MS a chance...
     template <int txFramesToAverage = 5>
     double txGetFPS (int minFrames = txFramesToAverage) __attribute__ ((warn_unused_result));
 #else
@@ -12133,8 +12190,8 @@ $   return 15.0 * samples / sqrt (1.0 * size.x * size.y);
     double txGetFPS (int minFrames = txFramesToAverage) __attribute__ ((warn_unused_result));
 #endif
 
-#if (__cplusplus >= 201100)
-    template <int txFramesToAverage = 5>
+#if (__cplusplus >= 201100 || defined (_MSC_VER) && _MSC_VER >= 1900)
+    template <int txFramesToAverage>
 #endif
 
 double txGetFPS (int minFrames)
@@ -13199,72 +13256,51 @@ using ::std::string;
 
     #else
 
-    #pragma GCC diagnostic warning     "-Wdeprecated-declarations"                                                 
-    #pragma GCC diagnostic warning     "-Wredundant-decls"                                                         
-    #pragma GCC diagnostic warning     "-Wnon-virtual-dtor"                                                        
-    #pragma GCC diagnostic warning     "-Wshadow"                                                                  
-    #pragma GCC diagnostic warning     "-Wstrict-aliasing"                                                         
-    #pragma GCC diagnostic warning     "-Wunused-label"                                                            
-    #pragma GCC diagnostic warning     "-Wunused-value"                                                            
-                                                                                                                   
-    #endif                                                                                                         
-                                                                                                                   
-#endif                                                                                                             
-                                                                                                                   
-#if defined (__clang__)                                                                                            
-                                                                                                                   
-    #pragma clang diagnostic pop                                                                                   
-                                                                                                                   
-#endif                                                                                                             
-                                                                                                                   
+    #pragma GCC diagnostic warning     "-Wdeprecated-declarations"
+    #pragma GCC diagnostic warning     "-Wredundant-decls"
+    #pragma GCC diagnostic warning     "-Wnon-virtual-dtor"
+    #pragma GCC diagnostic warning     "-Wshadow"
+    #pragma GCC diagnostic warning     "-Wstrict-aliasing"
+    #pragma GCC diagnostic warning     "-Wunused-label"
+    #pragma GCC diagnostic warning     "-Wunused-value"
+
+    #endif
+
+#endif
+
+#if defined (__clang__)
+
+    #pragma clang diagnostic pop
+
+#endif
+
 //-----------------------------------------------------------------------------------------------------------------
-                                                                                                                   
-#if defined (_MSC_VER)                                                                                             
-                                                                                                                   
-    #pragma warning (pop)                                                                                          
-                                                                                                                   
-#endif                                                                                                             
-                                                                                                                   
-#if defined (__INTEL_COMPILER)                                                                                     
-                                                                                                                   
-    #pragma warning (default:  174)    // Remark: expression has no effect                                         
-    #pragma warning (default:  304)    // Remark: access control not specified ("public" by default)               
-    #pragma warning (default:  444)    // Remark: destructor for base class "..." is not virtual                   
-    #pragma warning (default:  522)    // Remark: function redeclared "inline" after being called                  
+
+#if defined (_MSC_VER)
+
+    #pragma warning (pop)
+
+#endif
+
+#if defined (__INTEL_COMPILER)
+
+    #pragma warning (default:  174)    // Remark: expression has no effect
+    #pragma warning (default:  304)    // Remark: access control not specified ("public" by default)
+    #pragma warning (default:  444)    // Remark: destructor for base class "..." is not virtual
+    #pragma warning (default:  522)    // Remark: function redeclared "inline" after being called
     #pragma warning (default: 1684)    // Conversion from pointer to same-sized integral type (potential portability problem)
-                                                                                                                   
-    #pragma warning (disable:  981)    // Remark: operands are evaluated in unspecified order                      
-                                                                                                                   
-#endif                                                                                                             
-                                                                                                                   
-//! @endcond                                                                                                       
-//}                                                                                                                
+
+    #pragma warning (disable:  981)    // Remark: operands are evaluated in unspecified order
+
+#endif
+
+//! @endcond
+//}
 //-----------------------------------------------------------------------------------------------------------------
-                                                                                                                   
-#endif // __TXLIB_H_INCLUDED                                                                                       
-                                                                                                                   
+
+#endif // __TXLIB_H_INCLUDED
+
 //=================================================================================================================
-// EOF                                                                                                             
+// EOF
 //=================================================================================================================
-                                                                                                                   
-                                                                                                                   
-                                                                                                                   
-                                                                                                                   
-                                                                                                                   
-                                                                                                                   
-                                                                                                                   
-                                                                                                                   
-                                                                                                                   
-                                                                                                                   
-                                                                                                                   
-                                                                                                                   
-                                                                                                                   
-                                                                                                                   
-                                                                                                                   
-                                                                                                                   
-                                                                                                                   
-                                                                                                                   
-                                                                                                                   
-                                                                                                                   
-                                                                                                                   
-                                                                                                        
+       

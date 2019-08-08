@@ -4,7 +4,6 @@
 
 #include <string>
 #include <vector>
-#include "TXLib.h"
 #include "SortingFunction.h"
 #include "UpdateTXLib.h"
 
@@ -17,9 +16,9 @@ namespace Buttons
 
     enum TypeOfButton
     {
-        NonFixedButton = 1,             ///< нефиксирующаяся кнопка
-        FixedButton = 2,                ///< фиксирующая кнопка
-        InterchangeableButton = 3       ///< кнопка которая единственная среди группы кнопок активна
+        NonFixedButton          = 1,             ///< нефиксирующаяся кнопка
+        FixedButton             = 2,             ///< фиксирующая кнопка
+        InterchangeableButton   = 3              ///< кнопка которая единственная среди группы кнопок активна
     };
 
 //=================================================================================================================
@@ -30,17 +29,17 @@ namespace Buttons
     class button
     {
     public:
-        int id;                                 ///< индивидуальный код
-        std::string text;                       ///< текст
-        POINT pos;                              ///< координаты левого верхнего угла
-        POINT size;                             ///< координаты правого нижнего угла
-        int R;                                  ///< радиус скругление углов кнопки
-        COLORREF boundariesColor;               ///< цвет границ
-        COLORREF backColor;                     ///< фон активной кнопки
-        COLORREF textColor;                     ///< цвет текста
-        const drawing::textStyle* styleText;    ///< стиль текста кнопки
-        bool isPressed;                         ///< является ли кнопка активна
-        TypeOfButton type;                      ///< способ работы кнопки
+        int                         id;                             ///< индивидуальный код
+        std::string                 text;                           ///< текст
+        POINT                       pos;                            ///< координаты левого верхнего угла
+        POINT                       size;                           ///< координаты правого нижнего угла
+        int                         R;                              ///< радиус скругление углов кнопки
+        COLORREF                    boundariesColor;                ///< цвет границ
+        COLORREF                    backColor;                      ///< фон активной кнопки
+        COLORREF                    textColor;                      ///< цвет текста
+        const drawing::textStyle*   styleText;                      ///< стиль текста кнопки
+        bool                        isPressed;                      ///< является ли кнопка активна
+        TypeOfButton                type;                           ///< способ работы кнопки
 
         int(*linkToFunction)(int left, int right, std::vector<int>parametr, int* swaping, int* comparisons, std::vector<int>* Array); ///< ссылка на функцию сортировки
 
@@ -61,10 +60,11 @@ namespace Buttons
             if (withContur) // если нужен контур
                 drawing::DrawGentleRectangle(pos.x, pos.y, size.x, size.y, R, boundariesColor);
 
-            txSetColor(textColor);
-            txSetFillColor(textColor);
-            drawing::tx_SelectFont(styleText->nameFont.c_str(), styleText->sizeFont, FW_DONTCARE);
-            drawing::tx_DrawText(pos.x, pos.y, size.x, size.y, text.c_str(), DT_CENTER | DT_VCENTER);
+            txSetColor      (textColor);
+            txSetFillColor  (textColor);
+
+            drawing::tx_SelectFont  (styleText->nameFont.c_str(), styleText->sizeFont, FW_DONTCARE);
+            drawing::tx_DrawText    (pos.x, pos.y, size.x, size.y, text.c_str(), DT_CENTER | DT_VCENTER);
         }
 
     //-----------------------------------------------------------------------------------------------------------------
@@ -77,10 +77,11 @@ namespace Buttons
             // рисуем нажатую кнопку
             drawing::DrawFoneOfPushedButton(pos.x, pos.y, size.x, size.y, R, backColor);
             DrawButton(0);
+
             txSleep(150);   // ждём
 
-            txSetColor(backColor);
-            txSetFillColor(backColor);
+            txSetColor      (backColor);
+            txSetFillColor  (backColor);
 
             // рисуем обычную кнопку
             txBegin();
@@ -100,6 +101,7 @@ namespace Buttons
     void DrawButtons(std::vector<button>* Buttons)
     {
         assert(Buttons != nullptr);
+
         for (button oneButton : (*Buttons))
         {
             oneButton.DrawButton(1);
@@ -116,42 +118,44 @@ namespace Buttons
 //-----------------------------------------------------------------------------------------------------------------
 
     int(*CheckClickButtons(std::vector<button>* Buttons)) (int left, int right, std::vector<int>parametr, 
-                           int* swaping, int* comparisons, std::vector<int>* Array)
+                                                           int* swaping, int* comparisons, std::vector<int>* Array)
     {
 
         assert(Buttons != nullptr);
 
-        int idSwapingButton = -1;
-
-        const int x = txMouseX(), y = txMouseY();
+        int         idSwapingButton = -1;
+        const int   x               = txMouseX();
+        const int   y               = txMouseY();
 
         int (*result)(int left, int right, std::vector<int>parametr, int* swaping, 
-                      int* comparisons, std::vector<int> * Array) = nullptr;
+                      int* comparisons, std::vector<int> * Array)                       = nullptr;
 
 
         for (int i = 0; i < Buttons->size();i++)
-            if (In(x, drawing::RealCord((*Buttons)[i].pos.x, 1), drawing::RealCord((*Buttons)[i].size.x, 1))
-                && In(y, drawing::RealCord((*Buttons)[i].pos.y, 0), drawing::RealCord((*Buttons)[i].size.y, 0)))
+            if (In(std::nomeow,  x,  drawing::RealCord((*Buttons)[i].pos.x,  1),  drawing::RealCord((*Buttons)[i].size.x,  1))
+             && In(std::nomeow,  y,  drawing::RealCord((*Buttons)[i].pos.y,  0),  drawing::RealCord((*Buttons)[i].size.y,  0)))
             {
                 if ((*Buttons)[i].type == InterchangeableButton)
                 {
-                    idSwapingButton = (*Buttons)[i].id;
-                    (*Buttons)[i].isPressed = !(*Buttons)[i].isPressed;
-                    result = (*Buttons)[i].linkToFunction;
+                    idSwapingButton             =   (*Buttons)[i].id;
+                    (*Buttons)[i].isPressed     =  !(*Buttons)[i].isPressed;
+                    result                      =   (*Buttons)[i].linkToFunction;
                     break;
                 }
 
                 if ((*Buttons)[i].type == NonFixedButton)
                 {
                     (*Buttons)[i].ClickButton();
+
                     result = (*Buttons)[i].linkToFunction;
+
                     break;
                 }
 
                 if ((*Buttons)[i].type == FixedButton)
                 {
-                    (*Buttons)[i].isPressed = !(*Buttons)[i].isPressed;
-                    result = (*Buttons)[i].linkToFunction;
+                    (*Buttons)[i].isPressed     =  !(*Buttons)[i].isPressed;
+                    result                      =   (*Buttons)[i].linkToFunction;
                     break;
                 }
 
@@ -161,6 +165,7 @@ namespace Buttons
             for (int i = 0; i < Buttons->size(); i++)
                 if ((*Buttons)[i].id != idSwapingButton)
                     (*Buttons)[i].isPressed = false;
+
         return result;
     }
 }

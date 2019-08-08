@@ -17,8 +17,8 @@ namespace drawing
 
     struct textStyle
     {
-        std::string nameFont;   ///<  названия шрифта текста
-        int sizeFont;           ///<  размер шрифта
+        std::string nameFont;       ///<  названия шрифта текста
+        int         sizeFont;       ///<  размер шрифта
     };
 
 //=================================================================================================================
@@ -222,17 +222,17 @@ namespace drawing
             return;
         }
 
-        txSetColor(color);
-        txSetFillColor(color);
+        txSetColor      (color);
+        txSetFillColor  (color);
 
-        txLine(x0 + R - 1, y0, x1 - R, y0);                 // верхняя сторона
-        txArc(x1 - 2 * R, y0, x1, y0 + 2 * R, 0, 90);       // правый верхний угол
-        txLine(x1, y0 + R - 1, x1, y1 - R);                 // правая сторона
-        txArc(x1 - 2 * R, y1, x1, y1 - 2 * R, -90, 90);     // правый нижний угол
-        txLine(x0 + R - 1, y1, x1 - R, y1);                 // нижняя сторона
-        txArc(x0, y1 - 2 * R, x0 + 2 * R, y1, 180, 90);     // левый нижний угол
-        txLine(x0, y0 + R - 1, x0, y1 - R);                 // левая сторона
-        txArc(x0, y0 + 2 * R, x0 + 2 * R, y0, 90, 90);      // левый верхний угол
+        txLine  (x0 + R - 1,    y0,             x1 - R,     y0);                                // верхняя сторона
+        txArc   (x1 - 2 * R,    y0,             x1,         y0 + 2 * R, 0,      90);            // правый верхний угол
+        txLine  (x1,            y0 + R - 1,     x1,         y1 - R);                            // правая сторона
+        txArc   (x1 - 2 * R,    y1,             x1,         y1 - 2 * R, -90,    90);            // правый нижний угол
+        txLine  (x0 + R - 1,    y1,             x1 - R,     y1);                                // нижняя сторона
+        txArc   (x0,            y1 - 2 * R,     x0 + 2 * R, y1,         180,    90);            // левый нижний угол
+        txLine  (x0,            y0 + R - 1,     x0,         y1 - R);                            // левая сторона
+        txArc   (x0,            y0 + 2 * R,     x0 + 2 * R, y0,         90,     90);            // левый верхний угол
     }
 
 //-----------------------------------------------------------------------------------------------------------------
@@ -247,37 +247,38 @@ namespace drawing
 
     void DrawFoneOfPushedButton(int x0, int y0, int x1, int y1, int R, COLORREF BackColor)
     {
-        const int gap = MIN(x1 - x0, y1 - y0) / 2; // число эелементов градиента
+        const int gap   = MIN(x1 - x0, y1 - y0) / 2; // число эелементов градиента
+        const int r     = R;
 
-        const int r = R;
         R = 0;
 
         if ((x1 - x0) < (y1 - y0)) // определяем координаты начальной позиции градиента
         {
             y1 -= (x1 - x0) / 2;
             y0 += (x1 - x0) / 2;
-            x0 = (x1 + x0) / 2;
-            x1 = x0;
+            x0  = (x1 + x0) / 2;
+            x1  = x0;
         }
         else
         {
             x1 -= (y1 - y0) / 2;
             x0 += (y1 - y0) / 2;
-            y0 = (y1 + y0) / 2;
-            y1 = y0;
+            y0  = (y1 + y0) / 2;
+            y1  = y0;
         }
 
         for (int i = 1; i <= gap; i++)
         {
-            const COLORREF color = RGB(MAX(txExtractColor(BackColor, TX_RED) - 1.3 * i, 0),     // получаем цвет для 
-                            MAX(txExtractColor(BackColor, TX_GREEN) - 1.3 * i, 0),              // каждого элемента
-                            txExtractColor(BackColor, TX_BLUE));                                // градиента
+            const COLORREF color =  RGB(MAX(txExtractColor(BackColor, TX_RED) - 1.3 * i, 0),     // получаем цвет для 
+                                    MAX(txExtractColor(BackColor, TX_GREEN) - 1.3 * i, 0),       // каждого элемента
+                                    txExtractColor(BackColor, TX_BLUE));                         // градиента
 
             if (gap - i <= r)           // если приблежаемся к границам кнопки делаем скругление, чтобы не было торчаших углов
                 R = r - (gap - i);
 
-            txSetColor(color);
-            txSetFillColor(color);
+            txSetColor      (color);
+            txSetFillColor  (color);
+
             DrawGentleRectangle(x0, y0, x1, y1, R, color);
 
             //переходим к следующему элементу градиента
