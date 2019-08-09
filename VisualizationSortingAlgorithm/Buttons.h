@@ -34,7 +34,7 @@ namespace Buttons
         POINT                       pos;                            ///< координаты левого верхнего угла
         POINT                       size;                           ///< координаты правого нижнего угла
         int                         R;                              ///< радиус скругление углов кнопки
-        COLORREF                    boundariesColor;                ///< цвет границ
+        COLORREF                    frameColor;                     ///< цвет границ
         COLORREF                    backColor;                      ///< фон активной кнопки
         COLORREF                    textColor;                      ///< цвет текста
         const drawing::textStyle*   styleText;                      ///< стиль текста кнопки
@@ -58,7 +58,7 @@ namespace Buttons
                 drawing::DrawFoneOfPushedButton(pos.x, pos.y, size.x, size.y, R, backColor);
 
             if (withContur) // если нужен контур
-                drawing::DrawGentleRectangle(pos.x, pos.y, size.x, size.y, R, boundariesColor);
+                drawing::DrawGentleRectangle(pos.x, pos.y, size.x, size.y, R, frameColor);
 
             txSetColor      (textColor);
             txSetFillColor  (textColor);

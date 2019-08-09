@@ -445,6 +445,7 @@ namespace drawing{
 }
 
 
+
 int main()
 {
     int Width    = 1000;    // ширина окна
@@ -460,7 +461,7 @@ int main()
     int RandomFilling       = 1;                        // перменная указывающя заполняем ли мы случайными числами сортируемый массив или нет
     int maxNumOfSwaping     = 1200;                     // максимальное число обменов (значение по умолчанию)
     int maxNumOfComparisons = 1200;                     // максимальное число сравнений (значение по умолчанию)
-    int stateMouse          = txMouseButtons();         // состояние кнопки мыши
+    int stateMouse          = txMouseButtons();         // состояние мыши
 
     drawing::CreateButtons(&usualButtons, &buttonsOfFunction, &interchangeableButton);
     
@@ -536,8 +537,48 @@ int main()
     return 0;
 }
 
+
+
 namespace drawing
 {
+
+//-----------------------------------------------------------------------------------------------------------------
+//! \brief   Определяет параметры для кнопок
+//!
+//! \param[out] usualButtons                вектор параметров обычных кнопок
+//! \param[out] interchangeableButton       вектор параметров кнопок, среди которых может быть активна только одна
+//! \param[out] buttonsOfFunction           вектор параметров кнопок функций сортировки 
+//!
+//-----------------------------------------------------------------------------------------------------------------
+
+    void CreateButtons(std::vector<Buttons::button>* usualButtons,std::vector<Buttons::button>* buttonsOfFunction, 
+                       std::vector<Buttons::button>* interchangeableButton) {
+
+        assert(usualButtons             != nullptr);
+        assert(buttonsOfFunction        != nullptr);
+        assert(interchangeableButton    != nullptr);
+        assert(usualButtons             != buttonsOfFunction);
+        assert(usualButtons             != interchangeableButton);
+        assert(interchangeableButton    != buttonsOfFunction);
+
+//-----+----------------------------------+----+-----------------------------------------+-----+---------+-----+--------+-------+---------------+-----------+-----------+---------------+----------+-----------------------------------+------------------------------------+
+//     |                                  | id | text on button                          | x0  | y0      | x1  | y1     | R     | frameColor    | backColor | textColor | style of text | IsActive | type of button                    | click response function            |
+//-----+----------------------------------+----+-----------------------------------------+-----+---------+-----+--------+-------+---------------+-----------+-----------+---------------+----------+-----------------------------------+------------------------------------+
+//     |                                  |    |                                         |     |         |     |        |       |               |           |           |               |          |                                   |                                    |
+        interchangeableButton->push_back({ 1,   "Заполнение случайными \n числами",     { 13,   52  },  { 273,  95  },   10,     TX_SCARLET,     BackColor,  TX_WHITE,   &Middle2,       true,      Buttons::InterchangeableButton,     buttonsFunction::Random             });
+        interchangeableButton->push_back({ 2,   "Заполнение числами \n по убыванию",    { 13,   112 },  { 273,  155 },   10,     TX_SCARLET,     BackColor,  TX_WHITE,   &Middle2,       false,     Buttons::InterchangeableButton,     buttonsFunction::NotRandom          });
+        usualButtons->push_back         ({ 3,   "Поехали!",                             { 13,   569 },  { 273,  635 },   10,     TX_SCARLET,     BackColor,  TX_WHITE,   &MainBeauty,    false,     Buttons::NonFixedButton,            buttonsFunction::Start              });
+        usualButtons->push_back         ({ 4,   "Изменить число элементов",             { 13,   536 },  { 273,  556 },   10,     TX_SCARLET,     BackColor,  TX_WHITE,   &Middle1,       false,     Buttons::NonFixedButton,            buttonsFunction::Changed            });
+        usualButtons->push_back         ({ 5,   "Выход",                                { 13,   642 },  { 273,  661 },   10,     TX_SCARLET,     BackColor,  TX_WHITE,   &Middle1,       false,     Buttons::NonFixedButton,            buttonsFunction::Exit               });
+        buttonsOfFunction->push_back    ({ 6,   "Bubble",                               { 13,   217 },  { 130,  254 },   10,     TX_RED,         BackColor,  TX_RED,     &Huge,          true,      Buttons::FixedButton,               buttonsFunction::bubbleSorting      });
+        buttonsOfFunction->push_back    ({ 7,   "Heap",                                 { 143,  217 },  { 273,  254 },   10,     TX_GREEN,       BackColor,  TX_GREEN,   &Huge,          true,      Buttons::FixedButton,               buttonsFunction::heap_sort          });
+        buttonsOfFunction->push_back    ({ 8,   "Quick",                                { 13,   264 },  { 130,  300 },   10,     TX_BLUE,        BackColor,  TX_BLUE,    &Huge,          true,      Buttons::FixedButton,               buttonsFunction::quickSorting       });
+        buttonsOfFunction->push_back    ({ 9,   "Merge",                                { 143,  264 },  { 273,  300 },   10,     TX_WHITE,       BackColor,  TX_WHITE,   &Huge,          true,      Buttons::FixedButton,               buttonsFunction::mergeSorting       });
+        buttonsOfFunction->push_back    ({ 10,  "Insertion",                            { 13,   310 },  { 130,  346 },   10,     TX_ORANGE,      BackColor,  TX_ORANGE,  &Huge,          true,      Buttons::FixedButton,               buttonsFunction::insertionSorting   });
+        buttonsOfFunction->push_back    ({ 11,  "Selection",                            { 143,  310 },  { 273,  346 },   10,     TX_MAGENTA,     BackColor,  TX_MAGENTA, &Huge,          true,      Buttons::FixedButton,               buttonsFunction::selectionSorting   });
+    }
+
+//-----------------------------------------------------------------------------------------------------------------
 
     std::vector<int> CreateArray(bool isRandom)
     {
@@ -559,6 +600,8 @@ namespace drawing
 
         return mainArray;
     }
+
+//-----------------------------------------------------------------------------------------------------------------
 
     void StartCalculation(std::vector<Buttons::button>* usualButtons, std::vector<Buttons::button>* buttonsOfFunction,
                           std::vector<Buttons::button>* interchangeableButton, std::vector<int>* mainArray, int* maxNumOfSwaping,
@@ -605,8 +648,8 @@ namespace drawing
                 (*resultValue)[numOfButton].color = oneButton.textColor;
                 (*resultValue)[numOfButton].result.push_back({ swaping, comparisons, i+1 });
 
-                (*maxNumOfSwaping)      = MAX((*maxNumOfSwaping), swaping);
-                (*maxNumOfComparisons)  = MAX((*maxNumOfComparisons), comparisons);
+                (*maxNumOfSwaping)      = MAX((*maxNumOfSwaping),       swaping);
+                (*maxNumOfComparisons)  = MAX((*maxNumOfComparisons),   comparisons);
 
                 if (i >= j * VisualizPeriod || i + 4 >= MaxNumOfElements)
                 {
@@ -627,6 +670,8 @@ namespace drawing
         txMessageBox("Бухгалтеры закончили считать!", "Бюджетный отчёт"); // расчёты окончены
     }
 
+//-----------------------------------------------------------------------------------------------------------------
+
     void DrawResults(std::vector<drawing::ResultValue>* resultValue, int maxNumOfSwaping, int maxNumOfComparisons)
     {
         assert(resultValue != nullptr);
@@ -634,9 +679,9 @@ namespace drawing
         const int heightDiagram = 489; // высота диаграммы
         const int widthDiagram  = 429; // ширина диаграммы
 
-        const double numElementsOnPixel     = MaxNumOfElements / double(widthDiagram - 14);      // число элементов на пиксель
-        const double numSwapingOnPixel      = maxNumOfSwaping / double(heightDiagram - 14);      // число обменов на пиксель
-        const double numComparisonsOnPixel  = maxNumOfComparisons / double(heightDiagram - 14);  // число сравнений на пиксель
+        const double numElementsOnPixel     = MaxNumOfElements      / double(widthDiagram - 14);    // число элементов на пиксель
+        const double numSwapingOnPixel      = maxNumOfSwaping       / double(heightDiagram - 14);   // число обменов на пиксель
+        const double numComparisonsOnPixel  = maxNumOfComparisons   / double(heightDiagram - 14);   // число сравнений на пиксель
 
         for (auto i = resultValue->begin(); i != resultValue->end(); i++)
             for (auto j = i->result.begin(); j != i->result.end(); j++)
@@ -652,6 +697,8 @@ namespace drawing
                             i->color);
             }
     }
+
+//-----------------------------------------------------------------------------------------------------------------
 
     void DrawLeftAnatationOfDiagram(int xLine, int yLine, int lenText, int heightDiagram, int widthDiagram,
                                     int lenLine, int heightText, int gapBesideTextAndLine, int yMaxValue, int accuracy)
@@ -674,6 +721,8 @@ namespace drawing
         }
     }
 
+//-----------------------------------------------------------------------------------------------------------------
+
     void DrawUnderAnatationOfDiagram(int xLine, int yLine, int lenLine, int heightText, int gapBesideTextAndLine,
                                      int widthDiagram,  int heightDiagram, int lenText, int xMaxValue, int accuracy)
     {
@@ -692,6 +741,8 @@ namespace drawing
                         std::to_string(xMaxValue * i / accuracy).c_str(), DT_CENTER | DT_VCENTER);
         }
     }
+
+//-----------------------------------------------------------------------------------------------------------------
 
     void CreateEmptyDiagram(std::pair<int, int>coordinates, int MaxNumOfParameterAxesX)
     {
@@ -717,6 +768,8 @@ namespace drawing
                                      16, 3, widthDiagram - 10, heightDiagram, 
                                      52, MaxNumOfElements, AccuracyOfDiagram);
     }
+
+//-----------------------------------------------------------------------------------------------------------------
 
     void CreateEmptyCanvas(std::vector <Buttons::button>* usualButtons, std::vector<Buttons::button>* buttonsOfFunction,
                            std::vector<Buttons::button>* interchangeableButton, bool defaultDiagram)
@@ -771,166 +824,5 @@ namespace drawing
         Buttons::DrawButtons(usualButtons);
         Buttons::DrawButtons(interchangeableButton);
         Buttons::DrawButtons(buttonsOfFunction);
-    }
-
-//-----------------------------------------------------------------------------------------------------------------
-//! \brief   Определяет параметры для кнопок
-//!
-//! \param[out] usualButtons                вектор параметров обычных кнопок
-//! \param[out] interchangeableButton       вектор параметров кнопок, среди которых может быть активна только одна
-//! \param[out] buttonsOfFunction           вектор параметров кнопок функций сортировки 
-//!
-//-----------------------------------------------------------------------------------------------------------------
-
-    void CreateButtons(std::vector<Buttons::button>* usualButtons,std::vector<Buttons::button>* buttonsOfFunction, 
-                       std::vector<Buttons::button>* interchangeableButton) {
-
-        assert(usualButtons             != nullptr);
-        assert(buttonsOfFunction        != nullptr);
-        assert(interchangeableButton    != nullptr);
-        assert(usualButtons             != buttonsOfFunction);
-        assert(usualButtons             != interchangeableButton);
-        assert(interchangeableButton    != buttonsOfFunction);
-
-        POINT pos   = { 13,     52 };   // координаты левого верхнего угла кнопки
-        POINT size  = { 273,    95 };   // координаты правого нижнего угла кнопки
-
-        interchangeableButton->push_back({ 1,                                       // id кнопки
-                                        "Заполнение случайными \n числами",         // текст на кнопке
-                                        pos, size, 10,                              // координаты и скругление кнопки
-                                        TX_SCARLET, BackColor, TX_WHITE,            // цвета кнопки
-                                        &Middle2,                                   // стиль текста кнопки
-                                        true, Buttons::InterchangeableButton,       // состояние кнопки
-                                        buttonsFunction::Random });                 // функция кнопки
-
-//-----------------------------------------------------------------------------------------------------------------
-
-        pos         = { 13,     112 };   // координаты левого верхнего угла кнопки
-        size        = { 273,    155 };   // координаты правого нижнего угла кнопки
-
-        interchangeableButton->push_back({ 2,                                       // id кнопки
-                                        "Заполнение числами \n по убыванию",        // текст на кнопке
-                                        pos, size, 10,                              // координаты и скругление кнопки
-                                        TX_SCARLET, BackColor, TX_WHITE,            // цвета кнопки
-                                        &Middle2,                                   // стиль текста кнопки
-                                        false, Buttons::InterchangeableButton,      // состояние кнопки
-                                        buttonsFunction::NotRandom });              // функция кнопки
-
-//=================================================================================================================
-
-        pos         = { 13,     569 };   // координаты левого верхнего угла кнопки
-        size        = { 273,    635 };   // координаты правого нижнего угла кнопки
-
-        usualButtons->push_back({ 3,                                        // id кнопки
-                                "Поехали!",                                 // текст на кнопке
-                                pos, size, 10,                              // координаты и скругление кнопки
-                                TX_SCARLET, BackColor, TX_WHITE,            // цвета кнопки
-                                &MainBeauty,                                // стиль текста кнопки
-                                false, Buttons::NonFixedButton,             // состояние кнопки
-                                buttonsFunction::Start });                  // функция кнопки
-
-//-----------------------------------------------------------------------------------------------------------------
-
-        pos         = { 13,     536 };   // координаты левого верхнего угла кнопки
-        size        = { 273,    556 };   // координаты правого нижнего угла кнопки
-
-        usualButtons->push_back({ 4,                                        // id кнопки
-                                "Изменить число элементов",                 // текст на кнопке
-                                pos, size, 10,                              // координаты и скругление кнопки
-                                TX_SCARLET, BackColor, TX_WHITE,            // цвета кнопки
-                                &Middle1,                                   // стиль текста кнопки
-                                false, Buttons::NonFixedButton,             // состояние кнопки
-                                buttonsFunction::Changed });                // функция кнопки
-
-//-----------------------------------------------------------------------------------------------------------------
-
-        pos         = { 13,     642 };   // координаты левого верхнего угла кнопки
-        size        = { 273,    661 };   // координаты правого нижнего угла кнопки
-
-        usualButtons->push_back({ 5,                                        // id кнопки
-                                "Выход",                                    // текст на кнопке
-                                pos, size, 10,                              // координаты и скругление кнопки
-                                TX_SCARLET, BackColor, TX_WHITE,            // цвета кнопки
-                                &Middle1,                                   // стиль текста кнопки
-                                false, Buttons::NonFixedButton,             // состояние кнопки
-                                buttonsFunction::Exit });                   // функция кнопки
-
-//=================================================================================================================
-
-        pos         = { 13,     217 };   // координаты левого верхнего угла кнопки
-        size        = { 130,    254 };   // координаты правого нижнего угла кнопки
-
-        buttonsOfFunction->push_back({ 6,                                   // id кнопки
-                                    "Bubble",                               // текст на кнопке
-                                    pos, size, 10,                          // координаты и скругление кнопки
-                                    TX_RED, BackColor, TX_RED,              // цвета кнопки
-                                    &Huge,                                  // стиль текста кнопки
-                                    true, Buttons::FixedButton,             // состояние кнопки
-                                    buttonsFunction::bubbleSorting });      // функция кнопки
-
-//-----------------------------------------------------------------------------------------------------------------
-
-        pos         = { 143,    217 };   // координаты левого верхнего угла кнопки
-        size        = { 273,    254 };   // координаты правого нижнего угла кнопки
-
-        buttonsOfFunction->push_back({ 7,                                   // id кнопки
-                                    "Heap",                                 // текст на кнопке
-                                    pos, size, 10,                          // координаты и скругление кнопки
-                                    TX_GREEN, BackColor, TX_GREEN,          // цвета кнопки
-                                    &Huge,                                  // стиль текста кнопки
-                                    true, Buttons::FixedButton,             // состояние кнопки
-                                    buttonsFunction::heap_sort });          // функция кнопки
-
-//-----------------------------------------------------------------------------------------------------------------
-
-        pos         = { 13,     264 };   // координаты левого верхнего угла кнопки
-        size        = { 130,    300 };   // координаты правого нижнего угла кнопки
-
-        buttonsOfFunction->push_back({ 8,                                   // id кнопки
-                                    "Quick",                                // текст на кнопке
-                                    pos, size, 10,                          // координаты и скругление кнопки
-                                    TX_BLUE, BackColor, TX_BLUE,            // цвета кнопки
-                                    &Huge,                                  // стиль текста кнопки
-                                    true, Buttons::FixedButton,             // состояние кнопки
-                                    buttonsFunction::quickSorting });       // функция кнопки
-
-//------------------------------------------------------------------------------------------------------------------
-
-        pos         = { 143,    264 };   // координаты левого верхнего угла кнопки
-        size        = { 273,    300 };   // координаты правого нижнего угла кнопки
-
-        buttonsOfFunction->push_back({ 9,                                   // id кнопки
-                                    "Merge",                                // текст на кнопке
-                                    pos, size, 10,                          // координаты и скругление кнопки
-                                    TX_WHITE, BackColor, TX_WHITE,          // цвета кнопки
-                                    &Huge,                                  // стиль текста кнопки
-                                    true, Buttons::FixedButton,             // состояние кнопки
-                                    buttonsFunction::mergeSorting });       // функция кнопки
-
-//-----------------------------------------------------------------------------------------------------------------
-
-        pos         = { 13,     310 };   // координаты левого верхнего угла кнопки
-        size        = { 130,    346 };   // координаты правого нижнего угла кнопки
-
-        buttonsOfFunction->push_back({ 10,                                  // id кнопки
-                                    "Insertion",                            // текст на кнопке
-                                    pos, size, 10,                          // координаты и скругление кнопки
-                                    TX_ORANGE, BackColor, TX_ORANGE,        // цвета кнопки
-                                    &Huge,                                  // стиль текста кнопки
-                                    true, Buttons::FixedButton,             // состояние кнопки
-                                    buttonsFunction::insertionSorting });   // функция кнопки
-
-//---------------------------------------------------------------------------------------------------------------- -
-
-        pos         = { 143,    310 };   // координаты левого верхнего угла кнопки
-        size        = { 273,    346 };   // координаты правого нижнего угла кнопки
-
-        buttonsOfFunction->push_back({ 11,                                  // id кнопки
-                                    "Selection",                            // текст на кнопке
-                                    pos, size, 10,                          // координаты и скругление кнопки
-                                    TX_MAGENTA, BackColor, TX_MAGENTA,      // цвета кнопки
-                                    &Huge,                                  // стиль текста кнопки
-                                    true, Buttons::FixedButton,             // состояние кнопки
-                                    buttonsFunction::selectionSorting });   // функция кнопки
     }
 }
