@@ -262,7 +262,7 @@ namespace Buttons {
 //!
 //-----------------------------------------------------------------------------------------------------------------
 
-    int(*CheckClickButtons(std::vector<button>* Buttons)) (int left, int right, std::vector<int>parametr,
+    int(*CheckClickButtons(std::vector<button>* Buttons)) (int left, int right, std::vector<int>parametrs,
                                                            int* swaping, int* comparisons, std::vector<int>* Array);
 
 }
@@ -281,7 +281,7 @@ namespace buttonsFunction {
 //!
 //-----------------------------------------------------------------------------------------------------------------
 
-    int Start(int left, int right, std::vector<int>parametr, int* swaping, int* comparisons, std::vector<int>* Array);
+    int Start(int left, int right, std::vector<int>parametrs, int* swaping, int* comparisons, std::vector<int>* Array);
 
 //-----------------------------------------------------------------------------------------------------------------
 //! @ingroup ButtonsFunct
@@ -291,7 +291,7 @@ namespace buttonsFunction {
 //!
 //-----------------------------------------------------------------------------------------------------------------
 
-    int Exit(int left, int right, std::vector<int>parametr, int* swaping, int* comparisons, std::vector<int>* Array);
+    int Exit(int left, int right, std::vector<int>parametrs, int* swaping, int* comparisons, std::vector<int>* Array);
 
 //-----------------------------------------------------------------------------------------------------------------
 //! @ingroup ButtonsFunct
@@ -301,7 +301,7 @@ namespace buttonsFunction {
 //!
 //-----------------------------------------------------------------------------------------------------------------
 
-    int Random(int left, int right, std::vector<int>parametr, int* swaping, int* comparisons, std::vector<int>* Array);
+    int Random(int left, int right, std::vector<int>parametrs, int* swaping, int* comparisons, std::vector<int>* Array);
 
 //-----------------------------------------------------------------------------------------------------------------
 //! @ingroup ButtonsFunct
@@ -311,7 +311,7 @@ namespace buttonsFunction {
 //!
 //-----------------------------------------------------------------------------------------------------------------
 
-    int NotRandom(int left, int right, std::vector<int>parametr, int* swaping, int* comparisons, std::vector<int>* Array);
+    int NotRandom(int left, int right, std::vector<int>parametrs, int* swaping, int* comparisons, std::vector<int>* Array);
 
 //-----------------------------------------------------------------------------------------------------------------
 //! @ingroup ButtonsFunct
@@ -321,7 +321,7 @@ namespace buttonsFunction {
 //!
 //-----------------------------------------------------------------------------------------------------------------
 
-    int Changed(int left, int right, std::vector<int>parametr, int* swaping, int* comparisons, std::vector<int>* Array);
+    int Changed(int left, int right, std::vector<int>parametrs, int* swaping, int* comparisons, std::vector<int>* Array);
     
 //-----------------------------------------------------------------------------------------------------------------
 //! @ingroup ButtonsFunct
@@ -339,7 +339,7 @@ namespace buttonsFunction {
 //!
 //-----------------------------------------------------------------------------------------------------------------
 
-    int heap_sort(int left, int right, std::vector<int>parametr, int* swaping, int* comparisons, std::vector<int>* Array);
+    int heap_sort(int left, int right, std::vector<int>parametrs, int* swaping, int* comparisons, std::vector<int>* Array);
 
 //-----------------------------------------------------------------------------------------------------------------
 //! @ingroup ButtonsFunct
@@ -357,7 +357,7 @@ namespace buttonsFunction {
 //!
 //-----------------------------------------------------------------------------------------------------------------
 
-    int insertionSorting(int left, int right, std::vector<int>parametr, int* swaping, int* comparisons, std::vector<int>* Array);
+    int insertionSorting(int left, int right, std::vector<int>parametrs, int* swaping, int* comparisons, std::vector<int>* Array);
 
 //-----------------------------------------------------------------------------------------------------------------
 //! @ingroup ButtonsFunct
@@ -375,7 +375,7 @@ namespace buttonsFunction {
 //!
 //-----------------------------------------------------------------------------------------------------------------
 
-    int bubbleSorting(int left, int right, std::vector<int>parametr, int* swaping, int* comparisons, std::vector<int>* Array);
+    int bubbleSorting(int left, int right, std::vector<int>parametrs, int* swaping, int* comparisons, std::vector<int>* Array);
 
 //-----------------------------------------------------------------------------------------------------------------
 //! @ingroup ButtonsFunct
@@ -395,7 +395,7 @@ namespace buttonsFunction {
 //!
 //-----------------------------------------------------------------------------------------------------------------
 
-    int mergeSorting(int left, int right, std::vector<int>parametr, int* swaping, int* comparisons, std::vector<int>* Array);
+    int mergeSorting(int left, int right, std::vector<int>parametrs, int* swaping, int* comparisons, std::vector<int>* Array);
 
 //-----------------------------------------------------------------------------------------------------------------
 //! @ingroup ButtonsFunct
@@ -413,7 +413,7 @@ namespace buttonsFunction {
 //!
 //-----------------------------------------------------------------------------------------------------------------
 
-    int quickSorting(int left, int right, std::vector<int>parametr, int* swaping, int* comparisons, std::vector<int>* Array);
+    int quickSorting(int left, int right, std::vector<int>parametrs, int* swaping, int* comparisons, std::vector<int>* Array);
 
 //-----------------------------------------------------------------------------------------------------------------
 //! @ingroup ButtonsFunct
@@ -431,7 +431,7 @@ namespace buttonsFunction {
 //!
 //-----------------------------------------------------------------------------------------------------------------
 
-    int selectionSorting(int left, int right, std::vector<int>parametr, int* swaping, int* comparisons, std::vector<int>* Array);
+    int selectionSorting(int left, int right, std::vector<int>parametrs, int* swaping, int* comparisons, std::vector<int>* Array);
 
 }
 
@@ -639,10 +639,10 @@ namespace drawing
                 int swaping = 0, comparisons = 0;
 
                 // получаем результаты
-                std::vector<int>parametrs;
+                std::vector<int>parametrss;
                 std::vector<int>sortingArray = (*mainArray);
 
-                oneButton.linkToFunction(0, i, parametrs, &swaping, &comparisons, &sortingArray);
+                oneButton.linkToFunction(0, i, parametrss, &swaping, &comparisons, &sortingArray);
 
                 // запоминаем цвет отображения функции и результаты
                 (*resultValue)[numOfButton].color = oneButton.textColor;

@@ -41,7 +41,7 @@ namespace Buttons
         bool                        isPressed;                      ///< является ли кнопка активна
         TypeOfButton                type;                           ///< способ работы кнопки
 
-        int(*linkToFunction)(int left, int right, std::vector<int>parametr, int* swaping, int* comparisons, std::vector<int>* Array); ///< ссылка на функцию сортировки
+        int(*linkToFunction)(int left, int right, std::vector<int>parametrs, int* swaping, int* comparisons, std::vector<int>* Array); ///< ссылка на функцию сортировки
 
     public:
 
@@ -117,7 +117,7 @@ namespace Buttons
 //!
 //-----------------------------------------------------------------------------------------------------------------
 
-    int(*CheckClickButtons(std::vector<button>* Buttons)) (int left, int right, std::vector<int>parametr, 
+    int(*CheckClickButtons(std::vector<button>* Buttons)) (int left, int right, std::vector<int>parametrs, 
                                                            int* swaping, int* comparisons, std::vector<int>* Array)
     {
 
@@ -127,7 +127,7 @@ namespace Buttons
         const int   x               = txMouseX();
         const int   y               = txMouseY();
 
-        int (*result)(int left, int right, std::vector<int>parametr, int* swaping, 
+        int (*result)(int left, int right, std::vector<int>parametrs, int* swaping, 
                       int* comparisons, std::vector<int> * Array)                       = nullptr;
 
 

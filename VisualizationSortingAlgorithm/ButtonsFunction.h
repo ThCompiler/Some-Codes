@@ -137,7 +137,7 @@ namespace buttonsFunction
 //! \return     Маркер нажатия кнопок функций сортировки
 /*! Код функции выглядит следующим образом :
     \code
-    int heap_sort(int left, int right, std::vector<int>parametr, int* swaping = nullptr,
+    int heap_sort(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
                                                 int* comparisons = nullptr, std::vector<int>* Array = nullptr)
     {
         assert(swaping != nullptr);
@@ -158,7 +158,7 @@ namespace buttonsFunction
 */
 //-----------------------------------------------------------------------------------------------------------------
 
-    int heap_sort(int left, int right, std::vector<int>parametr, int* swaping = nullptr,
+    int heap_sort(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
                   int* comparisons = nullptr, std::vector<int>* Array = nullptr)
     {
         assert(swaping      != nullptr);
@@ -210,7 +210,7 @@ namespace buttonsFunction
 //! \brief Возвращает маркер реакции на нажатия кнопки "Поехали!", то есть запуска расчётов
 //-----------------------------------------------------------------------------------------------------------------
 
-    int Start(int left, int right, std::vector<int>parametr, int* swaping = nullptr,
+    int Start(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
               int* comparisons = nullptr, std::vector<int>* Array = nullptr)
     {
         return 1;
@@ -220,7 +220,7 @@ namespace buttonsFunction
 //! \brief Возвращает маркер реакции на нажатия кнопки "Выход"
 //-----------------------------------------------------------------------------------------------------------------
 
-    int Exit(int left, int right, std::vector<int>parametr, int* swaping = nullptr,
+    int Exit(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
              int* comparisons = nullptr, std::vector<int>* Array = nullptr)
     {
         return 0;
@@ -230,7 +230,7 @@ namespace buttonsFunction
 //! \brief Возвращает маркер реакции на нажатия кнопки "Заполнения случаными числами"
 //-----------------------------------------------------------------------------------------------------------------
 
-    int Random(int left, int right, std::vector<int>parametr, int* RandomFilling = nullptr,
+    int Random(int left, int right, std::vector<int>parametrs, int* RandomFilling = nullptr,
                int* MaxNumOfElements = nullptr, std::vector<int>* mainArray = nullptr)
     {
         assert(mainArray        != nullptr);
@@ -247,7 +247,7 @@ namespace buttonsFunction
 //! \brief Возвращает маркер реакции на нажатия кнопки "Заполнения числами по убыванию"
 //-----------------------------------------------------------------------------------------------------------------
 
-    int NotRandom(int left, int right, std::vector<int>parametr, int* RandomFilling = nullptr,
+    int NotRandom(int left, int right, std::vector<int>parametrs, int* RandomFilling = nullptr,
                   int* MaxNumOfElements = nullptr, std::vector<int>* mainArray = nullptr)
     {
         assert(mainArray        != nullptr);
@@ -264,7 +264,7 @@ namespace buttonsFunction
 //! \brief Возвращает маркер реакции на нажатия кнопки "Изменения размера сортеруемого массива"
 //-----------------------------------------------------------------------------------------------------------------
 
-    int Changed(int left, int right, std::vector<int>parametr, int* RandomFilling = nullptr,
+    int Changed(int left, int right, std::vector<int>parametrs, int* RandomFilling = nullptr,
                 int* MaxNumOfElements = nullptr, std::vector<int>* mainArray = nullptr)
     {
         assert(mainArray        != nullptr);
@@ -297,7 +297,7 @@ namespace buttonsFunction
 //! \return     Маркер нажатия кнопок функций сортировки
 /*! Код функции выглядит следующим образом :
     \code
-    int insertionSorting(int left, int right, std::vector<int>parametr, int* swaping = nullptr,
+    int insertionSorting(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
                             int* comparisons = nullptr, std::vector<int>* Array = nullptr)
     {
         assert(swaping != nullptr);
@@ -322,7 +322,7 @@ namespace buttonsFunction
 */
 //-----------------------------------------------------------------------------------------------------------------
 
-    int insertionSorting(int left, int right, std::vector<int>parametr, int* swaping = nullptr,
+    int insertionSorting(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
                          int* comparisons = nullptr, std::vector<int>* Array = nullptr)
     {
         assert(swaping      != nullptr);
@@ -359,7 +359,7 @@ namespace buttonsFunction
 //! \return     Маркер нажатия кнопок функций сортировки
 /*! Код функции выглядит следующим образом :
     \code
-    int bubbleSorting(int left, int right, std::vector<int>parametr, int* swaping = nullptr,
+    int bubbleSorting(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
                                                 int* comparisons = nullptr, std::vector<int>* Array = nullptr)
     {
         assert(swaping != nullptr);
@@ -389,7 +389,7 @@ namespace buttonsFunction
 */
 //-----------------------------------------------------------------------------------------------------------------
 
-    int bubbleSorting(int left, int right, std::vector<int>parametr, int* swaping = nullptr,
+    int bubbleSorting(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
                       int* comparisons = nullptr, std::vector<int>* Array = nullptr)
     {
         assert(swaping      != nullptr);
@@ -516,7 +516,7 @@ namespace buttonsFunction
         }
     }
 
-    int mergeSorting(int left, int right, std::vector<int>parametr, int* swaping = nullptr,
+    int mergeSorting(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
                                                     int* comparisons = nullptr, std::vector<int>* Array = nullptr)
     {
         assert(swaping != nullptr);
@@ -528,8 +528,8 @@ namespace buttonsFunction
         {
             (*comparisons)++;
             const int middile = (left + right) / 2;
-            mergeSorting(left, middile, parametr, swaping, comparisons, Array);
-            mergeSorting(middile + 1, right, parametr, swaping, comparisons, Array);
+            mergeSorting(left, middile, parametrs, swaping, comparisons, Array);
+            mergeSorting(middile + 1, right, parametrs, swaping, comparisons, Array);
             merge(swaping, comparisons, Array, left, middile, right);
         }
         return -1;
@@ -538,7 +538,7 @@ namespace buttonsFunction
 */
 //-----------------------------------------------------------------------------------------------------------------
 
-    int mergeSorting(int left, int right, std::vector<int>parametr, int* swaping = nullptr,
+    int mergeSorting(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
                      int* comparisons = nullptr, std::vector<int>* Array = nullptr)
     {
         assert(swaping      != nullptr);
@@ -551,8 +551,8 @@ namespace buttonsFunction
             (*comparisons)++;
             const int middile = (left + right) / 2;
 
-            mergeSorting(left,          middile,    parametr,   swaping,    comparisons,    Array);
-            mergeSorting(middile + 1,   right,      parametr,   swaping,    comparisons,    Array);
+            mergeSorting(left,          middile,    parametrs,   swaping,    comparisons,    Array);
+            mergeSorting(middile + 1,   right,      parametrs,   swaping,    comparisons,    Array);
 
             merge(swaping, comparisons, Array, left, middile, right);
         }
@@ -572,7 +572,7 @@ namespace buttonsFunction
 //! \return     Маркер нажатия кнопок функций сортировки
 /*! Код функции выглядит следующим образом :
     \code
-    int quickSorting(int left, int right, std::vector<int>parametr, int* swaping = nullptr,
+    int quickSorting(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
                                                 int* comparisons = nullptr, std::vector<int>* Array = nullptr)
 {
     assert(swaping != nullptr);
@@ -595,15 +595,15 @@ namespace buttonsFunction
         (*comparisons)++;
     }
     std::swap((*Array)[p], (*Array)[right]);
-    quickSorting(left, p, parametr, swaping, comparisons, Array);
-    quickSorting(p + 1, right, parametr, swaping, comparisons, Array);
+    quickSorting(left, p, parametrs, swaping, comparisons, Array);
+    quickSorting(p + 1, right, parametrs, swaping, comparisons, Array);
     return -1;
 }
     \endcode
 */
 //-----------------------------------------------------------------------------------------------------------------
 
-    int quickSorting(int left, int right, std::vector<int>parametr, int* swaping = nullptr,
+    int quickSorting(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
                      int* comparisons = nullptr, std::vector<int>* Array = nullptr)
     {
         assert(swaping      != nullptr);
@@ -630,8 +630,8 @@ namespace buttonsFunction
         std::swap((*Array)[p], (*Array)[right]);
         (*swaping)++;
 
-        quickSorting(left,      p,      parametr,   swaping,    comparisons,    Array);
-        quickSorting(p + 1,     right,  parametr,   swaping,    comparisons,    Array);
+        quickSorting(left,      p,      parametrs,   swaping,    comparisons,    Array);
+        quickSorting(p + 1,     right,  parametrs,   swaping,    comparisons,    Array);
 
         return -1;
     }
@@ -648,7 +648,7 @@ namespace buttonsFunction
 //! \return     Маркер нажатия кнопок функций сортировки
 /*! Код функции выглядит следующим образом :
     \code
-    int selectionSorting(int left, int right, std::vector<int>parametr, int* swaping = nullptr,
+    int selectionSorting(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
                                                 int* comparisons = nullptr, std::vector<int>* Array = nullptr)
     {
         assert(swaping != nullptr);
@@ -679,7 +679,7 @@ namespace buttonsFunction
 */
 //-----------------------------------------------------------------------------------------------------------------
 
-    int selectionSorting(int left, int right, std::vector<int>parametr, int* swaping = nullptr,
+    int selectionSorting(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
                          int* comparisons = nullptr, std::vector<int>* Array = nullptr)
     {
         assert(swaping      != nullptr);
@@ -723,41 +723,41 @@ namespace buttonsFunction
         assert(comparisons  != nullptr);
         assert(swaping      != comparisons);
 
-        std::vector<int>parametr;
+        std::vector<int>parametrs;
 
         if (nameFunction == "Heap")
         {
-            //heap_sort(0, n - 1, parametr, swaping, comparisons, &mainArray);
+            //heap_sort(0, n - 1, parametrs, swaping, comparisons, &mainArray);
             return mainArray;
         }
 
         if (nameFunction == "Insertion")
         {
-            insertionSorting(0, n - 1, parametr, swaping, comparisons, &mainArray);
+            insertionSorting(0, n - 1, parametrs, swaping, comparisons, &mainArray);
             return mainArray;
         }
 
         if (nameFunction == "Bubble")
         {
-            bubbleSorting(0, n - 1, parametr, swaping, comparisons, &mainArray);
+            bubbleSorting(0, n - 1, parametrs, swaping, comparisons, &mainArray);
             return mainArray;
         }
 
         if (nameFunction == "Merge")
         {
-            mergeSorting(0, n - 1, parametr, swaping, comparisons, &mainArray);
+            mergeSorting(0, n - 1, parametrs, swaping, comparisons, &mainArray);
             return mainArray;
         }
 
         if (nameFunction == "Quick")
         {
-            quickSorting(0, n - 1, parametr, swaping, comparisons, &mainArray);
+            quickSorting(0, n - 1, parametrs, swaping, comparisons, &mainArray);
             return mainArray;
         }
 
         if (nameFunction == "Selection")
         {
-            selectionSorting(0, n - 1, parametr, swaping, comparisons, &mainArray);
+            selectionSorting(0, n - 1, parametrs, swaping, comparisons, &mainArray);
             return mainArray;
         }
 
