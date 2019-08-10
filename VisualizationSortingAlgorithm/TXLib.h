@@ -8157,6 +8157,12 @@ $1  if (_TX_ARGUMENT_FAILED     (wnd))                  return false;
 $   if (_TX_DEFAULT_HDC_FAILED  (_txCanvas_BackBuf[0])) return false;
 $   if (_TX_DEFAULT_HDC_FAILED  (_txCanvas_BackBuf[1])) return false;
     
+$   RECT r = {0};
+$   GetClientRect (wnd, &r) asserted;
+$   POINT wndSize = { r.right - r.left, r.bottom - r.top };
+    
+    if (txGetExtentX() == wndSize.x && txGetExtentY() == wndSize.y) return true;
+
     txLock(false);
 
 $   HDC NewDc = _txBuffer_Create(wnd, NULL, NULL, &_txCanvas_Pixels); assert(NewDc);
