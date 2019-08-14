@@ -32,7 +32,7 @@ DOXYFILE_ENCODING      = UTF-8
 # title of most generated pages and in a few other places.
 # The default value is: My Project.
 
-PROJECT_NAME           = "Визуализация алгоритмов сортировки, клиент"
+PROJECT_NAME           = "Визуализация алгоритмов сортировки, сервер"
 
 # The PROJECT_NUMBER tag can be used to enter a project or revision number. This
 # could be handy for archiving the generated documentation or if some version
@@ -813,10 +813,8 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = "../Server-Client for VSA/Client/Buttons.h" \
-                         "../Server-Client for VSA/Client/ButtonsFunction.h" \
-                         "../Server-Client for VSA/Client/Client.cpp" \
-                         "../Server-Client for VSA/Client/UpdateTXLib.h"
+INPUT                  = ../Server/ButtonsFunction.h \
+                         ../Server/Server.cpp
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
