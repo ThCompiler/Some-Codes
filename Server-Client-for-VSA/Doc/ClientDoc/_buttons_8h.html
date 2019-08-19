@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Визуализация алгоритмов сортировки: Файл Buttons.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Визуализация алгоритмов сортировки
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.15 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Классы</a> &#124;
+<a href="#enum-members">Перечисления</a> &#124;
+<a href="#func-members">Функции</a> &#124;
+<a href="#var-members">Переменные</a>  </div>
+  <div class="headertitle">
+<div class="title">Файл Buttons.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>библиотека инициализации кнопок  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &quot;<a class="el" href="_buttons_function_8h_source.html">ButtonsFunction.h</a>&quot;</code><br />
+</div>
+<p><a href="_buttons_8h_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_buttons_1_1button.html">Buttons::button</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">класс кнопки  <a href="class_buttons_1_1button.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Перечисления</h2></td></tr>
+<tr class="memitem:aa9eca20733bbd0af86d7dda5c095c210"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_buttons_8h.html#aa9eca20733bbd0af86d7dda5c095c210">Buttons::TypeOfButton</a> { <a class="el" href="_buttons_8h.html#aa9eca20733bbd0af86d7dda5c095c210ac19f6a56ccd8dacb8b1362d7e027c702">Buttons::NonFixedButton</a> = 1, 
+<a class="el" href="_buttons_8h.html#aa9eca20733bbd0af86d7dda5c095c210ae49d1049bd9daac68c239a3929f481cb">Buttons::FixedButton</a> = 2, 
+<a class="el" href="_buttons_8h.html#aa9eca20733bbd0af86d7dda5c095c210a86f38953657c231694a07a7519171b1f">Buttons::InterchangeableButton</a> = 3
+ }</td></tr>
+<tr class="memdesc:aa9eca20733bbd0af86d7dda5c095c210"><td class="mdescLeft">&#160;</td><td class="mdescRight">тип действия кнопки на щелчок мыши  <a href="_buttons_8h.html#aa9eca20733bbd0af86d7dda5c095c210">Подробнее...</a><br /></td></tr>
+<tr class="separator:aa9eca20733bbd0af86d7dda5c095c210"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:gad5fbcbdbaf3e093951fc6d4fa236ca87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___buttons_funct.html#gad5fbcbdbaf3e093951fc6d4fa236ca87">Buttons::DrawButtons</a> (std::vector&lt; button &gt; *Buttons)</td></tr>
+<tr class="memdesc:gad5fbcbdbaf3e093951fc6d4fa236ca87"><td class="mdescLeft">&#160;</td><td class="mdescRight">рисует кнопки  <a href="group___buttons_funct.html#gad5fbcbdbaf3e093951fc6d4fa236ca87">Подробнее...</a><br /></td></tr>
+<tr class="separator:gad5fbcbdbaf3e093951fc6d4fa236ca87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Переменные</h2></td></tr>
+<tr class="memitem:aa5d1f0d76b0200f7adec9da6a1943dae"><td class="memItemLeft" align="right" valign="top">int(*)(int left, int right, std::vector&lt; int &gt;parametrs, int *swaping, int *comparisons, std::vector&lt; int &gt; *Array)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_buttons_8h.html#aa5d1f0d76b0200f7adec9da6a1943dae">Buttons::CheckClickButtons</a> (std::vector&lt; button &gt; *Buttons)</td></tr>
+<tr class="memdesc:aa5d1f0d76b0200f7adec9da6a1943dae"><td class="mdescLeft">&#160;</td><td class="mdescRight">обрабатывает нажатие на кнопки  <a href="_buttons_8h.html#aa5d1f0d76b0200f7adec9da6a1943dae">Подробнее...</a><br /></td></tr>
+<tr class="separator:aa5d1f0d76b0200f7adec9da6a1943dae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>библиотека инициализации кнопок </p>
+</div><h2 class="groupheader">Перечисления</h2>
+<a id="file_aa9eca20733bbd0af86d7dda5c095c210"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_aa9eca20733bbd0af86d7dda5c095c210">&#9670;&nbsp;</a></span>TypeOfButton</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="_buttons_8h.html#aa9eca20733bbd0af86d7dda5c095c210">Buttons::TypeOfButton</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>тип действия кнопки на щелчок мыши </p>
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="aa9eca20733bbd0af86d7dda5c095c210ac19f6a56ccd8dacb8b1362d7e027c702"></a>NonFixedButton&#160;</td><td class="fielddoc"><p>нефиксирующаяся кнопка </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa9eca20733bbd0af86d7dda5c095c210ae49d1049bd9daac68c239a3929f481cb"></a>FixedButton&#160;</td><td class="fielddoc"><p>фиксирующая кнопка </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa9eca20733bbd0af86d7dda5c095c210a86f38953657c231694a07a7519171b1f"></a>InterchangeableButton&#160;</td><td class="fielddoc"><p>кнопка которая единственная среди группы кнопок активна </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Переменные</h2>
+<a id="file_aa5d1f0d76b0200f7adec9da6a1943dae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_aa5d1f0d76b0200f7adec9da6a1943dae">&#9670;&nbsp;</a></span>CheckClickButtons</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int(*)(int left, int right, std::vector&lt;int&gt;parametrs, int* swaping, int* comparisons, std::vector&lt;int&gt;* Array) Buttons::CheckClickButtons(std::vector&lt; button &gt; *Buttons)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>обрабатывает нажатие на кнопки </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Buttons</td><td>массив кнопок</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>ссылку на функцию кнопки</dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Buttons</td><td>массив кнопок</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Код в библиотеке <a class="el" href="_buttons_8h.html" title="библиотека инициализации кнопок">Buttons.h</a></p>
+<dl class="section return"><dt>Возвращает</dt><dd>ссылку на функцию кнопки </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.15
+</small></address>
+</body>
+</html>
