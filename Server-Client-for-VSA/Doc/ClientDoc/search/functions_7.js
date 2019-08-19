@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['killserver',['KillServer',['../group___server_need.html#ga48b6b768638ea93e8fe28dc4f4f18e53',1,'server']]]
+  ['make_5fheap',['make_heap',['../classbuttons_function_1_1heap.html#a975eedfd4762e845b120792650815482',1,'buttonsFunction::heap']]],
+  ['mergesorting',['mergeSorting',['../_buttons_function_8h.html#a3c531dd5f41fbed48d45bf756db15690',1,'buttonsFunction']]]
 ];

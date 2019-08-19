@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['backcolor',['backColor',['../class_buttons_1_1button.html#a8ee23515c63f57e52b03baab9c1eff24',1,'Buttons::button::backColor()'],['../_client_8cpp.html#a6ba0d2747aecd939cc53a1cc04d2df6b',1,'drawing::BackColor()']]]
+  ['size',['size',['../classbuttons_function_1_1heap.html#a63625ffd105fea09242df898b446b4db',1,'buttonsFunction::heap']]],
+  ['sizefont',['sizeFont',['../structdrawing_1_1text_style.html#a18077912ecf83b15b91dc021af0335ee',1,'drawing::textStyle']]]
 ];

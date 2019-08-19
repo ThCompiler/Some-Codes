@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['backcolor',['backColor',['../class_buttons_1_1button.html#a8ee23515c63f57e52b03baab9c1eff24',1,'Buttons::button::backColor()'],['../_client_8cpp.html#a6ba0d2747aecd939cc53a1cc04d2df6b',1,'drawing::BackColor()']]],
-  ['bubblesorting',['bubbleSorting',['../group___buttons_funct.html#gae5df771306b9f8235f550ce45e93db76',1,'buttonsFunction']]],
-  ['button',['button',['../class_buttons_1_1button.html',1,'Buttons']]],
-  ['buttons_2eh',['Buttons.h',['../_buttons_8h.html',1,'']]],
-  ['buttonsfunction_2eh',['ButtonsFunction.h',['../_buttons_function_8h.html',1,'']]]
+  ['calculationresult',['CalculationResult',['../group___reaction_on_requests.html#ga7240e51ab5bf6bae1330cc844dec9156',1,'requests']]],
+  ['changed',['Changed',['../_buttons_function_8h.html#acf034bd20ec8f6f60a8d52e6e774a272',1,'buttonsFunction']]],
+  ['createarray',['CreateArray',['../_buttons_function_8h.html#aa9846dca2b3356bfad97818c0d1ef151',1,'buttonsFunction::CreateArray()'],['../_server_8cpp.html#a9dffe0fdcffcf1b459b06c1f1e1c4785',1,'requests::CreateArray()']]]
 ];

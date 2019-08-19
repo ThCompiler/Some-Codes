@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['make_5fheap',['make_heap',['../classbuttons_function_1_1heap.html#a975eedfd4762e845b120792650815482',1,'buttonsFunction::heap']]],
-  ['maxnumofelements',['MaxNumOfElements',['../_client_8cpp.html#a6397012c86be03b7688ad623c69b5655',1,'drawing']]],
-  ['mergesorting',['mergeSorting',['../group___buttons_funct.html#ga3c531dd5f41fbed48d45bf756db15690',1,'buttonsFunction']]]
+  ['random',['Random',['../_buttons_function_8h.html#aed46f10d2f35e17c063c30f5a1677f82',1,'buttonsFunction']]],
+  ['realcord',['RealCord',['../_update_t_x_lib_8h.html#afbbaf9415ca6f4bc472946a82dc86028',1,'drawing']]]
 ];

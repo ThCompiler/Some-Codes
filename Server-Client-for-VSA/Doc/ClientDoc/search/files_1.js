@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['client_2ecpp',['Client.cpp',['../_client_8cpp.html',1,'']]]
+  ['server_2ecpp',['Server.cpp',['../_server_8cpp.html',1,'']]]
 ];

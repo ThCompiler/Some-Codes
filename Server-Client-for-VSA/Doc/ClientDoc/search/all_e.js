@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['quicksorting',['quickSorting',['../group___buttons_funct.html#ga847db9e46b310e27e737dfbc9ecf7131',1,'buttonsFunction']]]
+  ['updatetxlib_2eh',['UpdateTXLib.h',['../_update_t_x_lib_8h.html',1,'']]],
+  ['updatetxnetworks_2eh',['UpdateTxNetworks.h',['../_update_tx_networks_8h.html',1,'']]]
 ];

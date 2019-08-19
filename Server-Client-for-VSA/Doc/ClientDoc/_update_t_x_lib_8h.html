@@ -105,12 +105,12 @@ $(function() {
 <tr class="memitem:a057041be7b14d621d62de6ae8916b749"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_update_t_x_lib_8h.html#a057041be7b14d621d62de6ae8916b749">drawing::tx_SelectFont</a> (const char name[], double sizeY, double sizeX=-1, int bold=FW_DONTCARE, bool italic=false, bool underline=false, bool strikeout=false, double angle=0)</td></tr>
 <tr class="memdesc:a057041be7b14d621d62de6ae8916b749"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выбирает текущий шрифт  <a href="_update_t_x_lib_8h.html#a057041be7b14d621d62de6ae8916b749">Подробнее...</a><br /></td></tr>
 <tr class="separator:a057041be7b14d621d62de6ae8916b749"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga349d5a8890204c9c51673e5ec480a83c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___drawing.html#ga349d5a8890204c9c51673e5ec480a83c">drawing::DrawGentleRectangle</a> (int x0, int y0, int x1, int y1, int R, COLORREF color)</td></tr>
-<tr class="memdesc:ga349d5a8890204c9c51673e5ec480a83c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рисует прямоугольник с круглёными углами радиусом R.  <a href="group___drawing.html#ga349d5a8890204c9c51673e5ec480a83c">Подробнее...</a><br /></td></tr>
-<tr class="separator:ga349d5a8890204c9c51673e5ec480a83c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4ebd364fc9e87fde9f8eda983c8bc004"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___drawing.html#ga4ebd364fc9e87fde9f8eda983c8bc004">drawing::DrawFoneOfPushedButton</a> (int x0, int y0, int x1, int y1, int R, COLORREF BackColor)</td></tr>
-<tr class="memdesc:ga4ebd364fc9e87fde9f8eda983c8bc004"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рисует внутри кнопки градиент от заданого цвета до более тёмного  <a href="group___drawing.html#ga4ebd364fc9e87fde9f8eda983c8bc004">Подробнее...</a><br /></td></tr>
-<tr class="separator:ga4ebd364fc9e87fde9f8eda983c8bc004"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a349d5a8890204c9c51673e5ec480a83c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_update_t_x_lib_8h.html#a349d5a8890204c9c51673e5ec480a83c">drawing::DrawGentleRectangle</a> (int x0, int y0, int x1, int y1, int R, COLORREF color)</td></tr>
+<tr class="memdesc:a349d5a8890204c9c51673e5ec480a83c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рисует прямоугольник с круглёными углами радиусом R.  <a href="_update_t_x_lib_8h.html#a349d5a8890204c9c51673e5ec480a83c">Подробнее...</a><br /></td></tr>
+<tr class="separator:a349d5a8890204c9c51673e5ec480a83c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ebd364fc9e87fde9f8eda983c8bc004"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_update_t_x_lib_8h.html#a4ebd364fc9e87fde9f8eda983c8bc004">drawing::DrawFoneOfPushedButton</a> (int x0, int y0, int x1, int y1, int R, COLORREF BackColor)</td></tr>
+<tr class="memdesc:a4ebd364fc9e87fde9f8eda983c8bc004"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рисует внутри кнопки градиент от заданого цвета до более тёмного  <a href="_update_t_x_lib_8h.html#a4ebd364fc9e87fde9f8eda983c8bc004">Подробнее...</a><br /></td></tr>
+<tr class="separator:a4ebd364fc9e87fde9f8eda983c8bc004"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Переменные</h2></td></tr>
@@ -122,6 +122,132 @@ const COLORREF&#160;</td><td class="memItemRight" valign="bottom"><a class="el" 
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
 <div class="textblock"><p>доп функции на основе TXLib.h. </p>
 </div><h2 class="groupheader">Функции</h2>
+<a id="file_a4ebd364fc9e87fde9f8eda983c8bc004"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_a4ebd364fc9e87fde9f8eda983c8bc004">&#9670;&nbsp;</a></span>DrawFoneOfPushedButton()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void drawing::DrawFoneOfPushedButton </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>R</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">COLORREF&#160;</td>
+          <td class="paramname"><em>BackColor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Рисует внутри кнопки градиент от заданого цвета до более тёмного </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x0,y0</td><td>координаты левего верхнего угла кнопки </td></tr>
+    <tr><td class="paramname">x1,y1</td><td>координаты правого нижнего угла кнопки </td></tr>
+    <tr><td class="paramname">R</td><td>радиус скругления у кнопки </td></tr>
+    <tr><td class="paramname">BackColor</td><td>цвет фона нажатой кнопки </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="file_a349d5a8890204c9c51673e5ec480a83c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_a349d5a8890204c9c51673e5ec480a83c">&#9670;&nbsp;</a></span>DrawGentleRectangle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void drawing::DrawGentleRectangle </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>R</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">COLORREF&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Рисует прямоугольник с круглёными углами радиусом R. </p>
+<p>Используется в Buttons.h </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x0,y0</td><td>координаты левего верхнего угла прямоугольника </td></tr>
+    <tr><td class="paramname">x1,y1</td><td>координаты правого нижнего угла прямоугольника </td></tr>
+    <tr><td class="paramname">R</td><td>радиус скругления </td></tr>
+    <tr><td class="paramname">color</td><td>цвет рамки "мягкого" прямоугольника </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="file_afbbaf9415ca6f4bc472946a82dc86028"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#file_afbbaf9415ca6f4bc472946a82dc86028">&#9670;&nbsp;</a></span>RealCord()</h2>
 

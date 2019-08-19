@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['fixedbutton',['FixedButton',['../_buttons_8h.html#aa9eca20733bbd0af86d7dda5c095c210ae49d1049bd9daac68c239a3929f481cb',1,'Buttons']]],
-  ['framecolor',['frameColor',['../class_buttons_1_1button.html#a6169fb50941f651efa8525571a044990',1,'Buttons::button']]]
+  ['heap',['heap',['../classbuttons_function_1_1heap.html',1,'buttonsFunction']]],
+  ['heap_5fsort',['heap_sort',['../_buttons_function_8h.html#ab1030584cd5edcc9663fea9fc25e2f21',1,'buttonsFunction']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['launchserver',['LaunchServer',['../group___server_need.html#ga4ba372a67e5081bcdf348542f30e70a3',1,'server']]]
+  ['newarray',['NewArray',['../group___reaction_on_requests.html#ga3708d8b51a7d4a5c48a29c8f8a912257',1,'requests']]],
+  ['notrandom',['NotRandom',['../_buttons_function_8h.html#a6822e12838202d4085cb1e4451d1ad32',1,'buttonsFunction']]]
 ];
