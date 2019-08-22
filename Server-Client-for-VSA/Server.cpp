@@ -2,14 +2,12 @@
 //! \brief Программа визуализации алгоритмов сортировки (VSA). Сервер
 //! @mainpage
 //!
-//! Разметка объектов происходит в виртуальных координатах окна размером 1310x675 <br>
-//!	
-//! <b>Важно!! Сервер запускать раньше клиента и ждать пока не появится сообщение "Searching for client..."</b>
+//! Разметка объектов происходит в виртуальных координатах окна размером 1310x675
 //!
 //-----------------------------------------------------------------------------------------------------------------
 //! \author     TheCompiler
-//! \version    alpha 2
-//! \date       19.08.2019
+//! \version    alpha 2.1
+//! \date       22.08.2019
 //-----------------------------------------------------------------------------------------------------------------
 //!
 //! @defgroup PreCalculation        Расчёт значений
@@ -117,10 +115,12 @@ int main()
 
         txRecvFrom (client, &request, sizeof(int));
 
-        printf("request %d\n", request);
+        
 
         if (request == 1)
         {
+            printf("request %d\n", request);
+
             requests::NewArray(client);
 
             printf("Array created\n\n");
@@ -128,7 +128,10 @@ int main()
 
         if (request == 2)
         {
+            printf("request %d\n", request);
+
             requests::CalculationResult(client, Functions);
+
             printf("Finished calculation\n\n");
         }
 
