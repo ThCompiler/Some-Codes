@@ -6,12 +6,12 @@
 //!
 //-----------------------------------------------------------------------------------------------------------------
 //! \author     TheCompiler
-//! \version    alpha 2.1
-//! \date       22.08.2019
+//! \version    alpha 3
+//! \date       24.08.2019
 //-----------------------------------------------------------------------------------------------------------------
 //!
 //! @defgroup PreCalculation        Расчёт значений
-//! @defgroup ServerNeed            Сулежбные функции сервера
+//! @defgroup ServerNeed            Служебные функции сервера
 //! @defgroup ReactionOnRequests    Функции ответа на запрос клиента
 //=================================================================================================================
 #define _CRT_SECURE_NO_WARNINGS
@@ -32,6 +32,18 @@
 
 
 namespace requests {
+
+//=================================================================================================================
+// Блок констант
+//=================================================================================================================
+
+    const std::string ipServer          = "127.0.0.1";  ///< ip сервера
+    const std::string descriptionServer = "23";         ///< уникальное описания для определения сервера клиентом
+
+
+//=================================================================================================================
+// Функции
+//=================================================================================================================
 
 //-----------------------------------------------------------------------------------------------------------------
 //! @ingroup PreCaculation
@@ -103,12 +115,26 @@ int main()
 //--------------------------------------------------------------------------------------------------------------
 
     printf ("Searching for client...\n");
-    TX_SOCKET client = txCreateSocket (TX_SERVER, ""); // ищем пользователя
+
+    TX_SOCKET client;
+    while (!server::findClient(&(std::string)requests::descriptionServer, &(std::string)requests::ipServer, &client));
 
     printf ("Hello\n"); // нашли пользователя
 
+    bool haveConnect = true;
+
     while (1)
     {
+        if (!haveConnect)
+        {
+            printf("Searching for client...\n");
+            while (server::findClient(&(std::string)requests::descriptionServer, &(std::string)requests::ipServer, &client));
+
+            printf("Hello\n"); // нашли пользователя
+
+            haveConnect = false;
+        }
+
         //проверяем наличие запроса от клиента и совершаем нужные действия
 
         int request = 0;
@@ -135,6 +161,12 @@ int main()
             printf("Finished calculation\n\n");
         }
 
+        if (request == -1) // клиент отключился от сервера
+        {
+            haveConnect = true;
+
+            printf("Bye");
+        }
 
         if (_kbhit())
         {
@@ -206,7 +238,7 @@ namespace requests {
         server::GetVector(client, &Array            );
         server::GetVector(client, &activeFunctions  );
 
-        for (int each = 0; each < activeFunctions.size(); each++)
+        for (size_t each = 0; each < activeFunctions.size(); each++)
         {
             resultValue.clear();
 
@@ -220,8 +252,8 @@ namespace requests {
             {
                 std::vector<int>sortingArray;
 
-                for (int i = 0; i < numOfElements; i++)
-                    sortingArray.push_back(Array[i]);
+                for (int j = 0; j < numOfElements; j++)
+                    sortingArray.push_back(Array[j]);
 
                 swaping     = 0;
                 comparisons = 0;
@@ -235,6 +267,4 @@ namespace requests {
         }
 
     }
-
-
 }

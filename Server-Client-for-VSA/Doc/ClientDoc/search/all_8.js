@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['namefont',['nameFont',['../structdrawing_1_1text_style.html#af08a2939028d370543cda48fa6fe44c4',1,'drawing::textStyle']]],
-  ['newarray',['NewArray',['../group___reaction_on_requests.html#ga3708d8b51a7d4a5c48a29c8f8a912257',1,'requests']]],
-  ['notrandom',['NotRandom',['../_buttons_function_8h.html#a6822e12838202d4085cb1e4451d1ad32',1,'buttonsFunction']]]
+  ['id',['id',['../class_buttons_1_1button.html#a3bbf2a6fedfa6babe86d218be6c5eb3a',1,'Buttons::button']]],
+  ['insertionsorting',['insertionSorting',['../group___buttons_funct.html#ga46820122d04fb0bfc79b9cd6cbf25668',1,'buttonsFunction']]],
+  ['interchangeablebutton',['InterchangeableButton',['../_buttons_8h.html#aa9eca20733bbd0af86d7dda5c095c210a86f38953657c231694a07a7519171b1f',1,'Buttons']]],
+  ['ispressed',['isPressed',['../class_buttons_1_1button.html#a7a548cfaa36153101dbc502df177f9ab',1,'Buttons::button']]]
 ];

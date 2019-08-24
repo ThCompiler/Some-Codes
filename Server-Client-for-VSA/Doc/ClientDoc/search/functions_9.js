@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quicksorting',['quickSorting',['../_buttons_function_8h.html#a847db9e46b310e27e737dfbc9ecf7131',1,'buttonsFunction']]]
+  ['launchserver',['LaunchServer',['../group___server_need.html#ga4ba372a67e5081bcdf348542f30e70a3',1,'server']]]
 ];

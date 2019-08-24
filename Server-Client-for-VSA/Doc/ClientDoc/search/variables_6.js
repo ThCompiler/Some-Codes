@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['maxnumofelements',['MaxNumOfElements',['../_client_8cpp.html#a6397012c86be03b7688ad623c69b5655',1,'drawing']]]
+  ['linktofunction',['linkToFunction',['../class_buttons_1_1button.html#a47a567aaea7276090e2353ce7a1ed7f9',1,'Buttons::button']]]
 ];

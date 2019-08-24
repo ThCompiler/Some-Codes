@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['namefont',['nameFont',['../structdrawing_1_1text_style.html#af08a2939028d370543cda48fa6fe44c4',1,'drawing::textStyle']]]
+  ['descriptionserver',['descriptionServer',['../_server_8cpp.html#a4c8416b2e862a44e416d22ba71abe747',1,'requests']]]
 ];

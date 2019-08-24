@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['selectionsorting',['selectionSorting',['../_buttons_function_8h.html#a436fdf5572b9ae70546bd80728e4e7e2',1,'buttonsFunction']]],
-  ['sendvector',['SendVector',['../_update_tx_networks_8h.html#a67d7ddbce0db58781d2ae693811ff2b8',1,'server']]],
-  ['start',['Start',['../_buttons_function_8h.html#acb0840df9b2ef3661840e8fb481bfb6d',1,'buttonsFunction']]]
+  ['random',['Random',['../_buttons_function_8h.html#aed46f10d2f35e17c063c30f5a1677f82',1,'buttonsFunction']]],
+  ['realcord',['RealCord',['../_update_t_x_lib_8h.html#afbbaf9415ca6f4bc472946a82dc86028',1,'drawing']]]
 ];

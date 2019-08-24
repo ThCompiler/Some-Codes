@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['heap',['heap',['../classbuttons_function_1_1heap.html',1,'buttonsFunction']]]
+  ['button',['button',['../class_buttons_1_1button.html',1,'Buttons']]]
 ];

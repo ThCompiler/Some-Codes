@@ -62,6 +62,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#define-members">Макросы</a> &#124;
 <a href="#func-members">Функции</a>  </div>
   <div class="headertitle">
 <div class="title">Файл UpdateTxNetworks.h</div>  </div>
@@ -76,6 +77,12 @@ $(function() {
 </div>
 <p><a href="_update_tx_networks_8h_source.html">См. исходные тексты.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Макросы</h2></td></tr>
+<tr class="memitem:aa260ace19935f1155912d6ac3a21f6b6"><td class="memItemLeft" align="right" valign="top"><a id="aa260ace19935f1155912d6ac3a21f6b6"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>NONBLOCKREV</b>(T)&#160;&#160;&#160;while(T == -1)</td></tr>
+<tr class="separator:aa260ace19935f1155912d6ac3a21f6b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Функции</h2></td></tr>
 <tr class="memitem:a67d7ddbce0db58781d2ae693811ff2b8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
@@ -86,10 +93,97 @@ $(function() {
 <tr class="memitem:a41d1c920b0abcbb81182aba107c269b9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_update_tx_networks_8h.html#a41d1c920b0abcbb81182aba107c269b9">server::GetVector</a> (TX_SOCKET from, std::vector&lt; T &gt; *Array)</td></tr>
 <tr class="memdesc:a41d1c920b0abcbb81182aba107c269b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает вектор через сокет  <a href="_update_tx_networks_8h.html#a41d1c920b0abcbb81182aba107c269b9">Подробнее...</a><br /></td></tr>
 <tr class="separator:a41d1c920b0abcbb81182aba107c269b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8996edc3165594615b9b412d0c205665"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_update_tx_networks_8h.html#a8996edc3165594615b9b412d0c205665">server::findClient</a> (std::string *description, std::string *ip, TX_SOCKET *clinetSocket)</td></tr>
+<tr class="memdesc:a8996edc3165594615b9b412d0c205665"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ищет клиента для сервера и подключает его  <a href="_update_tx_networks_8h.html#a8996edc3165594615b9b412d0c205665">Подробнее...</a><br /></td></tr>
+<tr class="separator:a8996edc3165594615b9b412d0c205665"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a340f834d13a40e1cf6be2dcc7742e76e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_update_tx_networks_8h.html#a340f834d13a40e1cf6be2dcc7742e76e">server::findServer</a> (const std::string *descriptionOfServer, TX_SOCKET *server)</td></tr>
+<tr class="memdesc:a340f834d13a40e1cf6be2dcc7742e76e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ищет сервер для клиента с определённым описанием и подключается к нему  <a href="_update_tx_networks_8h.html#a340f834d13a40e1cf6be2dcc7742e76e">Подробнее...</a><br /></td></tr>
+<tr class="separator:a340f834d13a40e1cf6be2dcc7742e76e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
 <div class="textblock"><p>доп функции на основе TXNetwork.h. </p>
 </div><h2 class="groupheader">Функции</h2>
+<a id="file_a8996edc3165594615b9b412d0c205665"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_a8996edc3165594615b9b412d0c205665">&#9670;&nbsp;</a></span>findClient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool server::findClient </td>
+          <td>(</td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>description</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>ip</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TX_SOCKET *&#160;</td>
+          <td class="paramname"><em>clinetSocket</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ищет клиента для сервера и подключает его </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">description</td><td>уникальное описания сервера для клиента </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ip</td><td>ip сервера </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">clientSocket</td><td>сокет к которому подклюсится сервер </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="file_a340f834d13a40e1cf6be2dcc7742e76e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#file_a340f834d13a40e1cf6be2dcc7742e76e">&#9670;&nbsp;</a></span>findServer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool server::findServer </td>
+          <td>(</td>
+          <td class="paramtype">const std::string *&#160;</td>
+          <td class="paramname"><em>descriptionOfServer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TX_SOCKET *&#160;</td>
+          <td class="paramname"><em>server</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ищет сервер для клиента с определённым описанием и подключается к нему </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">descriptionOfServer</td><td>уникальное описания сервера для клиента </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">server</td><td>сокет к которому подклюсится сервер </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="file_a41d1c920b0abcbb81182aba107c269b9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#file_a41d1c920b0abcbb81182aba107c269b9">&#9670;&nbsp;</a></span>GetVector()</h2>
 
@@ -122,7 +216,7 @@ template&lt;typename T &gt; </div>
 <dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">from</td><td>сокет отправителя </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">Array</td><td>вектор который нужно отправить </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">Array</td><td>вектор который получат </td></tr>
   </table>
   </dd>
 </dl>

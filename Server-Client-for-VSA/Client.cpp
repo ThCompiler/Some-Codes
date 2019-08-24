@@ -6,15 +6,15 @@
 //!
 //-----------------------------------------------------------------------------------------------------------------
 //! \author     TheCompiler
-//! \version    alpha 2.1
-//! \date       22.08.2019
+//! \version    alpha 3
+//! \date       24.08.2019
 //-----------------------------------------------------------------------------------------------------------------
 //!
 //! @defgroup PreCalculation    Расчёт значений
 //! @defgroup WorkWithPerson    Работа с пользователем
 //! @defgroup Drawing           Рисование
 //! @defgroup ButtonsFunct      Функции кнопок
-//! @defgroup ServerNeed        Сулежбные функции сервера
+//! @defgroup ServerNeed        Служебные функции сервера
 //=================================================================================================================
 
 
@@ -251,8 +251,8 @@ namespace server {
 // Блок констант
 //=================================================================================================================
 
-    const std::string PathToServer = "C:\\Users\\Lrnovo\\Source\\Server-Client\\Server-Client\\Debug\\Server.exe";
-
+    const std::string   PathToServer      = "C:\\Users\\Lrnovo\\Source\\Server-Client\\Server-Client\\Debug\\Server.exe"; ///< путь к программе сервера     
+    const std::string   descriptionServer = "23";                                                                         ///< уникальное описания для определения сервера клиентом
 
 //=================================================================================================================
 // Функции
@@ -292,6 +292,7 @@ namespace server {
                                   std::vector<drawing::ResultValue>* resultValue);
 
 //-----------------------------------------------------------------------------------------------------------------
+//! @ingroup ServerNeed
 //! \brief Отправляет вектор через сокет
 //! 
 //! \param      to          сокет получателя
@@ -305,6 +306,7 @@ namespace server {
     void SendVector(TX_SOCKET to, std::vector<T>* Array);
  
 //-----------------------------------------------------------------------------------------------------------------
+//! @ingroup ServerNeed
 //! \brief Получает вектор через сокет
 //! 
 //! \param      from        сокет отправителя
@@ -316,6 +318,31 @@ namespace server {
 
     template <typename T>
     void GetVector(TX_SOCKET from, std::vector<T>* Array);
+
+//-----------------------------------------------------------------------------------------------------------------
+//! @ingroup ServerNeed
+//! \brief Ищет клиента для сервера и подключает его
+//! 
+//! \param[in]  description     уникальное описания сервера для клиента
+//! \param[in]  ip              ip сервера
+//! \param[out] clientSocket    сокет к которому подклюсится сервер
+//!
+//! Код в библиотеке UpdateTxNetworks.h
+//!
+//-----------------------------------------------------------------------------------------------------------------
+
+    bool findClient(std::string* description, std::string* ip, TX_SOCKET* clinetSocket);
+
+//-----------------------------------------------------------------------------------------------------------------
+//! @ingroup ServerNeed
+//! \brief Ищет сервер для клиента с определённым описанием и подключается к нему
+//! 
+//! \param[in]  descriptionOfServer     уникальное описания сервера для клиента
+//! \param[out] server                  сокет к которому подклюсится сервер
+//!
+//-----------------------------------------------------------------------------------------------------------------
+
+    bool findServer(const std::string* descriptionOfServer, TX_SOCKET* server);
 }
 
 
@@ -533,14 +560,12 @@ namespace drawing {
 
 int main()
 {
-    printf("Search Server ...");
+    //printf("Search Server ...");
 
-    while (!server::serverSocket._init)
-    {
-        server::serverSocket = txCreateSocket(TX_CLIENT, SERVER_IP);
-    }
+    while (!server::findServer(&server::descriptionServer, &server::serverSocket));
 
-    printf("Connected to Server ...");
+    //printf("Connected to Server ...");
+
     int Width    = 1000;    // ширина окна
     int Height   = 515;     // высота окна
 
@@ -633,6 +658,9 @@ int main()
         }
     }
     
+    int endConnect = -1;
+    txRecvFrom(server::serverSocket, &endConnect, sizeof(int));
+
     //server::KillServer(&(string)"Server.exe");
     return 0;
 }
@@ -702,7 +730,6 @@ namespace server {
             if (each.isPressed)
                 activeFunctions[each.id] = 1;
         
-        int     numActiveButtons        = activeFunctions.size()    ;
         int     request                 = 2                         ;
         int     numOfElements           = drawing::MaxNumOfElements ;
         int     minNumOfElements        = drawing::AccuracyOfDiagram;
@@ -723,7 +750,7 @@ namespace server {
         resultValue->clear  ();
         resultValue->resize (buttonsOfFunction->size());
 
-        for (int i = 0; i < buttonsOfFunction->size(); i++)
+        for (size_t i = 0; i < buttonsOfFunction->size(); i++)
         {
             server::GetVector(serverSocket, &resultFromServer);
             (*resultValue)[i] = { (*buttonsOfFunction)[i].textColor, resultFromServer};

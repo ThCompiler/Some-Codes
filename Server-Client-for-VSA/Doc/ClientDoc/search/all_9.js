@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['parameterforresults',['parameterForResults',['../structdrawing_1_1parameter_for_results.html',1,'drawing']]]
+  ['killserver',['KillServer',['../group___server_need.html#ga48b6b768638ea93e8fe28dc4f4f18e53',1,'server']]]
 ];

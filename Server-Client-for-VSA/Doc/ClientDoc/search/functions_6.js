@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['insertionsorting',['insertionSorting',['../_buttons_function_8h.html#a46820122d04fb0bfc79b9cd6cbf25668',1,'buttonsFunction']]]
+  ['heap_5fsort',['heap_sort',['../group___buttons_funct.html#gab1030584cd5edcc9663fea9fc25e2f21',1,'buttonsFunction']]]
 ];
