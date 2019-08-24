@@ -139,16 +139,15 @@ namespace server {
 //!
 //-----------------------------------------------------------------------------------------------------------------
 
-    bool findClient(std::string* description, std::string* ip, TX_SOCKET* clinetSocket)
+    bool SendMessageClient(std::string* description, std::string* ip)
     {
         assert(description      != nullptr  );
-        assert(ip           != nullptr  );
-        assert(clinetSocket != nullptr  );
+        assert(ip               != nullptr  );
         assert(description      != ip       );
         
 
         if (txnAssert(forConnectServer) == 101) // создаём сокет для широкоформатного общения
-            forConnectServer = txCreateSocket(TX_SERVER, TX_BROADCAST, TX_STD_PORT, TX_BLOCK, false);
+            forConnectServer = txCreateSocket(TX_SERVER, TX_BROADCAST, TX_STD_PORT, TX_NONBLOCK, false);
 
         int markerOfConnect = 1;
 
@@ -157,19 +156,28 @@ namespace server {
         SendString(forConnectServer, description);  // отправляем своё описания
         SendString(forConnectServer, ip);           // отправляем свой ip
         
+        return true;
+    }
+
+    bool ConnectToClient(std::string* ip, TX_SOCKET* clinetSocket)
+    {
+        assert(ip               != nullptr  );
+        assert(clinetSocket     != nullptr  );
+
+        int         markerOfConnect = -1;
+        std::string answer;
+
         if (txRecvFrom(forConnectServer, &markerOfConnect, sizeof(int)) == -1) //ждём чьего-нибудь ответа
             return false;
         
-        GetString(forConnectServer, description); // получаем решение клиента
+        GetString(forConnectServer, &answer); // получаем решение клиента
 
         std::string readyForConnect = "OK ";
 
-        if ((*description) != (readyForConnect + (*ip))) // проверяем что он согласен
+        if (answer != (readyForConnect + (*ip))) // проверяем что он согласен
             return false;
 
         (*clinetSocket) = txCreateSocket(TX_SERVER, ""); // подключаемся
-
-
         return true;
     }
 
