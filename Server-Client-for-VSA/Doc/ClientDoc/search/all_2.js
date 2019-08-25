@@ -5,6 +5,7 @@ var searchData=
   ['checkclickbuttons',['CheckClickButtons',['../_buttons_8h.html#aa5d1f0d76b0200f7adec9da6a1943dae',1,'Buttons']]],
   ['clickbutton',['ClickButton',['../class_buttons_1_1button.html#a0fb97c0f2f7898083da90669b4abb7b1',1,'Buttons::button']]],
   ['client_2ecpp',['Client.cpp',['../_client_8cpp.html',1,'']]],
+  ['connecttoclient',['ConnectToClient',['../group___server_need.html#ga233f1006116a5667d987c7faf44d301d',1,'server']]],
   ['coordinatesdiagramofcomparisons',['CoordinatesDiagramOfComparisons',['../_client_8cpp.html#a524151a56cbfcc12b9f6e5a7c3ce4894',1,'drawing']]],
   ['coordinatesdiagramofswaping',['CoordinatesDiagramOfSwaping',['../_client_8cpp.html#ac9f1306a029ca7564d7ee4f237718e40',1,'drawing']]],
   ['createarray',['CreateArray',['../_buttons_function_8h.html#aa9846dca2b3356bfad97818c0d1ef151',1,'buttonsFunction::CreateArray()'],['../_client_8cpp.html#a868375389d7bb364d87863d6d960bbd6',1,'drawing::CreateArray()']]],

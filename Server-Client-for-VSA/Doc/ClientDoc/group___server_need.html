@@ -87,9 +87,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ga41d1c920b0abcbb81182aba107c269b9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="group___server_need.html#ga41d1c920b0abcbb81182aba107c269b9">server::GetVector</a> (TX_SOCKET from, std::vector&lt; T &gt; *Array)</td></tr>
 <tr class="memdesc:ga41d1c920b0abcbb81182aba107c269b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Получает вектор через сокет  <a href="group___server_need.html#ga41d1c920b0abcbb81182aba107c269b9">More...</a><br /></td></tr>
 <tr class="separator:ga41d1c920b0abcbb81182aba107c269b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8996edc3165594615b9b412d0c205665"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___server_need.html#ga8996edc3165594615b9b412d0c205665">server::findClient</a> (std::string *description, std::string *ip, TX_SOCKET *clinetSocket)</td></tr>
-<tr class="memdesc:ga8996edc3165594615b9b412d0c205665"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ищет клиента для сервера и подключает его  <a href="group___server_need.html#ga8996edc3165594615b9b412d0c205665">More...</a><br /></td></tr>
-<tr class="separator:ga8996edc3165594615b9b412d0c205665"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga58f92b0d489e7e22809fe7debfbda3c3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___server_need.html#ga58f92b0d489e7e22809fe7debfbda3c3">server::SendMessageClient</a> (std::string *description, std::string *ip)</td></tr>
+<tr class="memdesc:ga58f92b0d489e7e22809fe7debfbda3c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рассылает клиентам информацию о своём существовании  <a href="group___server_need.html#ga58f92b0d489e7e22809fe7debfbda3c3">More...</a><br /></td></tr>
+<tr class="separator:ga58f92b0d489e7e22809fe7debfbda3c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga233f1006116a5667d987c7faf44d301d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___server_need.html#ga233f1006116a5667d987c7faf44d301d">server::ConnectToClient</a> (std::string *ip, TX_SOCKET *clinetSocket)</td></tr>
+<tr class="memdesc:ga233f1006116a5667d987c7faf44d301d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Подключает клиента к серверу  <a href="group___server_need.html#ga233f1006116a5667d987c7faf44d301d">More...</a><br /></td></tr>
+<tr class="separator:ga233f1006116a5667d987c7faf44d301d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga340f834d13a40e1cf6be2dcc7742e76e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___server_need.html#ga340f834d13a40e1cf6be2dcc7742e76e">server::findServer</a> (const std::string *descriptionOfServer, TX_SOCKET *server)</td></tr>
 <tr class="memdesc:ga340f834d13a40e1cf6be2dcc7742e76e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ищет сервер для клиента с определённым описанием и подключается к нему  <a href="group___server_need.html#ga340f834d13a40e1cf6be2dcc7742e76e">More...</a><br /></td></tr>
 <tr class="separator:ga340f834d13a40e1cf6be2dcc7742e76e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,21 +143,15 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga8996edc3165594615b9b412d0c205665"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8996edc3165594615b9b412d0c205665">&#9670;&nbsp;</a></span>findClient()</h2>
+<a id="ga233f1006116a5667d987c7faf44d301d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga233f1006116a5667d987c7faf44d301d">&#9670;&nbsp;</a></span>ConnectToClient()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool server::findClient </td>
+          <td class="memname">bool server::ConnectToClient </td>
           <td>(</td>
-          <td class="paramtype">std::string *&#160;</td>
-          <td class="paramname"><em>description</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">std::string *&#160;</td>
           <td class="paramname"><em>ip</em>, </td>
         </tr>
@@ -172,10 +169,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Ищет клиента для сервера и подключает его </p>
+<p>Подключает клиента к серверу </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">description</td><td>уникальное описания сервера для клиента </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">ip</td><td>ip сервера </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">clientSocket</td><td>сокет к которому подклюсится сервер</td></tr>
   </table>
@@ -184,7 +180,6 @@ Functions</h2></td></tr>
 <p>Код в библиотеке <a class="el" href="_update_tx_networks_8h.html" title="доп функции на основе TXNetwork.h.">UpdateTxNetworks.h</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">description</td><td>уникальное описания сервера для клиента </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">ip</td><td>ip сервера </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">clientSocket</td><td>сокет к которому подклюсится сервер </td></tr>
   </table>
@@ -323,6 +318,51 @@ template&lt;typename T &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>путь до сервера </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga58f92b0d489e7e22809fe7debfbda3c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga58f92b0d489e7e22809fe7debfbda3c3">&#9670;&nbsp;</a></span>SendMessageClient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool server::SendMessageClient </td>
+          <td>(</td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>description</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>ip</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Рассылает клиентам информацию о своём существовании </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">description</td><td>уникальное описания сервера для клиента </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ip</td><td>ip сервера</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Код в библиотеке <a class="el" href="_update_tx_networks_8h.html" title="доп функции на основе TXNetwork.h.">UpdateTxNetworks.h</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">description</td><td>уникальное описания сервера для клиента </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ip</td><td>ip сервера </td></tr>
   </table>
   </dd>
 </dl>
