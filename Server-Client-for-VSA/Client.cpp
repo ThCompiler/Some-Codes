@@ -671,7 +671,7 @@ int main()
     }
     
     int endConnect = -1;
-    txRecvFrom(server::serverSocket, &endConnect, sizeof(int));
+    txSendTo(server::serverSocket, &endConnect, sizeof(int));
 
     //server::KillServer(&(string)"Server.exe");
     return 0;

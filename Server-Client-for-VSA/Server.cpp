@@ -164,7 +164,8 @@ int main()
         if (request == -1) // клиент отключился от сервера
         {
             haveConnect = true;
-
+			client.~TX_SOCKET();
+			
             printf("Bye");
         }
 
