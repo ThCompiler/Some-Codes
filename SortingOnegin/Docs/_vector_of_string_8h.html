@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SortingOnegin: Файл VectorOfString.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SortingOnegin
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.15 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Классы</a> &#124;
+<a href="#define-members">Макросы</a> &#124;
+<a href="#func-members">Функции</a>  </div>
+  <div class="headertitle">
+<div class="title">Файл VectorOfString.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>библиотека работы с вектором строк  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &lt;assert.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+</div>
+<p><a href="_vector_of_string_8h_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector_of_strings.html">VectorOfStrings</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">класс вектора для хранения строк  <a href="class_vector_of_strings.html#details">Подробнее...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Макросы</h2></td></tr>
+<tr class="memitem:aa9a9ef20c658caf243605ecf153c8842"><td class="memItemLeft" align="right" valign="top"><a id="aa9a9ef20c658caf243605ecf153c8842"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_of_string_8h.html#aa9a9ef20c658caf243605ecf153c8842">START_RECIVE_MEMORY</a>&#160;&#160;&#160;40;</td></tr>
+<tr class="memdesc:aa9a9ef20c658caf243605ecf153c8842"><td class="mdescLeft">&#160;</td><td class="mdescRight">первоночальный размер выделенной памяти для вектора <br /></td></tr>
+<tr class="separator:aa9a9ef20c658caf243605ecf153c8842"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c4004b8cb2b300a973e14a934135e7a"><td class="memItemLeft" align="right" valign="top"><a id="a9c4004b8cb2b300a973e14a934135e7a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_of_string_8h.html#a9c4004b8cb2b300a973e14a934135e7a">RESIZE_MEMORY</a>&#160;&#160;&#160;40;</td></tr>
+<tr class="memdesc:a9c4004b8cb2b300a973e14a934135e7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">размер блока памяти, добовляющегося при необходимости вектору <br /></td></tr>
+<tr class="separator:a9c4004b8cb2b300a973e14a934135e7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b20d41d6252e9871430c242cb1a56e7"><td class="memItemLeft" align="right" valign="top"><a id="a6b20d41d6252e9871430c242cb1a56e7"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_of_string_8h.html#a6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a>&#160;&#160;&#160;110;</td></tr>
+<tr class="memdesc:a6b20d41d6252e9871430c242cb1a56e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">размер буфера чтения из файла <br /></td></tr>
+<tr class="separator:a6b20d41d6252e9871430c242cb1a56e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:a23fdef7ae72df80d60283580e7d92f41"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector_of_strings.html">VectorOfStrings</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_of_string_8h.html#a23fdef7ae72df80d60283580e7d92f41">ReadVectorFromFile</a> (const char *filename)</td></tr>
+<tr class="memdesc:a23fdef7ae72df80d60283580e7d92f41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Читает текс из файла в вектор  <a href="#a23fdef7ae72df80d60283580e7d92f41">Подробнее...</a><br /></td></tr>
+<tr class="separator:a23fdef7ae72df80d60283580e7d92f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab40d17588523c547b644ccc89a841f0a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_of_string_8h.html#ab40d17588523c547b644ccc89a841f0a">WriteVectorToFile</a> (const char *filename, <a class="el" href="class_vector_of_strings.html">VectorOfStrings</a> *vec)</td></tr>
+<tr class="memdesc:ab40d17588523c547b644ccc89a841f0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Записывает текст из вектора в файл  <a href="#ab40d17588523c547b644ccc89a841f0a">Подробнее...</a><br /></td></tr>
+<tr class="separator:ab40d17588523c547b644ccc89a841f0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a520873246dd2b74554f6292e4dbae842"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vector_of_string_8h.html#a520873246dd2b74554f6292e4dbae842">insertionSorting</a> (<a class="el" href="class_vector_of_strings.html">VectorOfStrings</a> *vec, int(*comparison)(char *a, char *b)=ForVectorOfStrings::compar)</td></tr>
+<tr class="memdesc:a520873246dd2b74554f6292e4dbae842"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сортирует вектор с текстом  <a href="#a520873246dd2b74554f6292e4dbae842">Подробнее...</a><br /></td></tr>
+<tr class="separator:a520873246dd2b74554f6292e4dbae842"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>библиотека работы с вектором строк </p>
+</div><h2 class="groupheader">Функции</h2>
+<a id="a520873246dd2b74554f6292e4dbae842"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a520873246dd2b74554f6292e4dbae842">&#9670;&nbsp;</a></span>insertionSorting()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void insertionSorting </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_vector_of_strings.html">VectorOfStrings</a> *&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int(*)(char *a, char *b)&#160;</td>
+          <td class="paramname"><em>comparison</em> = <code>ForVectorOfStrings::compar</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Сортирует вектор с текстом </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vec</td><td>сортируемый вектор </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">comparison</td><td>функция сравнения двух элементов вектора </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a23fdef7ae72df80d60283580e7d92f41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23fdef7ae72df80d60283580e7d92f41">&#9670;&nbsp;</a></span>ReadVectorFromFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vector_of_strings.html">VectorOfStrings</a>* ReadVectorFromFile </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Читает текс из файла в вектор </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">filename</td><td>имя файла, из которого читаем текст</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>вектор с считанным текстом </dd></dl>
+
+</div>
+</div>
+<a id="ab40d17588523c547b644ccc89a841f0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab40d17588523c547b644ccc89a841f0a">&#9670;&nbsp;</a></span>WriteVectorToFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool WriteVectorToFile </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_vector_of_strings.html">VectorOfStrings</a> *&#160;</td>
+          <td class="paramname"><em>vec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Записывает текст из вектора в файл </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">filename</td><td>имя файла, в который записываем текст </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vec</td><td>вектор с текстом</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true если всё прошло успешно </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.15
+</small></address>
+</body>
+</html>
