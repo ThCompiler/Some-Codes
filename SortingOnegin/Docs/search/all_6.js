@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['readvectorfromfile',['ReadVectorFromFile',['../_vector_of_string_8h.html#a23fdef7ae72df80d60283580e7d92f41',1,'VectorOfString.h']]],
-  ['resize_5fmemory',['RESIZE_MEMORY',['../_vector_of_string_8h.html#a9c4004b8cb2b300a973e14a934135e7a',1,'VectorOfString.h']]]
+  ['push_5fback',['push_back',['../class_vector_of_strings.html#a4b8e81ee5b15a04d58debe78b5fdf16c',1,'VectorOfStrings']]]
 ];

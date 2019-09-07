@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['change',['change',['../class_vector_of_strings.html#a13d81b25f5d6ecf7851a8af5b84da0f3',1,'VectorOfStrings']]]
+  ['buffer_5fsize',['BUFFER_SIZE',['../_main_8cpp.html#a6b20d41d6252e9871430c242cb1a56e7',1,'Main.cpp']]]
 ];

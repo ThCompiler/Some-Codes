@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vectorofstrings',['VectorOfStrings',['../class_vector_of_strings.html#ab478385550f640ad75f476fe9d4d2e57',1,'VectorOfStrings']]]
+  ['writevectortofile',['WriteVectorToFile',['../_main_8cpp.html#a43ba005c9f6e6791e5b7df9f7afc5391',1,'Main.cpp']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['writevectortofile',['WriteVectorToFile',['../_vector_of_string_8h.html#ab40d17588523c547b644ccc89a841f0a',1,'VectorOfString.h']]]
+  ['vectorofstrings',['VectorOfStrings',['../class_vector_of_strings.html',1,'VectorOfStrings'],['../class_vector_of_strings.html#ab478385550f640ad75f476fe9d4d2e57',1,'VectorOfStrings::VectorOfStrings()']]]
 ];

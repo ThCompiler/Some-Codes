@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['get',['get',['../class_vector_of_strings.html#a67acfb9791e94b8e8cee715f1ee37441',1,'VectorOfStrings']]]
+  ['change',['change',['../class_vector_of_strings.html#a13d81b25f5d6ecf7851a8af5b84da0f3',1,'VectorOfStrings']]]
 ];

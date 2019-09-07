@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['resize_5fmemory',['RESIZE_MEMORY',['../_vector_of_string_8h.html#a9c4004b8cb2b300a973e14a934135e7a',1,'VectorOfString.h']]]
+  ['buffer_5fsize',['BUFFER_SIZE',['../_main_8cpp.html#a6b20d41d6252e9871430c242cb1a56e7',1,'Main.cpp']]]
 ];

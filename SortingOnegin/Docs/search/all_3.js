@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['insertionsorting',['insertionSorting',['../_vector_of_string_8h.html#a520873246dd2b74554f6292e4dbae842',1,'VectorOfString.h']]]
+  ['get',['get',['../class_vector_of_strings.html#a5a84072088e3befb168c061a57105032',1,'VectorOfStrings']]]
 ];
