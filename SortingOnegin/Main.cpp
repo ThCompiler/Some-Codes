@@ -15,8 +15,7 @@
 #include <stdlib.h>
 
 
-#define START_RECIVE_MEMORY 40;     ///< первоночальный размер выделенной памяти для вектора
-#define RESIZE_MEMORY       40;     ///< размер блока памяти, добовляющегося при необходимости вектору
+
 #define BUFFER_SIZE         110;    ///< размер буфера чтения из файла
 
 
@@ -33,19 +32,16 @@ private:
     size_t recivedSize;     ///< развер выдленной памяти для вектора
     char   **Array;         ///< массив значений вектора
 
-//-----------------------------------------------------------------------------------------------------------------
-//! \brief Выделяет дополнительную память вектору
-//-----------------------------------------------------------------------------------------------------------------
-
-    void reciveMemery();
-
 public:
 
 //-----------------------------------------------------------------------------------------------------------------
 //! \brief Конструктор вектора
+//! 
+//! \param size размер вектора
+//!
 //-----------------------------------------------------------------------------------------------------------------
 
-    VectorOfStrings();
+    VectorOfStrings(size_t size = 40);
 
 //-----------------------------------------------------------------------------------------------------------------
 //! \brief Диструктор вектора
@@ -152,6 +148,18 @@ namespace ForVectorOfStrings {
 //-----------------------------------------------------------------------------------------------------------------
 
     static int strcmp (char* str1, char* str2);
+
+//-----------------------------------------------------------------------------------------------------------------
+//! \brief Сравнивает две строки
+//!
+//! \param[in] str1     первая строка
+//! \param[in] str2     вторая строка
+//!
+//! \return 1 если первая меньше второй, -1 если первая больше второй и 0 если строки равны
+//!
+//-----------------------------------------------------------------------------------------------------------------
+
+    static size_t numStrInFile(FILE* fp);
 }
 
 //-----------------------------------------------------------------------------------------------------------------
@@ -204,28 +212,13 @@ int main()
     return 0;
 }
 
-
-
 //-----------------------------------------------------------------------------------------------------------------
 
-void VectorOfStrings::reciveMemery()
-{
-    recivedSize += RESIZE_MEMORY;
-        
-    char **newArray = (char**)realloc(Array, recivedSize * sizeof(char*));
-
-    assert(newArray != NULL);
-
-    Array = newArray;
-}
-
-//-----------------------------------------------------------------------------------------------------------------
-
-VectorOfStrings::VectorOfStrings()
+VectorOfStrings::VectorOfStrings(size_t size /*= 40*/)
 {
     sizeOfArray = 0;
-    recivedSize = START_RECIVE_MEMORY;
-    Array       = (char**)malloc(recivedSize * sizeof(char*));
+    recivedSize = size;
+    Array       = (char**)calloc(recivedSize, sizeof(char*));
 }
 
 //-----------------------------------------------------------------------------------------------------------------
@@ -241,12 +234,11 @@ VectorOfStrings::~VectorOfStrings()
 
 void VectorOfStrings::push_back(char* str)
 {
-    assert(str != nullptr);
+    assert(str          !=  nullptr);
+    assert(sizeOfArray  <=  recivedSize);
 
-    if (sizeOfArray == recivedSize)
-        reciveMemery();
 
-    Array[sizeOfArray] = (char*)malloc((ForVectorOfStrings::len(str) + 1) * sizeof(char*));
+    Array[sizeOfArray] = (char*)calloc((ForVectorOfStrings::len(str) + 1), sizeof(char*));
     ForVectorOfStrings::strcpy(Array[sizeOfArray], str);
     sizeOfArray++;
 }
@@ -255,6 +247,8 @@ void VectorOfStrings::push_back(char* str)
 
 char* VectorOfStrings::get(size_t i)
 {
+    assert(i < sizeOfArray);
+
     return Array[i];
 }
 
@@ -262,6 +256,9 @@ char* VectorOfStrings::get(size_t i)
 
 void VectorOfStrings::change(size_t i, char* newElements)
 {
+    assert(newElements  !=  nullptr);
+    assert(i            <   sizeOfArray);
+
     Array[i] = newElements;
 }
 
@@ -358,6 +355,36 @@ namespace ForVectorOfStrings {
 
         return 0;
     }
+
+//-----------------------------------------------------------------------------------------------------------------
+
+    static size_t numStrInFile(FILE* fp)
+    {
+        assert(fp != nullptr);
+
+        size_t  size     = 0;
+        size_t  buffSize = BUFFER_SIZE;
+        char*   buff     = (char*)calloc((buffSize + 1), sizeof(char));
+
+        if (buff == NULL)
+        {
+            printf("Error: Can't create buffer");
+            exit(1);
+        }
+
+        while (!feof(fp))
+        {
+            size_t numReadElements = ForVectorOfStrings::getline(fp, buff, buffSize);
+
+            if (numReadElements > 0)
+                size++;
+        }
+
+        fseek(fp, 0, SEEK_SET);
+        free(buff);
+
+        return size;
+    }
 }
 
 
@@ -367,8 +394,7 @@ VectorOfStrings* ReadVectorFromFile(const char* filename)
 {
     assert(filename != nullptr);
     
-    FILE*            fp  = fopen(filename, "r");
-    VectorOfStrings* vec = new VectorOfStrings();
+    FILE* fp = fopen(filename, "r");
 
     if (fp == NULL)
     {
@@ -376,8 +402,9 @@ VectorOfStrings* ReadVectorFromFile(const char* filename)
         exit(1);
     }
 
-    size_t  buffSize = BUFFER_SIZE;
-    char*   buff     = (char*)malloc((buffSize + 1) * sizeof(char));
+    VectorOfStrings*    vec         = new VectorOfStrings(ForVectorOfStrings::numStrInFile(fp));
+    size_t              buffSize    = BUFFER_SIZE;
+    char*               buff        = (char*)calloc((buffSize + 1), sizeof(char));
 
     if (buff == NULL)
     {
