@@ -7,6 +7,7 @@
 //! \date       11.09.2019
 //=================================================================================================================
 
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <assert.h>
 #include <stdio.h>
@@ -218,7 +219,7 @@ namespace ForVectorOfStrings {
 
         size_t i = 0;
 
-        for (; str1[i] != '\0' || str2[i] != '\0'; ++i)
+        for (; str1[i] != '\0' && str2[i] != '\0'; ++i)
             if (str1[i] > str2[i])
                 return -1;
             else if (str1[i] < str2[i])
