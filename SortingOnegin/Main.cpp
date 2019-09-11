@@ -3,91 +3,16 @@
 //! @mainpage
 //-----------------------------------------------------------------------------------------------------------------
 //! \author     TheCompiler
-//! \version    alpha 1
-//! \date       06.09.2019
+//! \version    alpha 2
+//! \date       11.09.2019
 //=================================================================================================================
 
-#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <assert.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 
-
-
-#define BUFFER_SIZE         110;    ///< размер буфера чтения из файла
-
-
-
-//=================================================================================================================
-//! \class VectorOfStrings
-//! \brief класс вектора для хранения строк
-//-----------------------------------------------------------------------------------------------------------------
-
-class VectorOfStrings
-{
-private:
-    size_t sizeOfArray;     ///< размер вектора
-    size_t recivedSize;     ///< развер выдленной памяти для вектора
-    char   **Array;         ///< массив значений вектора
-
-public:
-
-//-----------------------------------------------------------------------------------------------------------------
-//! \brief Конструктор вектора
-//! 
-//! \param size размер вектора
-//!
-//-----------------------------------------------------------------------------------------------------------------
-
-    VectorOfStrings(size_t size = 40);
-
-//-----------------------------------------------------------------------------------------------------------------
-//! \brief Диструктор вектора
-//-----------------------------------------------------------------------------------------------------------------
-
-    ~VectorOfStrings();
-
-//-----------------------------------------------------------------------------------------------------------------
-//! \brief Добавляет элемент в конец вектор
-//!
-//! \param[in] str  добавляемый элемент
-//!
-//-----------------------------------------------------------------------------------------------------------------
-
-    void push_back(char* str);
-
-//-----------------------------------------------------------------------------------------------------------------
-//! \brief Получения элемента
-//!
-//! \param i    номер получаемого элемента
-//!
-//! \return нужный элемент
-//!
-//-----------------------------------------------------------------------------------------------------------------
-
-    char* get(size_t i);
-
-//-----------------------------------------------------------------------------------------------------------------
-//! \brief Меняет элемент в векторе
-//!
-//! \param      i               номер изменяемого элемента
-//! \param[in]  newElements     элеменет на который заменяет
-//!
-//-----------------------------------------------------------------------------------------------------------------
-
-    void change(size_t i, char* newElements);
-
-//-----------------------------------------------------------------------------------------------------------------
-//! \brief Говорит размер вектора
-//!
-//! \return     размер вектора
-//!
-//-----------------------------------------------------------------------------------------------------------------
-
-    size_t size();
-};
 
 
 namespace ForVectorOfStrings {
@@ -101,7 +26,7 @@ namespace ForVectorOfStrings {
 //!
 //-----------------------------------------------------------------------------------------------------------------
 
-    static size_t len (char* str);
+    static size_t len (const char* str);
 
 //-----------------------------------------------------------------------------------------------------------------
 //! \brief Копирует строку из одной в другую
@@ -135,7 +60,7 @@ namespace ForVectorOfStrings {
 //!
 //-----------------------------------------------------------------------------------------------------------------
 
-    static void swap (VectorOfStrings* vec, int j1, int j2);
+    static void swap (char** vec, int j1, int j2);
 
 //-----------------------------------------------------------------------------------------------------------------
 //! \brief Сравнивает две строки
@@ -158,39 +83,43 @@ namespace ForVectorOfStrings {
 //!
 //-----------------------------------------------------------------------------------------------------------------
 
-    static size_t numStrInFile(FILE* fp);
+    static size_t numStrInFile(char* buff);
 }
 
 //-----------------------------------------------------------------------------------------------------------------
 //! \brief Читает текс из файла в вектор
 //!
 //! \param[in]  filename    имя файла, из которого читаем текст
+//! \param[out] buff        буфер гре хранится весь файл
+//! \param[out] numString   число строк в файле
 //!
 //! \return вектор с считанным текстом
 //!
 //-----------------------------------------------------------------------------------------------------------------
 
-VectorOfStrings* ReadVectorFromFile(const char* filename);
+char** ReadVectorFromFile(const char* filename, char* buff, size_t* numString);
 
 //-----------------------------------------------------------------------------------------------------------------
 //! \brief Записывает текст из вектора в файл
 //!
 //! \param[in]  filename    имя файла, в который записываем текст
 //! \param[in]  vec         вектор с текстом
+//! \param[in]  numString   число строк в файле
 //!
 //-----------------------------------------------------------------------------------------------------------------
 
-void WriteVectorToFile(const char* filename, VectorOfStrings* vec);
+void WriteVectorToFile(const char* filename, char** vec, size_t* numString);
 
 //-----------------------------------------------------------------------------------------------------------------
 //! \brief Сортирует вектор с текстом
 //!
 //! \param[in]  vec             сортируемый вектор
-//! \param[in]  strcmpison      функция сравнения двух элементов вектора
+//! \param[in]  numString       число строк в файле
+//! \param[in]  strcmp          функция сравнения двух элементов вектора
 //!
 //-----------------------------------------------------------------------------------------------------------------
 
-void insertionSorting(VectorOfStrings* vec, int (*strcmpison)(char* a, char* b) = ForVectorOfStrings::strcmp);
+void insertionSorting(char** vec, size_t* numString, int (*strcmp)(char* a, char* b) = ForVectorOfStrings::strcmp);
 
 
 
@@ -198,75 +127,23 @@ int main()
 {
     printf("# Start\n\n");
 
-    VectorOfStrings* vec = ReadVectorFromFile("Onegin.txt");
+    char*   buff        = nullptr;
+    size_t  numString   = 0;
 
-    insertionSorting(vec);
+    char** vec = ReadVectorFromFile("Onegin.txt", buff, &numString);
 
-    WriteVectorToFile("NewOnegin.txt", vec);
+    insertionSorting(vec, &numString);
+
+    WriteVectorToFile("NewOnegin.txt", vec, &numString);
 
     printf("# Done\n");
-
-    vec->~VectorOfStrings();
+    
+    free(buff);
+    free(vec);
 
     return 0;
 }
 
-//-----------------------------------------------------------------------------------------------------------------
-
-VectorOfStrings::VectorOfStrings(size_t size /*= 40*/)
-{
-    sizeOfArray = 0;
-    recivedSize = size;
-    Array       = (char**)calloc(recivedSize, sizeof(char*));
-}
-
-//-----------------------------------------------------------------------------------------------------------------
-
-VectorOfStrings::~VectorOfStrings()
-{
-    for (size_t i = 0; i < sizeOfArray; ++i)
-        free(Array[i]);
-    free(Array);
-}
-
-//-----------------------------------------------------------------------------------------------------------------
-
-void VectorOfStrings::push_back(char* str)
-{
-    assert(str          !=  nullptr);
-    assert(sizeOfArray  <=  recivedSize);
-
-
-    Array[sizeOfArray] = (char*)calloc((ForVectorOfStrings::len(str) + 1), sizeof(char*));
-    ForVectorOfStrings::strcpy(Array[sizeOfArray], str);
-    sizeOfArray++;
-}
-
-//-----------------------------------------------------------------------------------------------------------------
-
-char* VectorOfStrings::get(size_t i)
-{
-    assert(i < sizeOfArray);
-
-    return Array[i];
-}
-
-//-----------------------------------------------------------------------------------------------------------------
-
-void VectorOfStrings::change(size_t i, char* newElements)
-{
-    assert(newElements  !=  nullptr);
-    assert(i            <   sizeOfArray);
-
-    Array[i] = newElements;
-}
-
-//-----------------------------------------------------------------------------------------------------------------
-
-size_t VectorOfStrings::size()
-{
-    return sizeOfArray;
-}
 
 
 //=================================================================================================================
@@ -275,7 +152,7 @@ size_t VectorOfStrings::size()
 namespace ForVectorOfStrings {
 
 
-    static size_t len(char* str)
+    static size_t len(const char* str)
     {
         assert(str != nullptr);
 
@@ -323,13 +200,13 @@ namespace ForVectorOfStrings {
 
 //-----------------------------------------------------------------------------------------------------------------
 
-    static void swap(VectorOfStrings* vec, int j1, int j2)
+    static void swap(char** vec, int j1, int j2)
     {
         assert(vec  != nullptr);
 
-        char *swp = vec->get(j1);
-        vec->change(j1, vec->get(j2));
-        vec->change(j2, swp);
+        char *swp   = vec[j1];
+        vec[j1]     = vec[j2];
+        vec[j2]     = swp;
     }
 
 //-----------------------------------------------------------------------------------------------------------------
@@ -357,42 +234,29 @@ namespace ForVectorOfStrings {
 
 //-----------------------------------------------------------------------------------------------------------------
 
-    static size_t numStrInFile(FILE* fp)
+    static size_t numStrInFile(char* buff)
     {
-        assert(fp != nullptr);
+        assert(buff != nullptr);
 
-        size_t  size     = 0;
-        size_t  buffSize = BUFFER_SIZE;
-        char*   buff     = (char*)calloc((buffSize + 1), sizeof(char));
+        size_t num = 0;
+        size_t i   = 0;
 
-        if (buff == NULL)
-        {
-            printf("Error: Can't create buffer");
-            exit(1);
-        }
+        while (buff[i] != '\0')
+            if (buff[i++] == '\n')
+                num++;
 
-        while (!feof(fp))
-        {
-            size_t numReadElements = ForVectorOfStrings::getline(fp, buff, buffSize);
-
-            if (numReadElements > 0)
-                size++;
-        }
-
-        fseek(fp, 0, SEEK_SET);
-        free(buff);
-
-        return size;
+        return ++num;
     }
 }
 
 
 //=================================================================================================================
 
-VectorOfStrings* ReadVectorFromFile(const char* filename)
+char** ReadVectorFromFile(const char* filename, char* buff, size_t* numString)
 {
-    assert(filename != nullptr);
-    
+    assert(filename     != nullptr);
+    assert(numString    != nullptr);
+
     FILE* fp = fopen(filename, "r");
 
     if (fp == NULL)
@@ -400,10 +264,14 @@ VectorOfStrings* ReadVectorFromFile(const char* filename)
         printf("Error: Can't read file.");
         exit(1);
     }
+    
+    fseek(fp, 0, SEEK_END);
+    free(buff);
 
-    VectorOfStrings*    vec         = new VectorOfStrings(ForVectorOfStrings::numStrInFile(fp));
-    size_t              buffSize    = BUFFER_SIZE;
-    char*               buff        = (char*)calloc((buffSize + 1), sizeof(char));
+    size_t buffSize = ftell(fp);
+           buff     = (char*)calloc((buffSize + 1), sizeof(char));
+
+    fseek(fp, 0, SEEK_SET);
 
     if (buff == NULL)
     {
@@ -411,26 +279,38 @@ VectorOfStrings* ReadVectorFromFile(const char* filename)
         exit(1);
     }
 
-    while (!feof(fp))
-    {
-        size_t numReadElements = ForVectorOfStrings::getline(fp, buff, buffSize);
+    fread(buff, 1, buffSize, fp);
 
-        if (numReadElements > 0)
-            vec->push_back(buff);
+            buff[buffSize]  = '\0';
+            (*numString)    = ForVectorOfStrings::numStrInFile(buff);
+    char**  vec             = (char**)calloc(((*numString) + 1), sizeof(char*));
+    size_t  i               = 0;
+    size_t  j               = 0;
+            vec[j++]        = buff;
+    
+    while (*(buff + i) != '\0')
+    {
+        if (*(buff + i) == '\n')
+        {
+            vec[j++]    = buff + i + 1;
+            buff[i]     = '\0';
+        }
+
+        i++;
     }
 
     fclose  (fp);
-    free    (buff);
 
     return vec;
 }
 
 //-----------------------------------------------------------------------------------------------------------------
 
-void WriteVectorToFile(const char* filename, VectorOfStrings* vec)
+void WriteVectorToFile(const char* filename, char** vec, size_t* numString)
 {
-    assert(filename != nullptr);
-    assert(vec      != nullptr);
+    assert(filename     != nullptr);
+    assert(vec          != nullptr);
+    assert(numString    != nullptr);
 
     FILE*   fp  = fopen(filename, "w");
 
@@ -440,9 +320,9 @@ void WriteVectorToFile(const char* filename, VectorOfStrings* vec)
         exit(1);
     }
 
-    for (size_t i = 0; i < vec->size(); ++i)
+    for (size_t i = 0; i < (*numString); ++i)
     {
-        if (fprintf(fp, vec->get(i)) < 0)
+        if (fprintf(fp, vec[i]) < 0)
         {
             printf("# Error: Can't write to file.");
             exit(1);
@@ -459,16 +339,17 @@ void WriteVectorToFile(const char* filename, VectorOfStrings* vec)
 
 //-----------------------------------------------------------------------------------------------------------------
 
-void insertionSorting(VectorOfStrings* vec, int (* strcmpison)(char* a, char* b) /* = ForVectorOfStrings::strcmp*/)
+void insertionSorting(char** vec, size_t* numString, int (* strcmp)(char* a, char* b) /* = ForVectorOfStrings::strcmp*/)
 {
-    assert(strcmpison   != nullptr);
+    assert(strcmp       != nullptr);
     assert(vec          != nullptr);
+    assert(numString    != nullptr);
 
-    for (size_t i = 0; i < vec->size(); ++i)
+    for (size_t i = 0; i < (*numString); ++i)
     {
         int j = i;
 
-        while (j > 0 && strcmpison(vec->get(j), vec->get(j - 1)) == 1)
+        while (j > 0 && strcmp(vec[j], vec[j - 1]) == 1)
         {
             ForVectorOfStrings::swap(vec, j, j - 1);
 
@@ -476,3 +357,30 @@ void insertionSorting(VectorOfStrings* vec, int (* strcmpison)(char* a, char* b)
         }
     }
 }
+
+//-----------------------------------------------------------------------------------------------------------------
+//! \brief Пишет ошибку в лог
+//!
+//! \param[in]  textError  название ошибки
+//! \param[in]  func       функция где была вызвана ошибка 
+//! \param      line       номер строки где произошла ошибка
+//! \param[in]  nameLog    названия файла записи лога 
+//! 
+//! на будущее
+//!
+//-----------------------------------------------------------------------------------------------------------------
+
+void logError(const char* textError, const char* func,  const int line, const char* nameLog = "err.log")
+{
+    FILE* fp = fopen(nameLog, "a");
+
+    fprintf(fp, "%s found in function %s() in line %d", textError, func, line);
+
+    fclose(fp);
+}
+
+//-----------------------------------------------------------------------------------------------------------------
+//! Assert с записью ошибок в лог; на будущее
+//-----------------------------------------------------------------------------------------------------------------
+
+#define asserted(rule) logError(rule, "Assertion failed:", __func__, __LINE__), assert(rule);

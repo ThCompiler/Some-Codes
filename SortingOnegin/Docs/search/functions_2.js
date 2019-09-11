@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['insertionsorting',['insertionSorting',['../_main_8cpp.html#ad4dbc1258866145fa2bcd7ec6b84f9fc',1,'Main.cpp']]]
+  ['readvectorfromfile',['ReadVectorFromFile',['../_main_8cpp.html#a988f3b0f394ff1bb057bec5ae0d07919',1,'Main.cpp']]]
 ];

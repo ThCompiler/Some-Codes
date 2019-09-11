@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['get',['get',['../class_vector_of_strings.html#a5a84072088e3befb168c061a57105032',1,'VectorOfStrings']]]
+  ['logerror',['logError',['../_main_8cpp.html#a359cefbfef21d4aec5c832f75fb77c22',1,'Main.cpp']]]
 ];

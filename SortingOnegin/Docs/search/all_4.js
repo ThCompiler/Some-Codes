@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['insertionsorting',['insertionSorting',['../_main_8cpp.html#ad4dbc1258866145fa2bcd7ec6b84f9fc',1,'Main.cpp']]]
+  ['main_2ecpp',['Main.cpp',['../_main_8cpp.html',1,'']]]
 ];

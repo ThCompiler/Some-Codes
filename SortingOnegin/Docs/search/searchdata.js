@@ -1,16 +1,16 @@
 var indexSectionsWithContent =
 {
-  0: "_bcgimprsvw~",
-  1: "v",
+  0: "afilmrw",
+  1: "f",
   2: "m",
-  3: "cgiprsvw~",
-  4: "_b"
+  3: "ilrw",
+  4: "a"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "classes",
+  1: "namespaces",
   2: "files",
   3: "functions",
   4: "defines"
@@ -19,7 +19,7 @@ var indexSectionNames =
 var indexSectionLabels =
 {
   0: "Указатель",
-  1: "Классы",
+  1: "Пространства имен",
   2: "Файлы",
   3: "Функции",
   4: "Макросы"
