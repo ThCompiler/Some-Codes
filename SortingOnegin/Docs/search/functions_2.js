@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['readvectorfromfile',['ReadVectorFromFile',['../_main_8cpp.html#a988f3b0f394ff1bb057bec5ae0d07919',1,'Main.cpp']]]
+  ['texttoarrayofstr',['TextToArrayOfStr',['../_main_8cpp.html#afcad236807624b87abaff309c98e3a4c',1,'Main.cpp']]]
 ];
