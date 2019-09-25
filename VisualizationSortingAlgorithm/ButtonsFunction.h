@@ -158,8 +158,7 @@ namespace buttonsFunction
 */
 //-----------------------------------------------------------------------------------------------------------------
 
-    int heap_sort(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
-                  int* comparisons = nullptr, std::vector<int>* Array = nullptr)
+    int heap_sort(int left, int right, std::vector<int>parametrs, int* swaping, int* comparisons, std::vector<int>* Array)
     {
         assert(swaping      != nullptr);
         assert(comparisons  != nullptr);
@@ -322,8 +321,7 @@ namespace buttonsFunction
 */
 //-----------------------------------------------------------------------------------------------------------------
 
-    int insertionSorting(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
-                         int* comparisons = nullptr, std::vector<int>* Array = nullptr)
+    int insertionSorting(int left, int right, std::vector<int>parametrs, int* swaping, int* comparisons, std::vector<int>* Array)
     {
         assert(swaping      != nullptr);
         assert(comparisons  != nullptr);
@@ -389,8 +387,7 @@ namespace buttonsFunction
 */
 //-----------------------------------------------------------------------------------------------------------------
 
-    int bubbleSorting(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
-                      int* comparisons = nullptr, std::vector<int>* Array = nullptr)
+    int bubbleSorting(int left, int right, std::vector<int>parametrs, int* swaping, int* comparisons, std::vector<int>* Array)
     {
         assert(swaping      != nullptr);
         assert(comparisons  != nullptr);
@@ -538,8 +535,7 @@ namespace buttonsFunction
 */
 //-----------------------------------------------------------------------------------------------------------------
 
-    int mergeSorting(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
-                     int* comparisons = nullptr, std::vector<int>* Array = nullptr)
+    int mergeSorting(int left, int right, std::vector<int>parametrs, int* swaping, int* comparisons, std::vector<int>* Array)
     {
         assert(swaping      != nullptr);
         assert(comparisons  != nullptr);
@@ -603,8 +599,7 @@ namespace buttonsFunction
 */
 //-----------------------------------------------------------------------------------------------------------------
 
-    int quickSorting(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
-                     int* comparisons = nullptr, std::vector<int>* Array = nullptr)
+    int quickSorting(int left, int right, std::vector<int>parametrs, int* swaping, int* comparisons, std::vector<int>* Array)
     {
         assert(swaping      != nullptr);
         assert(comparisons  != nullptr);
@@ -679,8 +674,7 @@ namespace buttonsFunction
 */
 //-----------------------------------------------------------------------------------------------------------------
 
-    int selectionSorting(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
-                         int* comparisons = nullptr, std::vector<int>* Array = nullptr)
+    int selectionSorting(int left, int right, std::vector<int>parametrs, int* swaping, int* comparisons, std::vector<int>* Array)
     {
         assert(swaping      != nullptr);
         assert(comparisons  != nullptr);

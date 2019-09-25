@@ -22,7 +22,7 @@ namespace server {
 
     #define SERVER_IP "127.0.0.1" 
 
-    TX_SOCKET serverSocket = txCreateSocket(TX_CLIENT, SERVER_IP);
+    TX_SOCKET ServerSocket;
 }
 
 namespace buttonsFunction {
@@ -171,8 +171,7 @@ namespace buttonsFunction {
 */
 //-----------------------------------------------------------------------------------------------------------------
 
-    int heap_sort(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
-                  int* comparisons = nullptr, std::vector<int>* Array = nullptr)
+    int heap_sort(int left, int right, std::vector<int>parametrs, int* swaping, int* comparisons, std::vector<int>* Array)
     {
         assert(swaping      != nullptr);
         assert(comparisons  != nullptr);
@@ -196,7 +195,7 @@ namespace buttonsFunction {
 //! описание в DiagramOfSorting
 //-----------------------------------------------------------------------------------------------------------------
 
-    std::vector<int> CreateArray(int MaxNumOfElements, bool isRandom)
+    static std::vector<int> CreateArray(int MaxNumOfElements, bool isRandom)
     {
         std::vector<int> mainArray; // сортируемый массив
 
@@ -253,17 +252,18 @@ namespace buttonsFunction {
         assert(RandomFilling    != nullptr);
         assert(MaxNumOfElements != nullptr);
 
+        //extern TX_SOCKET serverSocket;
 
         (*RandomFilling)            = true;
         int request                 = 1;
         int numOfElements           = (*MaxNumOfElements);
         bool isRandom               = true;
 
-        txSendTo(server::serverSocket, &request,        sizeof(int          ));
-        txSendTo(server::serverSocket, &numOfElements,  sizeof(numOfElements));
-        txSendTo(server::serverSocket, &isRandom,       sizeof(isRandom     ));
+        txSendTo(server::ServerSocket, &request,        sizeof(int          ));
+        txSendTo(server::ServerSocket, &numOfElements,  sizeof(numOfElements));
+        txSendTo(server::ServerSocket, &isRandom,       sizeof(isRandom     ));
 
-        server::GetVector(server::serverSocket, mainArray);
+        server::GetVector(server::ServerSocket, mainArray);
 
         return -1;
     }
@@ -282,15 +282,15 @@ namespace buttonsFunction {
         assert(RandomFilling    != nullptr);
         assert(MaxNumOfElements != nullptr);
 
-        int request                 = 1;
-        int numOfElements           = (*MaxNumOfElements);
-        bool isRandom               = false;
+        int     request             = 1;
+        int     numOfElements       = (*MaxNumOfElements);
+        bool    isRandom            = false;
 
-        txSendTo(server::serverSocket, &request,        sizeof(int          ));
-        txSendTo(server::serverSocket, &numOfElements,  sizeof(numOfElements));
-        txSendTo(server::serverSocket, &isRandom,       sizeof(isRandom     ));
+        txSendTo(server::ServerSocket, &request,        sizeof(int          ));
+        txSendTo(server::ServerSocket, &numOfElements,  sizeof(numOfElements));
+        txSendTo(server::ServerSocket, &isRandom,       sizeof(isRandom     ));
 
-        server::GetVector(server::serverSocket, mainArray);
+        server::GetVector(server::ServerSocket, mainArray);
 
         return -1;
     }
@@ -357,8 +357,7 @@ namespace buttonsFunction {
 */
 //-----------------------------------------------------------------------------------------------------------------
 
-    int insertionSorting(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
-                         int* comparisons = nullptr, std::vector<int>* Array = nullptr)
+    int insertionSorting(int left, int right, std::vector<int>parametrs, int* swaping, int* comparisons, std::vector<int>* Array)
     {
         assert(swaping      != nullptr);
         assert(comparisons  != nullptr);
@@ -424,8 +423,7 @@ namespace buttonsFunction {
 */
 //-----------------------------------------------------------------------------------------------------------------
 
-    int bubbleSorting(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
-                      int* comparisons = nullptr, std::vector<int>* Array = nullptr)
+    int bubbleSorting(int left, int right, std::vector<int>parametrs, int* swaping, int* comparisons, std::vector<int>* Array)
     {
         assert(swaping      != nullptr);
         assert(comparisons  != nullptr);
@@ -573,8 +571,7 @@ namespace buttonsFunction {
 */
 //-----------------------------------------------------------------------------------------------------------------
 
-    int mergeSorting(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
-                     int* comparisons = nullptr, std::vector<int>* Array = nullptr)
+    int mergeSorting(int left, int right, std::vector<int>parametrs, int* swaping, int* comparisons, std::vector<int>* Array)
     {
         assert(swaping      != nullptr);
         assert(comparisons  != nullptr);
@@ -638,8 +635,7 @@ namespace buttonsFunction {
 */
 //-----------------------------------------------------------------------------------------------------------------
 
-    int quickSorting(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
-                     int* comparisons = nullptr, std::vector<int>* Array = nullptr)
+    int quickSorting(int left, int right, std::vector<int>parametrs, int* swaping, int* comparisons, std::vector<int>* Array)
     {
         assert(swaping      != nullptr);
         assert(comparisons  != nullptr);
@@ -714,8 +710,7 @@ namespace buttonsFunction {
 */
 //-----------------------------------------------------------------------------------------------------------------
 
-    int selectionSorting(int left, int right, std::vector<int>parametrs, int* swaping = nullptr,
-                         int* comparisons = nullptr, std::vector<int>* Array = nullptr)
+    int selectionSorting(int left, int right, std::vector<int>parametrs, int* swaping, int* comparisons, std::vector<int>* Array)
     {
         assert(swaping      != nullptr);
         assert(comparisons  != nullptr);
